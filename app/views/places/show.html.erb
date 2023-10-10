@@ -1,0 +1,10 @@
+<%= @place.name %>
+<%= @place.state %>
+<%= @place.district %>
+<%= @place.latitude %>
+<%= @place.longitude %>
+<%= @place.history %>
+<%= link_to "edit",edit_place_path(@place), class:"btn btn-primary" %>
+<%= link_to "destroy", place_path(@place) , method: :delete, data: {confirm: "Are you Sure?"} %>
+<%= link_to "Back", places_path , class:"btn btn-primary" %>
+

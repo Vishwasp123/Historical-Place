@@ -1,0 +1,23 @@
+<%= form_with model: @place do |form| %>
+
+<%= form.label :name %>
+<%= form.text_field :name %>
+
+<%= form.label :state %>
+<%= form.text_field :state %>
+
+<%= form.label :district %>
+<%= form.text_field :district %>
+
+<%= form.label :history %>
+<%= form.text_area :history %>
+
+<%= form.label :longitude %>
+<%= form.text_field :longitude %>
+
+<%= form.label :latitude %>
+<%= form.text_field :latitude %>
+
+<%= form.submit "Submit" %>
+
+<% end %>

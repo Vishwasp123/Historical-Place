@@ -1,0 +1,11 @@
+<%= link_to "New Place" , new_place_path , class:"btn btn-primary" %>
+<% @places.each do |place| %>
+<%= place.name %>
+<%= place.state %>
+<%= place.district %>
+<%= place.latitude %>
+<%= place.longitude %>
+<%= place.history %>
+
+<%= link_to "Show" , place ,class:" btn btn-primary" %>
+<% end %>
