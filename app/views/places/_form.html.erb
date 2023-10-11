@@ -1,23 +1,48 @@
 <%= form_with model: @place do |form| %>
+<!-- Name input -->
+<div class="form-outline mb-4">
+	<%= form.label :name, class:"form-label" %>
+	<%= form.text_field :name, class:"form-control" %>
+</div>
 
-<%= form.label :name %>
-<%= form.text_field :name %>
+<!-- Email input -->
+<div class="form-outline mb-4">
+	<%= form.label :state, class:"form-label" %>
+	<%= form.text_field :state, class:"form-control" %>
+</div>
 
-<%= form.label :state %>
-<%= form.text_field :state %>
+<!-- Message input -->
+<div class="form-outline mb-4">
+	<%= form.label :district, class:"form-label" %>
+	<%= form.text_field :district, class:"form-control" %>
+</div>
 
-<%= form.label :district %>
-<%= form.text_field :district %>
+<div class="row">
+	<div class="col-lg-6">
+		<div class="form-outline mb-4">
+			<%= form.label :longitude, class:"form-label" %>
+			<%= form.text_field :longitude, class:"form-control" %>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="form-outline mb-4">
+			<%= form.label :latitude, class:"form-label" %>
+			<%= form.text_field :latitude, class:"form-control"%>
+		</div>
+	</div>
+</div>
 
-<%= form.label :history %>
-<%= form.text_area :history %>
 
-<%= form.label :longitude %>
-<%= form.text_field :longitude %>
+<div class="form-outline mb-4">
+	<%= form.label :history, class:"form-label" %>
+	<%= form.rich_text_area :history, class:"form-control" %>
+</div>
 
-<%= form.label :latitude %>
-<%= form.text_field :latitude %>
+<div class="form-outline mb-4">
+	<%= form.label :images, class:"form-label" %>
+	<%= form.file_field :images, multiple: true %>
+</div>
 
-<%= form.submit "Submit" %>
-
+<%= form.submit "Submit" ,class:"btn btn-primary " %>
+<%= link_to "Back",places_path ,class:"btn btn-outline-warning" %>
 <% end %>

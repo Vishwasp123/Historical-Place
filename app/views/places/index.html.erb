@@ -1,11 +1,39 @@
-<%= link_to "New Place" , new_place_path , class:"btn btn-primary" %>
-<% @places.each do |place| %>
-<%= place.name %>
-<%= place.state %>
-<%= place.district %>
-<%= place.latitude %>
-<%= place.longitude %>
-<%= place.history %>
+<div class="col-lg-12">
+  <div class="container-fluid">
+    <div class="col-lg-12 ">
+      <% @places.each do |place| %>
+      <div class=" mb-3 card">
+        <%= link_to place_path(place), style:"text-decoration: none; " do %>
+        <h2><%= place.name %></h2>
+        <% end %>
+        <% if place.images.attached? %>
+        <%= image_tag place.images.first, class: "place_image", alt: "Place Image" %>
+        <% end %>
 
-<%= link_to "Show" , place ,class:" btn btn-primary" %>
-<% end %>
+        <div class="col-lg-8 ms-3">
+          <p><%= place.history  %></p>
+        </div>   
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+  .place_image{
+    width: 800px;
+    height: 500px;
+    margin-left: 20px;
+    margin-top: 2px;
+  }
+  
+  
+</style>
+
+
+
+
+
+

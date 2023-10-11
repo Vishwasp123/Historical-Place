@@ -12,7 +12,7 @@ class PlacesController < ApplicationController
 	def create
 		@place = Place.new(place_params)
 		if @place.save
-			redirect_to places_path
+			redirect_to places_path ,notice:"Place is add succesfully"
 		else
 			render :new
 		end 
@@ -20,7 +20,7 @@ class PlacesController < ApplicationController
 
 	def update
 		if @place.update(place_params)	
-			redirect_to places_path
+			redirect_to places_path, notice:"Place is update"
 		else
 			render :edit
 		end 
@@ -28,7 +28,7 @@ class PlacesController < ApplicationController
 
 	def destroy
 		if @place.destroy
-			redirect_to places_path
+			redirect_to places_path, alert:"Place is delete succesfully"
 		end
 	end
 
@@ -37,13 +37,13 @@ class PlacesController < ApplicationController
 
 	def show
 	end
-		
+
 	private
 	def set_place
 		@place = Place.find(params[:id])
 	end
 	def place_params
-		params.require(:place).permit(:state, :name, :district, :history, :latitude, :longitude)
+		params.require(:place).permit(:state, :name, :district, :history, :latitude, :longitude, images: [])
 	end
 
 end
