@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_11_130340) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_12_124402) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -58,6 +58,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_130340) do
     t.float "longitude"
     t.float "latitude"
     t.text "history"
+  end
+
+  create_table "tourist_points", force: :cascade do |t|
+    t.string "location_name"
+    t.string "place_name"
+    t.text "history"
+    t.float "longitude"
+    t.float "latitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
