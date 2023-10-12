@@ -43,7 +43,7 @@ class PlacesController < ApplicationController
 		@place = Place.find(params[:id])
 	end
 	def place_params
-		params.require(:place).permit(:state, :name, :district, :history, :latitude, :longitude, images: [])
+		params.require(:place).permit(:state, :name, :district, :history, :content , :latitude, :longitude, images: [])
 	end
 
 end
