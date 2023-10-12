@@ -74,3 +74,5 @@ end
 gem "cssbundling-rails", "~> 1.3"
 
 gem "trix", "~> 0.10.1"
+
+gem "ransack", "~> 4.0"

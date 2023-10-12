@@ -2,7 +2,8 @@ class PlacesController < ApplicationController
 	before_action :set_place, only: %i[ edit show update destroy ]
 
 	def index
-		@places = Place.all
+		@q = Place.ransack(params[:q])
+		@places = @q.result(distinct: true)
 	end
 
 	def new
