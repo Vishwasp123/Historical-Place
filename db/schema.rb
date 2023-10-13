@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_12_124402) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_13_061626) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -68,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_12_124402) do
     t.float "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "distance_from"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

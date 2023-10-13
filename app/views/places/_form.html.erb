@@ -1,5 +1,8 @@
-<%= form_with model: @place do |form| %>
+<%= form_with model: @place, html: { data: { turbo: false } } do |form| %>
 <!-- Name input -->
+
+<%= render 'shared/errors', model: @place %>
+
 <div class="form-outline mb-4">
 	<%= form.label :name, class:"form-label" %>
 	<%= form.text_field :name, class:"form-control" %>
