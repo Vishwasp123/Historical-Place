@@ -45,6 +45,6 @@ class TouristPointsController < ApplicationController
 	end
 
 	def tourist_point_params
-		params.require(:tourist_point).permit(:location_name, :place_name, :history, :longitude, :latitude, :distance_from)
+		params.require(:tourist_point).permit(:location_name, :place_name, :history, :longitude, :latitude, images: [])
 	end
 end

@@ -9,7 +9,6 @@
 							<th scope="col">#</th>
 							<th scope="col">Place name</th>
 							<th scope="col">Location name</th>
-							<th scope="col">Distance from</th>
 							<th scope="col">Action</th>
 						</tr>
 					</thead>
@@ -19,7 +18,6 @@
 							<td></td>
 							<td><%= tourist_point.place_name%></td>
 							<td><%= tourist_point.location_name %></td>
-							<td> <%= tourist_point.distance_from%></td>
 							<td><%= link_to "show", tourist_point, class:"btn btn-warning" %></td>
 						</tr>
 						<% end %>

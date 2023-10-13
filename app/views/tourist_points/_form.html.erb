@@ -2,24 +2,17 @@
 <%= render 'shared/errors', model: @tourist_point %>
 
 <%= form_with model: @tourist_point,  html: { data: { turbo: false } } do |form| %>
-
-
 <div class="form-outline mb-4">
 	<%= form.label :place_name, class:"form-label" %>
 	<%= form.text_field :place_name, class:"form-control" %>
 </div>
-
 <!-- Email input -->
 <div class="form-outline mb-4">
 	<%= form.label :location_name, class:"form-label" %>
 	<%= form.text_field :location_name, class:"form-control" %>
 </div>
-
 <!-- Message input -->
-
-
 <div class="row">
-	
 	<div class="col-lg-6">
 		<div class="form-outline mb-4">
 			<%= form.label :latitude, class:"form-label" %>
@@ -33,17 +26,15 @@
 		</div>
 	</div>
 </div>
-
-
 <div class="form-outline mb-4">
 	<%= form.label :history, class:"form-label" %>
 	<%= form.text_area :history, class:"form-control" %>
 </div>
-<div class="form-outline mb-4">
-	<%= form.label :distance_from, class:"form-label" %>
-	<%= form.text_field :distance_from, class:"form-control" %>
-</div>
 
+<div class="form-outline mb-4">
+	<%= form.label :images, class:"form-label" %>
+	<%= form.file_field :images, multiple: true %>
+</div>
 <%= form.submit "Submit" ,class:"btn btn-primary " %>
 <%= link_to "Back",places_path ,class:"btn btn-outline-warning" %>
 <% end %>
