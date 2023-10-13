@@ -1,0 +1,10 @@
+<% if model.errors.any? %>
+<div id="error_explanation">
+	<p><%= pluralize(model.errors.count,"error") %> prohibited this <% model %> from being saved </p>
+	<ul>
+		<% model.errors.each do |error| %>
+		<li class="text-danger"><%= error.full_message %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
