@@ -15,7 +15,7 @@
 					<tbody>
 						<% @tourist_points.each do |tourist_point| %>
 						<tr>
-							<td></td>
+							<td><%= tourist_point.id%></td>
 							<td><%= tourist_point.place_name%></td>
 							<td><%= tourist_point.location_name %></td>
 							<td><%= link_to "show", tourist_point, class:"btn btn-warning" %></td>

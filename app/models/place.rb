@@ -1,9 +1,13 @@
 class Place < ApplicationRecord
-	has_rich_text :content
-	has_many_attached :images
 	
-	validates :state , :name ,:district, :longitude, 
-	:latitude ,:history , presence: true
+	has_many_attached :images
+
+	 has_many :near_by_places
+	 has_many :tourist_points, through: :near_by_places
+	
+	validates :state , :name,	:district,	:history, :images, presence: true
+	validates :latitude, :longitude, presence:true , uniqueness: { 
+    message: "latitude and longitude must be uniq" }
 
 
 

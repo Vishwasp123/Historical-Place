@@ -1,0 +1,68 @@
+<%= form_with model: @near_by_place do |form| %>
+
+<div class="form-outline mb-4">
+	<%= form.label :tourist_point_id, class:"form-label" %>
+	<%= form.text_field :tourist_point_id, class:"form-control" %>
+	<% @near_by_place.errors.full_messages_for(:tourist_point_id).each do |message| %>
+	<p class="text-danger"><%= message %></p>
+	<% end %>
+</div>
+
+<div class="form-outline mb-4">
+	<%= form.label :place_id, class:"form-label" %>
+	<%= form.text_field :place_id, class:"form-control"%>
+	<% @near_by_place.errors.full_messages_for(:place_id).each do |message| %>
+	<p class="text-danger"><%= message %></p>
+	<% end %>
+</div>
+
+<div class="form-outline mb-4">
+	<%= form.label :name, class:"form-label" %>
+	<%= form.text_field :name, class:"form-control"%>
+	<% @near_by_place.errors.full_messages_for(:name).each do |message| %>
+	<p class="text-danger"><%= message %></p>
+	<% end %>
+</div>
+
+<div class="row">
+	<div class="col-lg-6">
+		<div class="form-outline mb-4">
+			<%= form.label :longitude, class:"form-label" %>
+			<%= form.text_field :longitude, class:"form-control" %>
+			<% @near_by_place.errors.full_messages_for(:longitude).each do |message| %>
+			<p class="text-danger"><%= message %></p>
+			<% end %>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="form-outline mb-4">
+			<%= form.label :latitude, class:"form-label" %>
+			<%= form.text_field :latitude, class:"form-control"%>
+			<% @near_by_place.errors.full_messages_for(:latitude).each do |message| %>
+			<p class="text-danger"><%= message %></p>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<div class="form-outline mb-4">
+	<%= form.label :distance_from, class:"form-label" %>
+	<%= form.text_field :distance_from, class:"form-control" %>
+	<% @near_by_place.errors.full_messages_for(:distance_from).each do |message| %>
+	<p class="text-danger"><%= message %></p>
+	<% end %>
+</div>
+
+<div class="form-outline mb-4">
+	<%= form.label :images, class:"form-label" %>
+	<%= form.file_field :images , multiple: true, class:"form-control" %>
+	<% @near_by_place.errors.full_messages_for(:images).each do |message| %>
+	<p class="text-danger"><%= message %></p>
+	<% end %>
+</div>
+
+<div class="form-outline mb-4">
+	<%= form.submit class:"btn btn-outline-primary" %>
+</div>
+
+<% end %>

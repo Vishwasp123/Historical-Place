@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <%= link_to "Navbar" , root_path ,class:"navbar-brand"%>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,6 +22,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item"><%= link_to "Tousit point" , tourist_points_path , class:"btn  nav-link active"  %></a></li>
             <li><a class="dropdown-item" href="#"><%= link_to "New Place" , new_place_path , class:"btn  nav-link active"  %></a></li>
+            <li><a class="dropdown-item" href="#"><%= link_to "Near By Place" , near_by_places_path , class:"btn  nav-link active"  %></a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
@@ -29,16 +31,17 @@
           <a class="nav-link disabled">Disabled</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <% if @q %>
-        <%= search_form_for @q , url: :places do |f| %>
-        <!-- # Attributes may be chained. Search multiple attributes for one value... -->
+      <!-- <form class="d-flex" role="search">
+        <%# if @q %>
+        <%#= search_form_for @q , url: :places, class: 'form-inline' do |f| %>
+        # Attributes may be chained. Search multiple attributes for one value... 
         
-        <%= f.search_field :name_or_state_or_district_or_history_or_longitude_or_latitude_cont ,class:'form-control me-2', placeholder: "Search" %>
-        <%= f.submit %>
-        <% end %>
-        <% end %>
-      </form>
+        <%#= f.search_field :name_or_state_or_district_or_history_or_longitude_or_latitude_cont ,class:'form-control me-2 ', placeholder: "Search" %>
+        <%#= f.submit class:"btn btn-outline-primary" %>
+        <%# end %>
+        <%# end %>
+      </form>  -->
+      <%= render 'shared/search_form' %>
 
 
 

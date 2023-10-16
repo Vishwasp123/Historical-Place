@@ -2,9 +2,9 @@ class PlacesController < ApplicationController
 	before_action :set_place, only: %i[ edit show update destroy ]
 
 	def index
-		@q = Place.ransack(params[:q])
 		@places = @q.result(distinct: true)
 	end
+
 
 	def new
 		@place = Place.new
@@ -44,7 +44,7 @@ class PlacesController < ApplicationController
 		@place = Place.find(params[:id])
 	end
 	def place_params
-		params.require(:place).permit(:state, :name, :district, :history, :content , :latitude, :longitude, images: [])
+		params.require(:place).permit(:state, :name, :district, :history , :latitude, :longitude, images: [])
 	end
 
 end

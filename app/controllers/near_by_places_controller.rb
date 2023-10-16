@@ -3,15 +3,15 @@ class NearByPlacesController < ApplicationController
 	before_action :set_near_by_place, only: %i[ show edit update destroy ]
 
 	def index
-		@near_by_places = NearByPlaces.all
+		@nearby_places = @q.result(distinct: true)
 	end
 
 	def new
-		@near_by_place = NearByPlaces.new
+		@near_by_place = NearByPlace.new
 	end
 
 	def create
-		@near_by_place = NearByPlaces.new(near_by_place_params)
+		@near_by_place = NearByPlace.new(near_by_place_params)
 		if @near_by_place.save
 			redirect_to near_by_places_path, notice:"near_by_place"
 		else
@@ -42,7 +42,7 @@ class NearByPlacesController < ApplicationController
 	private
 
 	def set_near_by_place
-		@near_by_place = NearByPlaces.find(params[:id])
+		@near_by_place = NearByPlace.find(params[:id])
 	end
 
 	def near_by_place_params

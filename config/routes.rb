@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   resources :places
   resources :tourist_points
+  resources :near_by_places
 end
