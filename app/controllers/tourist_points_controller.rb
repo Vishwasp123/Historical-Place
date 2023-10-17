@@ -2,8 +2,9 @@ class TouristPointsController < ApplicationController
 	before_action :set_tourist_point, only: %i[edit show update destroy]
 
 	def index
-		@tourist_points = @q.result(distinct: true)
-	end
+    @q = TouristPoint.ransack(params[:q]) # Set up @q here
+    @tourist_points = @q.result(distinct: true)
+  end
 
 	def new
 		@tourist_point = TouristPoint.new

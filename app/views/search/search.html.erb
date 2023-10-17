@@ -1,0 +1,49 @@
+<h1>Search Results</h1>
+
+<h2>Places</h2>
+<ul>
+  <div class="col-lg-10 mx-auto mb-2">
+    <% @places.each do |place| %>
+    <div class="card shardow mx-auto mb-2" >
+      <%= link_to place_path(place), style:"text-decoration: none;color:black; " do %>
+      <h2 class="mx-3 mt-3 mb-3 text-dark"><span><%= place.id%></span>.<%= place.name %></h2>
+
+      <% if place.images.attached? %>
+      <%=  image_tag place.images.first, style:"width:100%; height:400px;", alt: "Place Image" %>
+      <% end %>
+
+      <div class="card-body">
+        <p class="card-text"><%= simple_format(truncate(place.history, lenghth: 500))  %></p>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</ul>
+
+<h2>Nearby Places</h2>
+<ul>
+  <% @near_by_places.each do |near_by_place| %>
+  <tr>
+    <td class=""><%= near_by_place.tourist_point_id %></td>
+    <td><%= near_by_place.place_id %></td>
+    <td><%= near_by_place.name %></td>
+    <td><%= near_by_place.longitude %></td>
+    <td><%= near_by_place.latitude %></td>
+    <td><%= near_by_place.distance_from %></td>
+    <td><%= link_to "View", near_by_place , class:"btn btn-primary"%></td>
+  </tr>
+  <% end %>
+</ul>
+
+<h2>Tourist Points</h2>
+<ul>
+  <% @tourist_points.each do |tourist_point| %>
+  <tr>
+    <td><%= tourist_point.id%></td>
+    <td><%= tourist_point.place_name%></td>
+    <td><%= tourist_point.location_name %></td>
+    <td><%= link_to "show", tourist_point, class:"btn btn-warning" %></td>
+  </tr>
+  <% end %>
+</ul>

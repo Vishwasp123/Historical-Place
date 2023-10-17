@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_13_111647) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_17_095811) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -71,6 +71,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_111647) do
     t.float "longitude"
     t.float "latitude"
     t.text "history"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tourist_points", force: :cascade do |t|

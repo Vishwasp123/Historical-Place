@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   root "places#index"
+  # config/routes.rb
+  get 'search', to: 'search#index', as: 'search_index'
+
+  get 'search', to: 'search#search'
+
+
 
   resources :places
   resources :tourist_points

@@ -12,7 +12,7 @@ class Place < ApplicationRecord
 
 
 	def self.ransackable_attributes(auth_object = nil)
-		["created_at", "district", "history", "id", "latitude", "longitude", "name", "state", "updated_at"]
+		["created_at", "district", "history", "id", "latitude", "longitude", "name", "state", "updated_at","name", "distance_from", "location_name", "place_name", "histroy", "longitude", "latitude"]
 	end
 	def self.ransackable_associations(auth_object = nil)
 		["images_attachments", "images_blobs", "rich_text_content"]
