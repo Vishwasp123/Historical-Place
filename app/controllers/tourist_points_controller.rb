@@ -2,9 +2,8 @@ class TouristPointsController < ApplicationController
 	before_action :set_tourist_point, only: %i[edit show update destroy]
 
 	def index
-    @q = TouristPoint.ransack(params[:q]) # Set up @q here
-    @tourist_points = @q.result(distinct: true)
-  end
+		@tourist_points = TouristPoint.all
+	end
 
 	def new
 		@tourist_point = TouristPoint.new
@@ -38,7 +37,6 @@ class TouristPointsController < ApplicationController
 
 	def edit
 	end
-
 	private
 
 	def set_tourist_point
@@ -47,6 +45,6 @@ class TouristPointsController < ApplicationController
 
 
 	def tourist_point_params
-		params.require(:tourist_point).permit(:location_name, :place_name, :history, :longitude, :latitude, images: [])
+		params.require(:tourist_point).permit(:location_name, :content,	:place_name, :history, :longitude, :latitude, images: [])
 	end
 end

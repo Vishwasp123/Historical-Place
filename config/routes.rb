@@ -6,9 +6,13 @@ Rails.application.routes.draw do
 
   root "places#index"
   # config/routes.rb
-  get 'search', to: 'search#index', as: 'search_index'
+  # get 'search', to: 'search#index', as: 'search_index'
 
-  get 'search', to: 'search#search'
+  # get 'search', to: 'search#index', as: 'search_index'
+  get 'search', to: 'search#result', as: 'search'
+
+
+
 
 
 

@@ -1,0 +1,9 @@
+<h1>Search Results for "<%= @query %>"</h1>
+
+<ul>
+  <% @results.each do |result| %>
+    <li>
+      <strong><%= result.name || result.location_name %></strong>: <%= result.description || result.history %>
+    </li>
+  <% end %>
+</ul>

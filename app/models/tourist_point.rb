@@ -3,7 +3,12 @@ class TouristPoint < ApplicationRecord
 	# validates :location_name, :place_name, :history, :longitude, 
 	# :latitude, presence: true
 
+
+	 
+
 	has_many_attached :images
+
+	has_rich_text :content
 
 	has_many :near_by_places
 	has_many :places, through: :near_by_places

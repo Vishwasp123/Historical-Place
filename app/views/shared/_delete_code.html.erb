@@ -22,6 +22,16 @@
 <% end %>
 
 
+
+  <% if @q %>
+      <%= search_form_for @q, url: search_path, method: :get, class: "form-inline my-2 my-lg-0" do |f| %>
+      <%= f.search_field :state_or_name_or_district_or_history_or_longitude_or_latitude_or_name_or_distance_from_or_location_name_or_place_name_or_history_or_longitude_or_latitude, class: "form-control me-2", placeholder: "Search..." %>
+      <%= f.submit "Search", class: "btn btn-outline-primary my-2 my-sm-0" %>
+      <% end %>
+
+      <% end %>
+
+
  <!-- search controller  -->
 <!-- class SearchController < ApplicationController
   def search
@@ -55,3 +65,114 @@
   end
 end
  -->
+
+  @q = NearByPlace.ransack(params[:q])
+    @near_by_places = @q.result(distinct: true)
+  # Add debugging output to check the value of @near_by_places
+  puts "NearByPlaces: #{@near_by_places.inspect}"
+
+
+    @q = Place.ransack(params[:q])  # Set up @q here
+    @places = @q.result(distinct: true)
+
+
+    @q = TouristPoint.ransack(params[:q]) # Set up @q here
+    @tourist_points = @q.result(distinct: true)
+
+
+
+
+    Search.html.erb ka code he 
+
+    <h1>Search Results</h1>
+
+<h2>Places</h2>
+<ul>
+  <div class="col-lg-10 mx-auto mb-2">
+    <% @places.each do |place| %>
+    <div class="card shardow mx-auto mb-2" >
+      <%= link_to place_path(place), style:"text-decoration: none;color:black; " do %>
+      <h2 class="mx-3 mt-3 mb-3 text-dark"><span><%= place.id%></span>.<%= place.name %></h2>
+
+      <% if place.images.attached? %>
+      <%=  image_tag place.images.first, style:"width:100%; height:400px;", alt: "Place Image" %>
+      <% end %>
+
+      <div class="card-body">
+        <p class="card-text"><%= simple_format(truncate(place.history, lenghth: 500))  %></p>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</ul>
+
+<h2>Nearby Places</h2>
+<ul>
+  <% @near_by_places.each do |near_by_place| %>
+  <tr>
+    <td class=""><%= near_by_place.tourist_point_id %></td>
+    <td><%= near_by_place.place_id %></td>
+    <td><%= near_by_place.name %></td>
+    <td><%= near_by_place.longitude %></td>
+    <td><%= near_by_place.latitude %></td>
+    <td><%= near_by_place.distance_from %></td>
+    <td><%= link_to "View", near_by_place , class:"btn btn-primary"%></td>
+  </tr>
+  <% end %>
+</ul>
+
+<h2>Tourist Points</h2>
+<ul>
+  <% @tourist_points.each do |tourist_point| %>
+  <tr>
+    <td><%= tourist_point.id%></td>
+    <td><%= tourist_point.place_name%></td>
+    <td><%= tourist_point.location_name %></td>
+    <td><%= link_to "show", tourist_point, class:"btn btn-warning" %></td>
+  </tr>
+  <% end %>
+</ul>
+
+
+
+<!-- <form class="d-flex" role="search">
+        <%# if @q %>
+        <%#= search_form_for @q , url: :places, class: 'form-inline' do |f| %>
+        # Attributes may be chained. Search multiple attributes for one value... 
+        
+        <%#= f.search_field :name_or_state_or_district_or_history_or_longitude_or_latitude_cont ,class:'form-control me-2 ', placeholder: "Search" %>
+        <%#= f.submit class:"btn btn-outline-primary" %>
+        <%# end %>
+        <%# end %>
+      </form>  -->
+
+
+
+
+      <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <%= link_to "Navbar", root_path, class: "navbar-brand" %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <!-- Add any other menu items you want -->
+        </li>
+      </ul>
+
+      <%= form_tag search_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
+      <%= text_field_tag :q, params[:q], class: "form-control me-2", placeholder: "Search..." %>
+      <%= submit_tag "Search", class: "btn btn-outline-primary my-2 my-sm-0" %>
+      <% end %>
+
+    </div>
+  </div>
+</nav>
+
+
+
+
