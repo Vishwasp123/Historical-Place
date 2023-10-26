@@ -6,22 +6,19 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
+ <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_importmap_tags %>  
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
 
+   <%= javascript_importmap_tags %> 
 </head>
 
 <body>
  <%= render 'shared/header', class:"navbar-position" %>
- <%#= render 'search/header' %>
- 
  <p class="notice"><%= notice %></p>
  <p class="alert"><%= alert %></p>
  <%= yield %>
-
-
-
-
 </body>
 </html>

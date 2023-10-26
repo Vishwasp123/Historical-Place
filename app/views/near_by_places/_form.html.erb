@@ -2,18 +2,20 @@
 
 <div class="form-outline mb-4">
 	<%= form.label :tourist_point_id, class:"form-label" %>
-	<%= form.text_field :tourist_point_id, class:"form-control" %>
+	<%= form.select :tourist_point_id, options_for_select(TouristPoint.all.map {|tourist_point|[tourist_point.location_name,tourist_point.id]},selected: 'near_by_place.tourist_point_id') ,{prompt: 'Select tourist_point'} ,{class:'form-select form-select-lg  rounded-0'} %>
 	<% @near_by_place.errors.full_messages_for(:tourist_point_id).each do |message| %>
 	<p class="text-danger"><%= message %></p>
 	<% end %>
 </div>
 
 <div class="form-outline mb-4">
-	<%= form.label :place_id, class:"form-label" %>
-	<%= form.text_field :place_id, class:"form-control"%>
+	<%= form.label :place_id, class: "form-label" %>
+	<%= form.select :place_id, options_for_select(Place.all.map {|place|[place.name, place.id]}, selected: 'near_by_place.place_id'), {prompt: 'Select Place'}, {class:'form-select form-select-lg rounded-0'} %>
+
 	<% @near_by_place.errors.full_messages_for(:place_id).each do |message| %>
 	<p class="text-danger"><%= message %></p>
 	<% end %>
+	<%# end %>
 </div>
 
 <div class="form-outline mb-4">
@@ -22,6 +24,11 @@
 	<% @near_by_place.errors.full_messages_for(:name).each do |message| %>
 	<p class="text-danger"><%= message %></p>
 	<% end %>
+</div>
+
+<div class="form-outline mb-4">
+	<%= form.label :city, class:"form-label" %>
+	<%= form.text_field :city, class:"form-control" %>
 </div>
 
 <div class="row">
@@ -34,6 +41,7 @@
 			<% end %>
 		</div>
 	</div>
+	
 	<div class="col-lg-6">
 		<div class="form-outline mb-4">
 			<%= form.label :latitude, class:"form-label" %>

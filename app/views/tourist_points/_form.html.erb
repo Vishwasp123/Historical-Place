@@ -46,13 +46,7 @@
 	<% end %>
 </div>
 
-<div class="form-outline mb-4">
-	<%= form.label :content, class:"form-label" %>
-	<%= form.rich_text_area :content, class:"form-control" %>
-	<% @tourist_point.errors.full_messages_for(:content).each do |message| %>
-	<p class="text-danger"><%= message %></p>
-	<% end %>
-</div>
+
 
 <div class="form-outline mb-4">
 	<%= form.label :images, class:"form-label" %>

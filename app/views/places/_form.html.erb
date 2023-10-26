@@ -1,8 +1,5 @@
 <%= form_with model: @place, html: { data: { turbo: false } } do |form| %>
-<!-- Name input -->
-
 <%#= render 'shared/errors', model: @place %>
-
 <div class="form-outline mb-4">
 	<%= form.label :name, class:"form-label" %>
 	<%= form.text_field :name, class:"form-control" %>
@@ -11,7 +8,6 @@
 	<% end %>
 </div>
 
-<!-- Email input -->
 <div class="form-outline mb-4">
 	<%= form.label :state, class:"form-label" %>
 	<%= form.text_field :state, class:"form-control" %>
@@ -20,7 +16,6 @@
 	<% end %>
 </div>
 
-<!-- Message input -->
 <div class="form-outline mb-4">
 	<%= form.label :district, class:"form-label" %>
 	<%= form.text_field :district, class:"form-control" %>
@@ -50,7 +45,6 @@
 	</div>
 </div>
 
-
 <div class="form-outline mb-4">
 	<%= form.label :history, class:"form-label" %>
 	<%= form.text_area :history, class:"form-control" %>
@@ -59,9 +53,6 @@
 	<% end %>
 </div>
 
-
-
-
 <div class="form-outline mb-4">
 	<%= form.label :images, class:"form-label" %>
 	<%= form.file_field :images, multiple: true %>
@@ -69,10 +60,6 @@
 	<p class="text-danger"><%= message %></p>
 	<% end %>
 </div>
-
-
-
-
 <%= form.submit "Submit" ,class:"btn btn-primary " %>
 <%= link_to "Back",places_path ,class:"btn btn-outline-warning" %>
 <% end %>

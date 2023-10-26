@@ -1,0 +1,2 @@
+class BestTimeToVisit < ApplicationRecord
+end

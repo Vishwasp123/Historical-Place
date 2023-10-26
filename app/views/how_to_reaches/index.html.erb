@@ -1,0 +1,7 @@
+<div class="col-lg-10 col-md-10 col-sm-10">
+	<%= link_to "create", new_how_to_reach_path, class:"btn btn-primary" %>
+	<% @how_to_reaches.each do |how_to_reach| %>
+	<%= how_to_reach.title %>
+	<%= how_to_reach.description %>
+	<% end %>
+</div>

@@ -1,0 +1,2 @@
+module BestTimeToVisitsHelper
+end

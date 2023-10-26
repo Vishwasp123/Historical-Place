@@ -173,6 +173,54 @@ end
   </div>
 </nav>
 
+<p>@import "trix/dist/trix"</p>
+<% if @place.history.length > 200 %>
+            <small><%= simple_format(truncate(@place.history, length: 200)) %>
+              <%= link_to '...Read more', '#', class: "read-more-<%= @place.id %>" %>
+            </small>
+            <script>
+              $('.read-more-<%= @place.id %>').on('click', function(e) {
+                e.preventDefault();
+                $(this).parent().html('<%= escape_javascript @place.history %>');
+              });
+            </script>
+          <% else %>
+            <%= @place.history %>
+          <% end %>
+        </div>
 
+ $(document).ready(function(){
+   const historyContainer = $("#history-container");
+   const toggleButton = $("#toggle-history");
 
+   const historyText = historyContainer.find("small").text();
+const maxWords = 100; // Change this to the desired word count
+let isExpanded = false; // Initially not expanded
 
+function toggleHistory() {
+  isExpanded = !isExpanded;
+  // !isExpanded = isExpanded;
+
+  if (!isExpanded) {
+    historyContainer.find("small").text(historyText);
+    toggleButton.text("Show Less");
+  } else {
+    const truncatedText = historyText.split(' ').slice(0, maxWords).join(' ');
+    historyContainer.find("small").text(truncatedText + '....');
+    toggleButton.text("Show More");
+  }
+}
+
+toggleButton.click(toggleHistory);
+
+// Initial state: Show 200 words initially
+toggleHistory();
+
+    // gallery
+$('.image-link').magnificPopup({
+  type: 'image',
+  gallery: {
+    enabled: true
+  },  
+});
+});

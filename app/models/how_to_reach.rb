@@ -1,0 +1,2 @@
+class HowToReach < ApplicationRecord
+end

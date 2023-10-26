@@ -1,22 +1,23 @@
 <div class="col-lg-12">
-	<div class="container mx-auto">
-			<div class="card" style="width: 25rem; height: 5rem;">
+	<div class="container ">
+		<div class="col-lg-10 mx-auto ">
+			<div class="card " style="width: 50rem; height: 15rem;">
 				<% if @near_by_place.images.attached? %>
-				 <%= image_tag @near_by_place.images[0] ,class:"card-img-top" %>
-				 <% end %>
-				
+				<%= image_tag @near_by_place.images[0] ,class:"card-img-top" %>
+				<% end %>
 				<div class="card-body">
-					<h5 class="card-title">Name:<span><%= @near_by_place.name %></span></h5>
+					<h3 class="card-title mx-auto"><span class="ms-1"><%= @near_by_place.name %></span></h3>
+					<h5 class="card-title mx-auto">City:<span class="ms-1"><%=@near_by_place.city%></span></h5>
 					<div class="d-flex ">
-						<p class="">Longitude:<span><%= @near_by_place.longitude %></span></p>
-						<p class="ms-4">Ltitude:<span><%= @near_by_place.latitude %></span></p>
+						<p class="">Longitude:<span class="ms-1"><%= @near_by_place.longitude %></span></p>
+						<p class="ms-4">Ltitude:<span class="ms-1"><%= @near_by_place.latitude %></span></p>
 					</div>
 					<div class="d-flex">
-						<p>Place Id:<span><%= @near_by_place.place_id %></span></p>
-						<p class="ms-4">Touristpoint Id:<span><%= @near_by_place.tourist_point_id %></span></p>
+						<p>Place :<span class="ms-1"><%= @near_by_place.place.name %></span></p>
+						<p class="ms-4">Touristpoint :<span class="ms-1"><%= @near_by_place.tourist_point.location_name %></span></p>
 					</div>
 					<div>
-						<p>Distance Form:<span><%= @near_by_place.distance_from %></span>
+						<p>Distance Form:<span class="ms-1"><%= @near_by_place.distance_from %></span>
 						</p>
 						<%= link_to "Back", near_by_places_path ,class:"btn btn-outline-primary" %>
 						<%= link_to "Edit", edit_near_by_place_path , class:"btn btn-outline-info" %>
@@ -27,5 +28,6 @@
 		</div>
 	</div>
 </div>
+
 
 

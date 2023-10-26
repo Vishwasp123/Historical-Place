@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_18_120857) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_26_093819) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -49,6 +49,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_18_120857) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "best_time_to_visits", force: :cascade do |t|
+    t.string "title"
+    t.string "place_name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "how_to_reaches", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "near_by_places", force: :cascade do |t|
     t.integer "tourist_point_id", null: false
     t.integer "place_id", null: false
@@ -58,6 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_18_120857) do
     t.string "distance_from"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "city"
     t.index ["place_id"], name: "index_near_by_places_on_place_id"
     t.index ["tourist_point_id"], name: "index_near_by_places_on_tourist_point_id"
   end
