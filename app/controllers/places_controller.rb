@@ -29,6 +29,8 @@ class PlacesController < ApplicationController
   end
 
   def show
+    @how_to_reaches = HowToReach.all
+    @best_time_to_visits = BestTimeToVisit.all
     @tourist_points = TouristPoint.all
      @near_by_places = @place.near_by_places
   end
@@ -54,6 +56,6 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.require(:place).permit(:state, :name, :district, :history ,     :latitude, :longitude, images: [])
+    params.require(:place).permit(:state, :name, :district, :history , :latitude, :longitude, images: [])
   end
 end

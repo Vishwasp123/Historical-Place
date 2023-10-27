@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_26_093819) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_27_131715) do
+  create_table "accommodations", force: :cascade do |t|
+    t.string "name"
+    t.string "city"
+    t.string "state"
+    t.string "address"
+    t.string "pincode"
+    t.string "about"
+    t.string "contact_number"
+    t.string "email"
+    t.string "room"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -62,6 +76,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_093819) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "place_name"
   end
 
   create_table "near_by_places", force: :cascade do |t|

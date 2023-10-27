@@ -44,6 +44,6 @@ class HowToReachesController < ApplicationController
   end
 
   def how_to_reach_params
-    params.require(:how_to_reach).permit(:title, :description)
+    params.require(:how_to_reach).permit(:title, :description, :place_name)
   end
 end

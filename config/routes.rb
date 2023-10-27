@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :near_by_places
   resources :best_time_to_visits
   resources :how_to_reaches
+  resources :accommodations
 end

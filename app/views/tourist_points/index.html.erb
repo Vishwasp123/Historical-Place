@@ -6,7 +6,7 @@
 		<div class="row g-0">
 			<div class="col-md-4">
 				<% if tourist_point.images.attached? %>
-				<%=  image_tag tourist_point.images.first, class:" rounded-start place-img mb-0 pb-0", alt: "Place Image" %>
+				<%=  image_tag tourist_point.images[0], class:" rounded-start place-img mb-0 pb-0", alt: "Place Image" %>
 				<% end %>
 			</div>
 			<div class="col-md-8">

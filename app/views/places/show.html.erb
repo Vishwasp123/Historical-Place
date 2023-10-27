@@ -7,7 +7,7 @@
           <%= image_tag @place.images[0], style: "width: 100%; height: 25rem;" %>          
           <% end %>
         </div>
-        <h2>Name:<span class="ms-1"><%= @place.name %></span></h2>
+        <h2><span class="ms-1"><%= @place.name %></span></h2>
         <p>State:<span class="ms-1"><%= @place.state %></span></p>
         <p>City:<span class="ms-1"><%= @place.district %></span></p>
         <div class="d-flex">
@@ -26,8 +26,9 @@
 </div>
 
 <div class="container" id="tourist_places">
-
   <div class="card-deck">
+    <% tourist_points = @tourist_points.where(place_name:@place.name)%>
+    <% if tourist_points.present? %>
     <h3 class="text-center mt-3"> Tourist Place in <%= @place.name %></h3>
     <% @tourist_points.where(place_name: @place.name).each do |tourist_point| %>
 
@@ -49,10 +50,49 @@
       <% end %>
     </div>
     <% end %>
+    <% end %>
   </div>
 </div>
 
-<div class="container">
+
+<div class="container " id="best_time_to_visit">
+ <% @best_time_to_visits.where(place_name: @place.name).each do |best_time_to_visit| %>
+ <div class="mt-4">
+   <h5 class=" fs-2 text-center">Best Time To Visit<span class="ms-3"><%= best_time_to_visit.place_name %></span></h5>
+   <div class="card-body">
+     <p class="card-text"><%= simple_format(best_time_to_visit.description) %></p>
+   </div> 
+ </div>
+ <% end %>
+</div>
+
+
+<div class="container mt-4" id="how_to_rich">
+  <div class="row">
+    <% how_to_reachs = @how_to_reaches.where(place_name: @place.name)%>
+    <% if how_to_reachs.present?%>
+    <h3>How to Reach <%= @place.name%></h3>
+    <% @how_to_reaches.where(place_name: @place.name).each do |how_to_reach| %>
+    <div class="col-lg-4 justify-content-between ">
+      <div class="container ">
+        <%= link_to how_to_reach_path(how_to_reach), style:"text-decoration:none; color:black;" do %>
+        <div class="card mx-auto" style="width: 18rem;">
+          <div class="card-body">
+            <!-- <h5 class="card-title">Place:<span><%= how_to_reach.place_name %></span></h5> -->
+            <p class="card-header"><span><%= how_to_reach.title %></span></p>
+            <p class="card-text mt-2"><span><%= how_to_reach.description %></span></p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="container" id="Gallery">
  <h4 class="m-2">Gallery</h4>
  <div class="row">
    <% @place.images.each do |image| %>
@@ -68,40 +108,38 @@
    <% end %>
  </div>
  <%= link_to "Back", places_path, class:"btn btn-outline-warning mb-3" %>
-    <%#= link_to "Delete" , places_path ,  data: {
-      turbo_confirm: 'Are you Sure?', turbo_method: :delete }, class:"btn btn-primary" %>
-    </div>
+  <%#= link_to "Delete" , places_path ,  data: {
+    turbo_confirm: 'Are you Sure?', turbo_method: :delete }, class:"btn btn-primary" %>
   </div>
+  
 
   <div class="container" id="nearby-places">
-     <!-- <%# if @near_by_place.place_name.present? %> -->
-    
-    <h3 class="text-center mt-3">Near_by Places for <%= @place.name %></h3>
-    <% @near_by_places.each do |near_by_place| %>
-    <%= link_to near_by_place_path(near_by_place), style: "text-decoration:none; color:black" do %>
-    <div class="col-lg-10 mx-auto ">
-      <div class="card mb-3 shadow near-card">
-        <div class="row g-0">
-          <div class="col-md-3"> <!-- Add mx-auto class here -->
-            <% if near_by_place.images.attached? %>
-            <%= image_tag near_by_place.images.first, class: "near_img" %>
-            <% end %>
-          </div>
-          <div class="col-md-8 mx-auto"> <!-- Add mx-auto class here -->
-            <div class="card-body">
-              <h2 class="card-title"><%= near_by_place.name %></h2>
-              <h5 class="card-title">City:<span><%= near_by_place.city %></span></h5>
-              <p class="card-title"><%= near_by_place.place.name %><span class="ms-1"><%= near_by_place.distance_from %></span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <% end %>
-    <% end %>
-    <%# end %>
-   
-  </div>
+   <% if @place.near_by_places.present?%>   
+   <h3 class="text-center mt-3">Near_by Places for <%= @place.name %></h3>
+   <% @near_by_places.each do |near_by_place| %>
+   <%= link_to near_by_place_path(near_by_place), style: "text-decoration:none; color:black" do %>
+   <div class="col-lg-10 mx-auto ">
+     <div class="card mb-3 shadow near-card">
+       <div class="row g-0">
+         <div class="col-md-3"> <!-- Add mx-auto class here -->
+           <% if near_by_place.images.attached? %>
+           <%= image_tag near_by_place.images.first, class: "near_img" %>
+           <% end %>
+         </div>
+         <div class="col-md-8 mx-auto"> <!-- Add mx-auto class here -->
+           <div class="card-body">
+             <h2 class="card-title"><%= near_by_place.name %></h2>
+             <h5 class="card-title">City:<span><%= near_by_place.city %></span></h5>
+             <p class="card-title"><%= near_by_place.place.name %><span class="ms-1"><%= near_by_place.distance_from %></span></p>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <% end %>
+   <% end %>
+   <% end %>
+ </div>
 </div >
 
 
@@ -135,10 +173,10 @@
     historyText.text(trimmedText);
   }
 
-   // Initially trim the text
+  // Initially trim the text
   trimText();
 
-    // Show More button click event
+  // Show More button click event
   $("#toggle-history").click(function() {
     if ($(this).hasClass("showing-more")) {
     // If showing more, switch to showing less
