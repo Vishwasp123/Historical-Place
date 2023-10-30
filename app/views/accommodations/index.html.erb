@@ -1,1 +1,28 @@
-<%= link_to "new accommodation",  new_accommodation_path, class:"btn btn-primary" %>
+<div class="col-lg-12">
+  <div class="container">
+    <%= link_to "new accommodation",  new_accommodation_path, class:"btn btn-primary" %>
+    <div class="row">
+      <% @accommodations.each do |accommodation| %>
+      <div class="col-lg-6">
+        <div class="card"> 
+         <% if accommodation.galleries.attached? %>
+         <%= image_tag accommodation.galleries.first %>
+         <% end %>
+         <div class="card-body">
+          <h5 class="card-title"><%= accommodation.name %></h5>
+          <p class="card-text">City:<span><%= accommodation.city %></span></p>
+          <p class="card-text">State:<span><%= accommodation.state %><span></p>
+          <p class="card-text">Address:<span><%= accommodation.address %></span></p>
+          <p class="card-text">Pincode:<span><%= accommodation.pincode %></span></p>
+          <%= link_to "View" , accommodation_path(accommodation), class:"btn btn-primary" %>
+          <%#= link_to "Delete", accommodation_path(accommodation), data: {turbo_method: :delete, turbo_confirm:"are you sure to delete"}, class:"btn btn-outline-primary" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+</div>
+
+
+

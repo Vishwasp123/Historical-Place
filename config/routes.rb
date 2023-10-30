@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :best_time_to_visits
   resources :how_to_reaches
   resources :accommodations
+  resources :rooms
 end

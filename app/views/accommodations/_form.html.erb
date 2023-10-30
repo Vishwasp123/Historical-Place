@@ -38,17 +38,11 @@
 	<% end %>
 </div>
 
-<div class="form-ouline mb-4">
-	<%= form.label :room, class:"form-label"%>
-	<%= form.text_field :room, class:"form-control" %>
-	<% @accommodation.errors.full_messages_for(:room).each do |message| %>
-	<p class="text-danger"><%= message %></p>
-	<% end %>
-</div>
+
 
 <div class="form-ouline mb-4">
 	<%= form.label :about, class:"form-label" %>
-	<%= form.text_field :about, class:"form-control"%>
+	<%= form.text_area :about, class:"form-control"%>
 	<% @accommodation.errors.full_messages_for(:about).each do |message|%>
 	<p class="text-danger"><%= message%></p>
 	<% end %>
@@ -70,8 +64,8 @@
 </div>
 
 <div class="form-ouline mb-4 d-flex">
-	<%= form.label :gallery , class:"form-label"%>
-	<%= form.file_field :gallery, multiple:true %>
+	<%= form.label :galleries , class:"form-label"%>
+	<%= form.file_field :galleries, multiple:true %>
 	<% @accommodation.errors.full_messages_for(:gallery).each do |message| %>
 	<p class="text-danger"><%= message %></p>
 	<% end %>

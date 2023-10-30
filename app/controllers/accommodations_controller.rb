@@ -1,10 +1,9 @@
 class AccommodationsController < ApplicationController
-	before_action :set_accommodation, only: %i[ show edit update destroy]
+	before_action :set_accommodation, only: %i[ show edit update destroy ]
 
 	def index 
 		@accommodations = Accommodation.all
 	end 
-
 
 	def new
 		@accommodation = Accommodation.new
@@ -39,6 +38,7 @@ class AccommodationsController < ApplicationController
 		end 
 	end
 
+
 	private
 
 	def set_accommodation
@@ -46,6 +46,6 @@ class AccommodationsController < ApplicationController
 	end
 
 	def accommodation_paramas
-		params.require(:accommodation).permit(:name, :city, :state, :address, :pincode, :about, :contact, :email , :rooms, gallery: [])
+		params.require(:accommodation).permit(:name, :city, :state, :address, :pincode, :about, :contact_number, :email , galleries: [])
 	end
 end

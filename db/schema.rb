@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_27_131715) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_30_103142) do
   create_table "accommodations", force: :cascade do |t|
     t.string "name"
     t.string "city"
@@ -102,6 +102,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_27_131715) do
     t.float "longitude"
     t.float "latitude"
     t.text "history"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "title"
+    t.string "room_number"
+    t.string "contact_number"
+    t.string "facilities"
+    t.string "check_in_time"
+    t.string "check_out_time"
+    t.string "price"
+    t.string "location"
+    t.string "adults"
+    t.string "childrens"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tourist_points", force: :cascade do |t|

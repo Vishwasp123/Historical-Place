@@ -1,0 +1,87 @@
+<div class="container">
+	<%= form_with model: @room, html: { data: { turbo: false } } do |form| %>
+	<div class="row mb-2">
+		<div class="col-md-3">
+			<div class="form-outline">
+				<%= form.label :title, class: "form-label m-0"%>
+				<%= form.select :title, ["Super", "Deluxe", "Premium"],{}, { class: "form-select " } %>
+				<% @room.errors.full_messages_for(:title).each do |message| %>
+				<p class="text-danger"><%= message %></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-outline">
+				<%= form.label :room_number, class:"form-lablel"%>
+				<%= form.text_field :room_number, class:"form-control"%>
+				<% @room.errors.full_messages_for(:room_number).each do |message| %>
+				<p class="text-danger"><%= message%></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-outline m-0">
+				<%= form.label :contact_number, class:"form-label m-0"%>
+				<%= form.text_field :contact_number, class:"form-control "%>
+				<% @room.errors.full_messages_for(:contact_number).each do |message| %>
+				<p class="text-danger"><%= message%></p>
+				<% end %>
+			</div> 
+
+		</div>
+		<div class="col-md-3">
+			<div class="form-outline m-0">
+				<%= form.label :location, class:"form-label m-0" %>
+				<%= form.text_field :location, class:"form-control"%>
+				<% @room.errors.full_messages_for(:location).each do |message|%>
+				<p class="text-danger"><%= message%></p>
+				<% end %>
+			</div> 
+		</div>
+	</div>
+
+	<div class="row pb-2">
+		<div class="col-md-2">
+			<div class="form-outline m-0">
+				<%= form.label :check_in_time, "Check-in-time", class:"form-label m-0" %>
+				<%= form.date_field :check_in_time, class:"form-control"%>
+				<% @room.errors.full_messages_for(:check_in_time).each do |message|%>
+				<p class="text-danger"><%= message%></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="form-outline m-0">
+				<%= form.label :check_out_time, "Check-out-time", class:"form-label m-0"%>
+				<%= form.date_field :check_out_time, class:"form-control"%>
+				<% @room.errors.full_messages_for(:check_out_time).each do |message|%>
+				<p class="text-danger"><%= message%></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="form-outline m-0">
+				<%= form.label :adults, class:"form-label m-0" %>
+				<%= form.text_field :adults, class:"form-control"%>
+				<% @room.errors.full_messages_for(:adults).each do |message|%>
+				<p class="text-danger"><%= message%></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="form-outline">
+				<%= form.label :childrens, class:"form-label m-0" %>
+				<%= form.text_field :childrens, class:"form-control"%>
+				<% @room.errors.full_messages_for(:childrens).each do |message|%>
+				<p class="text-danger"><%= message%></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-md-2 mx-auto ">
+			<div class="form-outline my-3">
+				<%= form.submit class:"btn btn-outline-warning"%>
+			</div>
+		</div>
+	</div>
+	<% end %>
+</div>
