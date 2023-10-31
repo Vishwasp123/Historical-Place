@@ -1,17 +1,10 @@
 class PlacesController < ApplicationController  
   before_action :set_place, only: %i[ edit show update destroy ]
 
-
-
   def index
     @places = Place.includes(:tourist_points, images_attachments: :blob)
   end 
-  # def index
-  #   @places = Place.includes(:tourist_points, images_attachments: :blob)
-  #   .where('places.name = tourist_points.place_name')
-  # end
-
-
+ 
   def new
     @place = Place.new
   end
@@ -33,7 +26,7 @@ class PlacesController < ApplicationController
     @best_time_to_visits = BestTimeToVisit.all
     @tourist_points = TouristPoint.all
     @accommodations = Accommodation.all
-     @near_by_places = @place.near_by_places
+    @near_by_places = @place.near_by_places
   end
 
   def update

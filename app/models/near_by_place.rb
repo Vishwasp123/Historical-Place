@@ -13,7 +13,6 @@ class NearByPlace < ApplicationRecord
 	def self.ransackable_attributes(auth_object = nil)
 		["created_at", "distance_from", "id", "latitude", "longitude", "name", "place_id", "tourist_point_id", "updated_at" ,"state", "district", "history", "longitude", "latitude", "distance_from", "location_name", "place_name", "city"]
 	end
-
 	def self.ransackable_associations(auth_object = nil)
 		["images_attachments", "images_blobs", "place", "tourist_point"]
 	end
@@ -26,7 +25,4 @@ class NearByPlace < ApplicationRecord
 	  self.tourist_point_id = nil
 	  save
 	end
-
-
-
 end

@@ -1,87 +1,169 @@
 <div class="container">
-	<%= form_with model: @room, html: { data: { turbo: false } } do |form| %>
-	<div class="row mb-2">
-		<div class="col-md-3">
-			<div class="form-outline">
-				<%= form.label :title, class: "form-label m-0"%>
-				<%= form.select :title, ["Super", "Deluxe", "Premium"],{}, { class: "form-select " } %>
-				<% @room.errors.full_messages_for(:title).each do |message| %>
-				<p class="text-danger"><%= message %></p>
-				<% end %>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-outline">
-				<%= form.label :room_number, class:"form-lablel"%>
-				<%= form.text_field :room_number, class:"form-control"%>
-				<% @room.errors.full_messages_for(:room_number).each do |message| %>
-				<p class="text-danger"><%= message%></p>
-				<% end %>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="form-outline m-0">
-				<%= form.label :contact_number, class:"form-label m-0"%>
-				<%= form.text_field :contact_number, class:"form-control "%>
-				<% @room.errors.full_messages_for(:contact_number).each do |message| %>
-				<p class="text-danger"><%= message%></p>
-				<% end %>
-			</div> 
+  <%= form_with model: @room, html: { data: { turbo: false } } do |form| %>
+  <div class="row mb-2">
+    <div class="col-md-3">
+      <div class="form-outline m-0">
+        <%= form.label :title, class: "form-label m-0" %>
+        <%= form.select :title, options_for_select([["Select a Title", ""], ["Super", "super"], ["Delux", "delux"], ["Premium", "premium"]], @room.title), {}, { class: "form-select", id: "title-select" } %>
+      </div>
+    </div>
+    <div class="col-md-3">
+     <div class="form-outline">
+        <%= form.label :room_number, class:"form-lablel"%>
+        <%= form.select :room_number,options_for_select([["Select a room", ""], ["1", "1"], ["2", "2"], ["3", "4"]], @room.room_number), {}, { class: "form-select", id: "title-select" } %>
+        <%# @room.errors.full_messages_for(:room_number).each do |message| %>
+        <p class="text-danger"><%#= message%></p>
+        <%# end %>
+     </div>
+   </div>
+   <div class="col-md-3">
+     <div class="form-outline m-0">
+       <%= form.label :contact_number, class:"form-label m-0"%>
+       <%= form.text_field :contact_number, class:"form-control "%>
+        <%# @room.errors.full_messages_for(:contact_number).each do |message| %>
+        <p class="text-danger"><%#= message%></p>
+       <%# end %>
+     </div> 
+    </div>
+    <div class="col-md-3">
+     <div class="form-outline m-0">
+        <%= form.label :location, class:"form-label m-0" %>
+        <%= form.text_field :location, class:"form-control"%>
+        <%# @room.errors.full_messages_for(:location).each do |message|%>
+        <p class="text-danger"><%#= message%></p>
+        <%# end %>
+      </div> 
+    </div>
+    <div class="row pb-2">
+      <div class="col-md-4 m-0">
+       <div class="form-outline  m-0">
+        <%= form.label :check_in_time, "Check-In", class:"form-label m-0" %>
+        <div class="row">
+         <div class="col-md-6">
+          <%= form.date_field :check_in_date,class:"form-control m-0"%>
+        </div>
+        <div class="col-md-4 m-0">
+          <%= form.text_field :check_in_time, class:"form-control"%>
+          <%# @room.errors.full_messages_for(:check_in_time).each do |message|%>
+          <p class="text-danger"><%#= message%></p>
+          <%# end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">  
+   <div class="form-outline m-0">
+      <%= form.label :check_out_time, "Check-Out", class:"form-label m-0"%>
+      <div class="row">
+        <div class="col-md-6">
+          <%= form.date_field :check_out_date, class:"form-control m-0"%>
+        </div>
+        <div class="col-md-4">
+          <%= form.text_field :check_out_time, class:"form-control"%>
+        </div>
+       <%# @room.errors.full_messages_for(:check_out_time).each do |message|%>
+       <p class="text-danger"><%#= message%></p>
+       <%# end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+   <div class="form-outline m-0">
+      <%= form.label :adults, class:"form-label m-0" %>
+      <%= form.text_field :adults, class:"form-control"%>
+      <%# @room.errors.full_messages_for(:adults).each do |message|%>
+      <p class="text-danger"><%#= message%></p>
+      <%# end %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-outline">
+      <%= form.label :childrens, class:"form-label m-0" %>
+      <%= form.text_field :childrens, class:"form-control"%>
+      <%# @room.errors.full_messages_for(:childrens).each do |message|%>
+      <p class="text-danger"><%#= message%></p>
+      <%# end %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-outline">
+      <%= form.label :price %>
+      <%= form.text_field :price, id: "price-select", class: "form-control", readonly: true %>
+    </div>
+  </div>
 
-		</div>
-		<div class="col-md-3">
-			<div class="form-outline m-0">
-				<%= form.label :location, class:"form-label m-0" %>
-				<%= form.text_field :location, class:"form-control"%>
-				<% @room.errors.full_messages_for(:location).each do |message|%>
-				<p class="text-danger"><%= message%></p>
-				<% end %>
-			</div> 
-		</div>
-	</div>
-
-	<div class="row pb-2">
-		<div class="col-md-2">
-			<div class="form-outline m-0">
-				<%= form.label :check_in_time, "Check-in-time", class:"form-label m-0" %>
-				<%= form.date_field :check_in_time, class:"form-control"%>
-				<% @room.errors.full_messages_for(:check_in_time).each do |message|%>
-				<p class="text-danger"><%= message%></p>
-				<% end %>
-			</div>
-		</div>
-		<div class="col-md-2">
-			<div class="form-outline m-0">
-				<%= form.label :check_out_time, "Check-out-time", class:"form-label m-0"%>
-				<%= form.date_field :check_out_time, class:"form-control"%>
-				<% @room.errors.full_messages_for(:check_out_time).each do |message|%>
-				<p class="text-danger"><%= message%></p>
-				<% end %>
-			</div>
-		</div>
-		<div class="col-md-2">
-			<div class="form-outline m-0">
-				<%= form.label :adults, class:"form-label m-0" %>
-				<%= form.text_field :adults, class:"form-control"%>
-				<% @room.errors.full_messages_for(:adults).each do |message|%>
-				<p class="text-danger"><%= message%></p>
-				<% end %>
-			</div>
-		</div>
-		<div class="col-md-2">
-			<div class="form-outline">
-				<%= form.label :childrens, class:"form-label m-0" %>
-				<%= form.text_field :childrens, class:"form-control"%>
-				<% @room.errors.full_messages_for(:childrens).each do |message|%>
-				<p class="text-danger"><%= message%></p>
-				<% end %>
-			</div>
-		</div>
-		<div class="col-md-2 mx-auto ">
-			<div class="form-outline my-3">
-				<%= form.submit class:"btn btn-outline-warning"%>
-			</div>
-		</div>
-	</div>
-	<% end %>
+  <div class="col-md-3">
+    <div class="form-outline m-0">
+      <%= form.label :facilities, class: "form-label m-0" %>
+      <%= form.select :facilities, [], {}, { class: "form-select", id: "facilities-select" } %>
+    </div>
+  </div>
+  <div class="col-md-2 mt-2 ">
+   <div class="form-outline my-3">
+      <%= form.submit class:"btn btn-outline-warning"%>
+    </div>
+  </div>
+  <% end %>
 </div>
+
+
+<script>
+  $(document).ready(function () {
+    const titleSelect = $('#title-select');
+    const facilitiesSelect = $('#facilities-select');
+    const priceSelect = $('#price-select');
+
+    const priceMap = {
+      super: 2500,
+      delux: 3500,
+      premium: 4500,
+    }
+
+    const facilitiesMap = {
+      super: ["Break fast"],
+      delux:  ["Brakfast", "Dinner"],
+      premium: ["Break fast", "Luch + Brakfast", "Dinner"]
+    };
+
+    // Function to update the facilities options based on the selected title
+    const updateFacilities = () => {
+      const selectedTitle = titleSelect.val();
+      const facilities = facilitiesMap[selectedTitle] || [];
+
+
+      // Clear and populate the facilities select field
+      facilitiesSelect.empty();
+      facilitiesSelect.append('<option value="">Select Facility</option>'); // Add a default option
+
+      facilities.forEach(facility => {
+        facilitiesSelect.append($('<option>', {
+          value: facility,
+          text: facility
+        }));
+      });
+
+      // Automatically update the price field
+      const price = priceMap[selectedTitle];
+      if (price) {
+        priceSelect.val(price);
+      } else {
+        priceSelect.val(""); // Clear the price field if no price is available
+      }
+    };
+
+    const updatePrice = () => {
+      const selectedTitle = titleSelect.val();
+      const price = priceMap[selectedTitle] || "";
+      priceSelect.val(price);
+    };
+
+
+    // Listen for changes in the title select field and update facilities
+    titleSelect.on('change', updateFacilities);
+    titleSelect.on('change', updatePrice);
+    updatePrice();
+  });
+</script>
+
+
+

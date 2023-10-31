@@ -4,7 +4,6 @@ class TouristPointsController < ApplicationController
   def index
     @tourist_points = TouristPoint.includes(:near_by_places, :places, images_attachments: :blob).all
   end
-  
 
   def new
     @tourist_point = TouristPoint.new
