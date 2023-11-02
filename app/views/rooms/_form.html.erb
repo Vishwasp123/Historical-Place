@@ -1,110 +1,121 @@
-<div class="container">
-  <%= form_with model: @room, html: { data: { turbo: false } } do |form| %>
-  <div class="row mb-2">
-    <div class="col-md-3">
-      <div class="form-outline m-0">
-        <%= form.label :title, class: "form-label m-0" %>
-        <%= form.select :title, options_for_select([["Select a Title", ""], ["Super", "super"], ["Delux", "delux"], ["Premium", "premium"]], @room.title), {}, { class: "form-select", id: "title-select" } %>
+<%= form_with model: @room, html: { data: { turbo: false } } do |form| %>
+  <%= form.hidden_field :accommodation_id, value: @accommodation.id %>
+  
+  <div class="container m-0">
+    <div class="row m-0">
+      <div class="col-md-3">
+        <div class="form-outline m-0">
+          <%= form.label :title, class: "form-label m-0" %>
+          <%= form.select :title, options_for_select([["Select a Title", ""], ["Super", "super"], ["Delux", "delux"], ["Premium", "premium"]], @room.title), {}, { class: "form-select", id: "title-select" } %>
+        </div>
       </div>
-    </div>
-    <div class="col-md-3">
-     <div class="form-outline">
-        <%= form.label :room_number, class:"form-lablel"%>
-        <%= form.select :room_number,options_for_select([["Select a room", ""], ["1", "1"], ["2", "2"], ["3", "4"]], @room.room_number), {}, { class: "form-select", id: "title-select" } %>
-        <%# @room.errors.full_messages_for(:room_number).each do |message| %>
-        <p class="text-danger"><%#= message%></p>
-        <%# end %>
+
+      <div class="col-md-3">
+        <div class="form-outline">
+          <%= form.label :room_number, class:"form-lablel"%>
+          <%= form.select :room_number,options_for_select([["Select a room", ""], ["1", "1"], ["2", "2"], ["3", "4"]], @room.room_number), {}, { class: "form-select", id: "title-select" } %>
+          <% @room.errors.full_messages_for(:room_number).each do |message| %>
+          <p class="text-danger"><%= message%></p>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-outline m-0">
+         <%= form.label :contact_number, class:"form-label m-0"%>
+         <%= form.text_field :contact_number, class:"form-control "%>
+         <% @room.errors.full_messages_for(:contact_number).each do |message| %>
+         <p class="text-danger"><%= message%></p>
+         <% end %>
+       </div> 
      </div>
-   </div>
-   <div class="col-md-3">
-     <div class="form-outline m-0">
-       <%= form.label :contact_number, class:"form-label m-0"%>
-       <%= form.text_field :contact_number, class:"form-control "%>
-        <%# @room.errors.full_messages_for(:contact_number).each do |message| %>
-        <p class="text-danger"><%#= message%></p>
-       <%# end %>
-     </div> 
-    </div>
-    <div class="col-md-3">
-     <div class="form-outline m-0">
-        <%= form.label :location, class:"form-label m-0" %>
-        <%= form.text_field :location, class:"form-control"%>
-        <%# @room.errors.full_messages_for(:location).each do |message|%>
-        <p class="text-danger"><%#= message%></p>
-        <%# end %>
-      </div> 
-    </div>
-    <div class="row pb-2">
-      <div class="col-md-4 m-0">
-       <div class="form-outline  m-0">
-        <%= form.label :check_in_time, "Check-In", class:"form-label m-0" %>
-        <div class="row">
-         <div class="col-md-6">
-          <%= form.date_field :check_in_date,class:"form-control m-0"%>
-        </div>
-        <div class="col-md-4 m-0">
-          <%= form.text_field :check_in_time, class:"form-control"%>
-          <%# @room.errors.full_messages_for(:check_in_time).each do |message|%>
-          <p class="text-danger"><%#= message%></p>
-          <%# end %>
-        </div>
+
+     <div class="col-md-3">
+        <div class="form-outline m-0">
+          <%= form.label :location, class:"form-label m-0" %>
+          <%= form.text_field :location, class:"form-control"%>
+          <% @room.errors.full_messages_for(:location).each do |message|%>
+          <p class="text-danger"><%= message%></p>
+          <% end %>
+        </div> 
       </div>
-    </div>
-  </div>
-  <div class="col-md-4">  
-   <div class="form-outline m-0">
-      <%= form.label :check_out_time, "Check-Out", class:"form-label m-0"%>
-      <div class="row">
-        <div class="col-md-6">
-          <%= form.date_field :check_out_date, class:"form-control m-0"%>
-        </div>
-        <div class="col-md-4">
-          <%= form.text_field :check_out_time, class:"form-control"%>
-        </div>
-       <%# @room.errors.full_messages_for(:check_out_time).each do |message|%>
-       <p class="text-danger"><%#= message%></p>
-       <%# end %>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-2">
-   <div class="form-outline m-0">
-      <%= form.label :adults, class:"form-label m-0" %>
-      <%= form.text_field :adults, class:"form-control"%>
-      <%# @room.errors.full_messages_for(:adults).each do |message|%>
-      <p class="text-danger"><%#= message%></p>
-      <%# end %>
-    </div>
-  </div>
-  <div class="col-md-2">
-    <div class="form-outline">
-      <%= form.label :childrens, class:"form-label m-0" %>
-      <%= form.text_field :childrens, class:"form-control"%>
-      <%# @room.errors.full_messages_for(:childrens).each do |message|%>
-      <p class="text-danger"><%#= message%></p>
-      <%# end %>
-    </div>
-  </div>
-  <div class="col-md-2">
-    <div class="form-outline">
-      <%= form.label :price %>
-      <%= form.text_field :price, id: "price-select", class: "form-control", readonly: true %>
     </div>
   </div>
 
-  <div class="col-md-3">
-    <div class="form-outline m-0">
-      <%= form.label :facilities, class: "form-label m-0" %>
-      <%= form.select :facilities, [], {}, { class: "form-select", id: "facilities-select" } %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="form-outline m-0">
+          <%= form.label :check_in_time, "Check-In", class: "form-label m-0" %>
+          <div class="d-flex">
+           <%= form.date_field :check_in_date, class: "form-control m-0" %>
+           <%= form.select :check_in_hour, (1..12), { include_blank: "Hour" }, id: "check_in_hour" %>
+           <%= form.select :check_in_minute, (0..59), { include_blank: "Minute" }, class: "", id: "check_in_minute" %>
+            <%= form.select :check_in_period, ["am", "pm"], { include_blank: "AM/PM" }, id: "check_in_period" %>
+         </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-outline m-0">
+          <%= form.label :check_out_time, "Check-Out", class:"form-label m-0"%>
+          <div class="d-flex">
+          <%= form.date_field :check_out_date, class:"form-control m-0"%>
+            <%= form.select :check_out_hour, (1..12), { include_blank: "Hour" }, id: "check_out_hour" %>
+            <%= form.select :check_out_minute, (0..59), { include_blank: "Minute" }, class: "", id: "check_out_minute" %>
+            <%= form.select :check_out_period, ["am", "pm"], { include_blank: "AM/PM" }, id: "check_out_period" %>
+          </div>
+          <%= form.hidden_field :check_out_time, id: "check_out_time" %>
+          <% @room.errors.full_messages_for(:check_out_time).each do |message|%>
+            <p class="text-danger"><%= message%></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-outline m-0">
+          <%= form.label :adults, class:"form-label m-0" %>
+          <%= form.text_field :adults, class:"form-control"%>
+          <% @room.errors.full_messages_for(:adults).each do |message|%>
+            <p class="text-danger"><%= message%></p>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="col-md-2 mt-2 ">
-   <div class="form-outline my-3">
-      <%= form.submit class:"btn btn-outline-warning"%>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-outline">
+          <%= form.label :childrens, class:"form-label m-0" %>
+          <%= form.text_field :childrens, class:"form-control"%>
+          <% @room.errors.full_messages_for(:childrens).each do |message|%>
+          <p class="text-danger"><%= message%></p>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-outline m-0">
+          <%= form.label :facilities, class: "form-label m-0" %>
+          <%= form.select :facilities, [], {}, { class: "form-select", id: "facilities-select" } %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-outline">
+          <%= form.label :price %>
+          <%= form.text_field :price, id: "price-select", class: "form-control", readonly: true %>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-outline my-3">
+          <%= form.submit class:"btn btn-outline-warning"%>
+        </div>
+      </div>
     </div>
   </div>
-  <% end %>
-</div>
+<% end %>
 
 
 <script>
@@ -129,8 +140,6 @@
     const updateFacilities = () => {
       const selectedTitle = titleSelect.val();
       const facilities = facilitiesMap[selectedTitle] || [];
-
-
       // Clear and populate the facilities select field
       facilitiesSelect.empty();
       facilitiesSelect.append('<option value="">Select Facility</option>'); // Add a default option
@@ -157,12 +166,31 @@
       priceSelect.val(price);
     };
 
-
     // Listen for changes in the title select field and update facilities
     titleSelect.on('change', updateFacilities);
     titleSelect.on('change', updatePrice);
     updatePrice();
   });
+  $(document).on("turbolinks:load", function() {
+    const $hourSelect = $("#check_in_hour");
+    const $minuteSelect = $("#check_in_minute");
+    const $periodSelect = $("#check_in_period");
+    const $timeHiddenField = $("#check_in_time");
+
+    $hourSelect.on("change", updateHiddenTimeField);
+    $minuteSelect.on("change", updateHiddenTimeField);
+    $periodSelect.on("change", updateHiddenTimeField);
+
+    function updateHiddenTimeField() {
+      const selectedHour = $hourSelect.val() || "1";
+      const selectedMinute = $minuteSelect.val() || "00";
+      const selectedPeriod = $periodSelect.val() || "AM";
+      const combinedTime = `${selectedHour}:${selectedMinute} ${selectedPeriod}`;
+      $timeHiddenField.val(combinedTime);
+    }
+  });
+</script>
+
 </script>
 
 

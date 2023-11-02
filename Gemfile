@@ -74,6 +74,7 @@ end
 
 gem "cssbundling-rails", "~> 1.3"
 gem "ransack", "~> 4.0"
+gem 'devise'
 
 
 

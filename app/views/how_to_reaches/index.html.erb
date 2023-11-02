@@ -2,19 +2,19 @@
 	<%= link_to "New", new_how_to_reach_path, class:"btn btn-primary"%>
 	<div class="row">
 		<% @how_to_reaches.each do |how_to_reach| %>
-		<div class="col-lg-3 mt-2 justify-content-between ">
-			<div class="container d-flex ">
-				<%= link_to how_to_reach_path(how_to_reach), style:"text-decoration:none; color:black;" do %> 
-				<div class="card" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title">Place:<span><%= how_to_reach.place_name %></span></h5>
-						<p class="card-text">title:<span><%= how_to_reach.title %></span></p>
-						<p class="card-text">Description:<span><%= how_to_reach.description %></span></p>
-					</div>
+			<div class="col-lg-3 mt-2 justify-content-between ">
+				<div class="container d-flex ">
+					<%= link_to how_to_reach_path(how_to_reach), style:"text-decoration:none; color:black;" do %> 
+						<div class="card" style="width: 18rem;">
+							<div class="card-body">
+								<h5 class="card-title">Place:<span><%= how_to_reach.place_name %></span></h5>
+								<p class="card-text">title:<span><%= how_to_reach.title %></span></p>
+								<p class="card-text">Description:<span><%= how_to_reach.description %></span></p>
+							</div>
+						</div>	
+					<% end %>
 				</div>
-				<% end %>
 			</div>
-		</div>
 		<% end %>
 	</div>
 </div>

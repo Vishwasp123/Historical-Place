@@ -1,0 +1,2 @@
+class PlanYourTrip < ApplicationRecord
+end

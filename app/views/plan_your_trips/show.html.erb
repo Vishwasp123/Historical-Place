@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+       <div class="card">
+          <div class="card-header">Name:<span><%= @plan_your_trip.name %></span></div>
+            <div class="card-body">
+              <h5 class="card-title">Start Point:<span><%= @plan_your_trip.start_point_city %></span></h5>
+              <p class="card-text"> Month:<span><%= @plan_your_trip.travel_month %></span></p>
+              <p class="card-text">Total Days:<span class="ms-2"><%= @plan_your_trip.days_of_travel %></span>Days</p>
+              <p class="card-text">Email:<span class="me-2"><%= @plan_your_trip.email %></span></p>
+              <p class="card-text">Contact Number:<span class="ms-1"><%= @plan_your_trip.contact_number %></span></p>
+              <%= link_to 'Back', plan_your_trips_path, class: "btn btn-outline-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

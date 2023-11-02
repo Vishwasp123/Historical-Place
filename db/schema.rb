@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_31_062746) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_02_113639) do
   create_table "accommodations", force: :cascade do |t|
     t.string "name"
     t.string "city"
@@ -104,6 +104,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_31_062746) do
     t.text "history"
   end
 
+  create_table "plan_your_trips", force: :cascade do |t|
+    t.string "days_of_travel"
+    t.string "start_point_city"
+    t.string "travel_month"
+    t.string "name"
+    t.string "email"
+    t.string "contact_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.string "title"
     t.string "room_number"
@@ -119,6 +130,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_31_062746) do
     t.datetime "updated_at", null: false
     t.string "check_out_date"
     t.string "check_in_date"
+    t.integer "accommodation_id"
+    t.index ["accommodation_id"], name: "index_rooms_on_accommodation_id"
   end
 
   create_table "tourist_points", force: :cascade do |t|
@@ -131,8 +144,30 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_31_062746) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
+    t.string "contact_number", default: "", null: false
+    t.string "address", default: "", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "near_by_places", "places"
   add_foreign_key "near_by_places", "tourist_points"
+  add_foreign_key "rooms", "accommodations"
 end

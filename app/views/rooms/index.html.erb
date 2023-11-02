@@ -1,27 +1,30 @@
 <div class="col-lg-12">
 	<div class="container">
     <%= link_to "Add room", new_room_path, class:"btn btn-primary"%>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Title</th>
-            <th scope="col">room_number</th>
-            <th scope="col">contact_number</th>
-            <th scope="col">check_in_time</th>
-            <th scope="col"> price</th> 
-          </tr>
-        </thead>
-        <tbody>
-        	<% @rooms.each do |room|%>
-            <tr>
-              <th scope="row"><%= room.title%></th>
-              <td><%= room.room_number%></td>
-              <td><%= room.contact_number%></td>
-              <td><%= room.check_in_time%></td>
-               <td><%= room.price%></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-  </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">room_number</th>
+          <th scope="col">contact_number</th>
+          <th scope="col">check_in_date</th>
+          <!-- <th scope="col">check_in_time</th> -->
+          <th scope="col"> price</th> 
+        </tr>
+      </thead>
+      <tbody>
+       <% @rooms.each do |room|%>
+       <tr>
+        <th scope="row"><%= room.title%></th>
+        <td><%= room.room_number%></td>
+        <td><%= room.contact_number%></td>
+       <td> <%= room.check_in_date %></td>
+        <td><%= room.check_in_date %><span class="ms-1"><%= room.check_in_time%></span></td>
+        <td><%#= room.check_in_time %></td>
+        <td><%= room.price%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 </div>
