@@ -12,6 +12,7 @@ class PlanYourTripsController < ApplicationController
   def create
     @plan_your_trip = PlanYourTrip.create(trip_params)
     if @plan_your_trip.save
+      PlanYourTripMailer.welcome(@plan_your_trip).deliver
       redirect_to plan_your_trips_path
     else
       render :new 

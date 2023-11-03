@@ -46,28 +46,28 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="form-outline m-0">
-          <%= form.label :check_in_time, "Check-In", class: "form-label m-0" %>
+          <%#= form.label :check_in_time, "Check-In", class: "form-label m-0" %>
           <div class="d-flex">
-           <%= form.date_field :check_in_date, class: "form-control m-0" %>
-           <%= form.select :check_in_hour, (1..12), { include_blank: "Hour" }, id: "check_in_hour" %>
-           <%= form.select :check_in_minute, (0..59), { include_blank: "Minute" }, class: "", id: "check_in_minute" %>
-            <%= form.select :check_in_period, ["am", "pm"], { include_blank: "AM/PM" }, id: "check_in_period" %>
+           <%#= form.date_field :check_in_date, class: "form-control m-0" %>
+           <%#= form.select :check_in_hour, (1..12), { include_blank: "Hour" }, id: "check_in_hour" %>
+           <%#= form.select :check_in_minute, (0..59), { include_blank: "Minute" }, class: "", id: "check_in_minute" %>
+            <%#= form.select :check_in_period, ["am", "pm"], { include_blank: "AM/PM" }, id: "check_in_period" %>
          </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="form-outline m-0">
-          <%= form.label :check_out_time, "Check-Out", class:"form-label m-0"%>
+          <%#= form.label :check_out_time, "Check-Out", class:"form-label m-0"%>
           <div class="d-flex">
-          <%= form.date_field :check_out_date, class:"form-control m-0"%>
-            <%= form.select :check_out_hour, (1..12), { include_blank: "Hour" }, id: "check_out_hour" %>
-            <%= form.select :check_out_minute, (0..59), { include_blank: "Minute" }, class: "", id: "check_out_minute" %>
-            <%= form.select :check_out_period, ["am", "pm"], { include_blank: "AM/PM" }, id: "check_out_period" %>
+          <%#= form.date_field :check_out_date, class:"form-control m-0"%>
+            <%#= form.select :check_out_hour, (1..12), { include_blank: "Hour" }, id: "check_out_hour" %>
+            <%#= form.select :check_out_minute, (0..59), { include_blank: "Minute" }, class: "", id: "check_out_minute" %>
+            <%#= form.select :check_out_period, ["am", "pm"], { include_blank: "AM/PM" }, id: "check_out_period" %>
           </div>
-          <%= form.hidden_field :check_out_time, id: "check_out_time" %>
-          <% @room.errors.full_messages_for(:check_out_time).each do |message|%>
-            <p class="text-danger"><%= message%></p>
-          <% end %>
+          <%#= form.hidden_field :check_out_time, id: "check_out_time" %>
+          <%# @room.errors.full_messages_for(:check_out_time).each do |message|%>
+            <p class="text-danger"><%#= message%></p>
+          <%# end %>
         </div>
       </div>
       <div class="col-md-4">
