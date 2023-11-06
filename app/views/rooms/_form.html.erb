@@ -1,6 +1,6 @@
-<%= form_with model: @room, html: { data: { turbo: false } } do |form| %>
+<%= form_with model: @room, html:{ data: { turbo: false } } do |form| %>
   <%= form.hidden_field :accommodation_id, value: @accommodation.id %>
-  
+
   <div class="container m-0">
     <div class="row m-0">
       <div class="col-md-3">
@@ -31,43 +31,44 @@
      </div>
 
      <div class="col-md-3">
-        <div class="form-outline m-0">
-          <%= form.label :location, class:"form-label m-0" %>
-          <%= form.text_field :location, class:"form-control"%>
-          <% @room.errors.full_messages_for(:location).each do |message|%>
-          <p class="text-danger"><%= message%></p>
-          <% end %>
-        </div> 
-      </div>
+      <div class="form-outline m-0">
+        <%= form.label :location, class:"form-label m-0" %>
+        <%= form.text_field :location, class:"form-control"%>
+        <% @room.errors.full_messages_for(:location).each do |message|%>
+        <p class="text-danger"><%= message%></p>
+        <% end %>
+      </div> 
     </div>
   </div>
-
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-lg-4">
         <div class="form-outline m-0">
-          <%#= form.label :check_in_time, "Check-In", class: "form-label m-0" %>
+          <%= form.label :check_in_time, "Check-In", class: "form-label m-0" %>
           <div class="d-flex">
-           <%#= form.date_field :check_in_date, class: "form-control m-0" %>
-           <%#= form.select :check_in_hour, (1..12), { include_blank: "Hour" }, id: "check_in_hour" %>
-           <%#= form.select :check_in_minute, (0..59), { include_blank: "Minute" }, class: "", id: "check_in_minute" %>
-            <%#= form.select :check_in_period, ["am", "pm"], { include_blank: "AM/PM" }, id: "check_in_period" %>
-         </div>
+            <%= form.date_field :check_in_date, class:"form-control" %>
+            <%= form.select :check_in_hour, (1..12), { include_blank: "Hour" }, id: "check_in_hour" %>
+            :
+            <%= form.select :check_in_minute, (0..59), { include_blank: "Minute" }, class: "", id: "check_in_minute" %>
+            <%= form.select :check_in_period, ["AM", "PM"], { include_blank: "AM/PM" }, id: "check_in_period" %>
+          </div>    
         </div>
       </div>
+      
       <div class="col-md-4">
         <div class="form-outline m-0">
-          <%#= form.label :check_out_time, "Check-Out", class:"form-label m-0"%>
+          <%= form.label :check_out_time, "Check-Out", class:"form-label m-0"%>
           <div class="d-flex">
-          <%#= form.date_field :check_out_date, class:"form-control m-0"%>
-            <%#= form.select :check_out_hour, (1..12), { include_blank: "Hour" }, id: "check_out_hour" %>
-            <%#= form.select :check_out_minute, (0..59), { include_blank: "Minute" }, class: "", id: "check_out_minute" %>
-            <%#= form.select :check_out_period, ["am", "pm"], { include_blank: "AM/PM" }, id: "check_out_period" %>
+            <%= form.date_field :check_out_date, class:"form-control" %>
+            <%= form.select :check_out_hour, (1..12), { include_blank: "Hour" }, id: "check_out_hour" %>
+            :
+            <%= form.select :check_out_minute, (0..59), { include_blank: "Minute" }, class: "", id: "check_out_minute" %>
+            <%= form.select :check_out_period, ["AM", "PM"], { include_blank: "AM/PM" }, id: "check_out_period" %>
           </div>
-          <%#= form.hidden_field :check_out_time, id: "check_out_time" %>
-          <%# @room.errors.full_messages_for(:check_out_time).each do |message|%>
-            <p class="text-danger"><%#= message%></p>
-          <%# end %>
+          <% @room.errors.full_messages_for(:check_out_time).each do |message|%>
+          <p class="text-danger"><%= message%></p>
+          <% end %>
         </div>
       </div>
       <div class="col-md-4">
@@ -75,14 +76,12 @@
           <%= form.label :adults, class:"form-label m-0" %>
           <%= form.text_field :adults, class:"form-control"%>
           <% @room.errors.full_messages_for(:adults).each do |message|%>
-            <p class="text-danger"><%= message%></p>
+          <p class="text-danger"><%= message%></p>
           <% end %>
         </div>
       </div>
     </div>
   </div>
-
-
   <div class="container">
     <div class="row">
       <div class="col-md-3">
@@ -171,27 +170,9 @@
     titleSelect.on('change', updatePrice);
     updatePrice();
   });
-  $(document).on("turbolinks:load", function() {
-    const $hourSelect = $("#check_in_hour");
-    const $minuteSelect = $("#check_in_minute");
-    const $periodSelect = $("#check_in_period");
-    const $timeHiddenField = $("#check_in_time");
-
-    $hourSelect.on("change", updateHiddenTimeField);
-    $minuteSelect.on("change", updateHiddenTimeField);
-    $periodSelect.on("change", updateHiddenTimeField);
-
-    function updateHiddenTimeField() {
-      const selectedHour = $hourSelect.val() || "1";
-      const selectedMinute = $minuteSelect.val() || "00";
-      const selectedPeriod = $periodSelect.val() || "AM";
-      const combinedTime = `${selectedHour}:${selectedMinute} ${selectedPeriod}`;
-      $timeHiddenField.val(combinedTime);
-    }
-  });
 </script>
 
-</script>
+
 
 
 
