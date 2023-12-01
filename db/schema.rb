@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_27_105141) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_01_122028) do
   create_table "accommodations", force: :cascade do |t|
     t.string "name"
     t.string "city"
@@ -67,6 +67,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_27_105141) do
     t.string "title"
     t.string "place_name"
     t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "car_rentals", force: :cascade do |t|
+    t.string "contact_number"
+    t.string "car_number"
+    t.string "pick_up_location"
+    t.string "pick_up_date"
+    t.string "pick_up_time"
+    t.string "drop_off_location"
+    t.string "drop_off_date"
+    t.string "drop_off_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

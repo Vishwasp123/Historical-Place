@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :how_to_reaches
   resources :accommodations
   resources :rooms
+  resources :car_rentals
 end

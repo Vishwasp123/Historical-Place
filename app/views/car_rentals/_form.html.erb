@@ -1,0 +1,30 @@
+<%= form_with model: @car_rental, html: { data: { turbo: false} } do |form| %>
+	<div class="form-outline mb-4">
+		<%= form.label :pick_up_location, class:"form-label"%>
+		<%= form.text_field :pick_up_location, class:"form-control form-control-lg"%>
+	</div>
+	<div class="form-outline mb-4">
+		<%= form.label :pick_up_date, class:"form-label"%>
+		<%= form.text_field :pick_up_date, class:"form-control form-control-lg"%>
+	</div>
+	<div class="form-outline mb-4">
+		<%= form.label :pick_up_time, class:"form-label"%>
+		<%= form.text_field :pick_up_time, class:"form-control form-control-lg"%>
+	</div>
+	<div class="form-outline mb-4">
+		<%= form.label :drop_off_location, class:"form-label"%>
+		<%= form.text_field :drop_off_location, class:"form-control form-control-lg"%>
+	</div>
+	<div class="form-outline mb-4">
+		<%= form.label :drop_off_date, class:"form-label"%>
+		<%= form.text_field :drop_off_date, class:"form-control form-control-lg"%>
+	</div>
+	<div class="form-outline mb-4">
+		<%= form.label :drop_off_time, class:"form-label"%>
+		<%= form.text_field :drop_off_time, class:"form-control form-control-lg"%>
+	</div>
+	<div class="form-outline mb-4">
+		<%= form.submit "Submit", class:"btn btn-outline-success" %>
+		<%= link_to "Back", car_rentals_path, class:"btn btn-warning "%>
+	</div>
+<% end %>
