@@ -77,6 +77,10 @@ gem "cssbundling-rails", "~> 1.3"
 gem "ransack", "~> 4.0"
 gem 'devise'
 
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
+
 
 
 
