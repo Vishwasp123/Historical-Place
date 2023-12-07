@@ -1,0 +1,2 @@
+module PopularPlacesHelper
+end

@@ -1,14 +1,25 @@
-<div class="col-lg-10 mx-auto mb-2">
+<div class="col-lg-10  col-sam-10 mx-auto mb-2">
+  <div class="dropdown text-end mb-3">
+    <a  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+     <i class="fa-solid fa-ellipsis-vertical fa-2xl" style="color: #0c0d0d;"></i>
+    </a>
+    <ul class="dropdown-menu">
+      <li><%= link_to "New", places_path(order: 'asc'), style: "text-decoration: none; color:black;", class:"dropdown-item" %></li>
+      <li><%= link_to "Old", places_path(order: 'desc'), style: "text-decoration: none; color:black;", class:"dropdown-item" %></li>
+      <li><%= link_to "A-Z", places_path(order: 'A-Z'), style: "text-decoration: none; color:black;", class:"dropdown-item" %></li>
+      <li><%= link_to "Z-A", places_path(order: 'Z-A'), style: "text-decoration: none; color:black;", class:"dropdown-item" %></li>
+    </ul>
+  </div>
   <% @places.each do |place| %>
     <%= link_to place_path(place), style: "text-decoration:none; color:black;" do %>
       <div class="card mb-3" style="width: 70rem;  ">
         <div class="row g-0">
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-12">
             <% if place.images.attached? %>
               <%= image_tag place.images.first, class: "img-fluid rounded-start", style:"width:100%; height:150px;" %>
             <% end %>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-8 col-sm-12">
             <div class="card-body">
               <h5 class="card-title"><%= place.name %></h5>
               <p class="card-text"><%= simple_format(truncate(place.history, length: 200)) %></p>
@@ -19,6 +30,7 @@
     <% end %>
   <% end %>
 </div>
+
 <style >
 .place-img{
   width: 100%;

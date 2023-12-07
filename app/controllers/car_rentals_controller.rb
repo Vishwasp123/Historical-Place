@@ -42,7 +42,7 @@ class CarRentalsController < ApplicationController
 	private
 
 	def car_params
-		params.require(:car_rental).permit(:car_number, :pick_up_location, :pick_up_date, :pick_up_time, :contact_number, :drop_off_location, :drop_off_date, :drop_off_time)
+		params.require(:car_rental).permit(:car_number, :pick_up_location, :pick_up_date, :pick_up_time, :contact_number, :drop_off_location, :drop_off_date, :drop_off_time, :car_name, :car_type)
 	end
 
 	def set_car_details

@@ -29,27 +29,27 @@
   <div class="card-deck">
     <% tourist_points = @tourist_points.where(place_name:@place.name)%>
     <% if tourist_points.present? %>
-    <h3 class="text-center mt-3"> Tourist Place in <%= @place.name %></h3>
-    <% @tourist_points.where(place_name: @place.name).each do |tourist_point| %>
+     <h3 class="text-center mt-3"> Tourist Place in <%= @place.name %></h3>
+     <% @tourist_points.where(place_name: @place.name).each do |tourist_point| %>
 
-    <div class="card mt-2">
-      <%= link_to tourist_point_path(tourist_point), style: "text-decoration:none; color:black;" do %>
-      <div class="row no-gutters ">
-        <div class="col-md-4">
-          <% if tourist_point.images.attached? %>
-          <%= image_tag tourist_point.images.first, class: "card-img", alt: "Place Image" %>
-          <% end %>
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h3 class="card-title"><%= tourist_point.location_name %></h3>
-            <p class="card-text"><%= simple_format(truncate(tourist_point.history, length: 200)) %></p>
+      <div class="card mt-2">
+        <%= link_to tourist_point_path(tourist_point), style: "text-decoration:none; color:black;" do %>
+          <div class="row no-gutters ">
+            <div class="col-md-4">
+              <% if tourist_point.images.attached? %>
+               <%= image_tag tourist_point.images.first, class: "card-img", alt: "Place Image" %>
+              <% end %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title"><%= tourist_point.location_name %></h3>
+                <p class="card-text"><%= simple_format(truncate(tourist_point.history, length: 200)) %></p>
+              </div>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
-      <% end %>
-    </div>
-    <% end %>
+     <% end %>
     <% end %>
   </div>
 </div>
@@ -57,12 +57,12 @@
 
 <div class="container " id="best_time_to_visit">
  <% @best_time_to_visits.where(place_name: @place.name).each do |best_time_to_visit| %>
- <div class="mt-4">
-   <h5 class=" fs-2 text-center">Best Time To Visit<span class="ms-3"><%= best_time_to_visit.place_name %></span></h5>
-   <div class="card-body">
-     <p class="card-text"><%= simple_format(best_time_to_visit.description) %></p>
-   </div> 
- </div>
+   <div class="mt-4">
+     <h5 class=" fs-2 text-center">Best Time To Visit<span class="ms-3"><%= best_time_to_visit.place_name %></span></h5>
+     <div class="card-body">
+       <p class="card-text"><%= simple_format(best_time_to_visit.description) %></p>
+     </div> 
+   </div>
  <% end %>
 </div>
 
@@ -71,40 +71,40 @@
   <div class="row">
     <% how_to_reachs = @how_to_reaches.where(place_name: @place.name)%>
     <% if how_to_reachs.present?%>
-    <h3>How to Reach <%= @place.name%></h3>
-    <% @how_to_reaches.where(place_name: @place.name).each do |how_to_reach| %>
-    <div class="col-lg-4 justify-content-between ">
-      <div class="container ">
-        <%= link_to how_to_reach_path(how_to_reach), style:"text-decoration:none; color:black;" do %>
-        <div class="card mx-auto" style="width: 18rem;">
-          <div class="card-body">
-            <!-- <h5 class="card-title">Place:<span><%= how_to_reach.place_name %></span></h5> -->
-            <p class="card-header"><span><%= how_to_reach.title %></span></p>
-            <p class="card-text mt-2"><span><%= how_to_reach.description %></span></p>
+     <h3>How to Reach <%= @place.name%></h3>
+      <% @how_to_reaches.where(place_name: @place.name).each do |how_to_reach| %>
+       <div class="col-lg-4 justify-content-between ">
+          <div class="container ">
+            <%= link_to how_to_reach_path(how_to_reach), style:"text-decoration:none; color:black;" do %>
+              <div class="card mx-auto" style="width: 18rem;">
+                <div class="card-body">
+                  <!-- <h5 class="card-title">Place:<span><%= how_to_reach.place_name %></span></h5> -->
+                  <p class="card-header"><span><%= how_to_reach.title %></span></p>
+                  <p class="card-text mt-2"><span><%= how_to_reach.description %></span></p>
+                </div>
+              </div>
+            <% end %>
           </div>
-        </div>
-        <% end %>
-      </div>
-    </div>
-    <% end %>
+       </div>
+     <% end %>
     <% end %>
   </div>
 </div>
 
 
 <div class="container" id="Gallery">
- <h4 class="m-2">Gallery</h4>
+ <h3 class="m-2 mt-4">Gallery</h3>
  <div class="row">
    <% @place.images.each do |image| %>
-   <% unless image == @place.images[0] %>
-   <div class="col-lg-4">
-     <div class="card mb-2 mt-2">
-       <a class="image-link" href="<%= rails_blob_path(image, only_path: true) %>" data-mfp-src="<%= rails_blob_path(image, only_path: true) %>" data-mfp-width="800" data-mfp-height="300">
-         <%= image_tag image, style: "width: 800px; height: 300px; max-width: 100%;" %>
-       </a>
-     </div>
-   </div>
-   <% end %>
+     <% unless image == @place.images[0] %>
+       <div class="col-lg-4">
+         <div class="card mb-2 mt-2">
+           <a class="image-link" href="<%= rails_blob_path(image, only_path: true) %>" data-mfp-src="<%= rails_blob_path(image, only_path: true) %>" data-mfp-width="800" data-mfp-height="300">
+             <%= image_tag image, style: "width: 800px; height: 300px; max-width: 100%;" %>
+           </a>
+         </div>
+       </div>
+     <% end %>
    <% end %>
  </div>
  <%= link_to "Back", places_path, class:"btn btn-outline-warning mb-3" %>
@@ -115,29 +115,29 @@
 
 <div class="container" id="nearby-places">
   <% if @place.near_by_places.present?%>   
-  <h3 class="text-center mt-3">Near_by Places for <%= @place.name %></h3>
-  <% @near_by_places.each do |near_by_place| %>
-  <%= link_to near_by_place_path(near_by_place), style: "text-decoration:none; color:black" do %>
-  <div class="col-lg-12 ">
-    <div class="card mb-3 near-card">
-      <div class="row g-0">
-        <div class="col-md-3"> <!-- Add mx-auto class here -->
-          <% if near_by_place.images.attached? %>
-          <%= image_tag near_by_place.images.first, class: "near_img" %>
-          <% end %>
-        </div>
-        <div class="col-md-8 mx-auto"> <!-- Add mx-auto class here -->
-          <div class="card-body">
-            <h2 class="card-title"><%= near_by_place.name %></h2>
-            <h5 class="card-title">City:<span><%= near_by_place.city %></span></h5>
-            <p class="card-title"><%= near_by_place.place.name %><span class="ms-1"><%= near_by_place.distance_from %></span></p>
+   <h3 class="text-center mt-3">Near_by Places for <%= @place.name %></h3>
+    <% @near_by_places.each do |near_by_place| %>
+      <%= link_to near_by_place_path(near_by_place), style: "text-decoration:none; color:black" do %>
+        <div class="col-lg-12 ">
+          <div class="card mb-3 near-card">
+            <div class="row g-0">
+              <div class="col-md-3"> <!-- Add mx-auto class here -->
+                <% if near_by_place.images.attached? %>
+                 <%= image_tag near_by_place.images.first, class: "near_img" %>
+                <% end %>
+              </div>
+              <div class="col-md-8 mx-auto"> <!-- Add mx-auto class here -->
+                <div class="card-body">
+                  <h2 class="card-title"><%= near_by_place.name %></h2>
+                  <h5 class="card-title">City:<span><%= near_by_place.city %></span></h5>
+                  <p class="card-title"><%= near_by_place.place.name %><span class="ms-1"><%= near_by_place.distance_from %></span></p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <% end %>
-  <% end %>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
 
@@ -168,15 +168,12 @@
         </div>
       <% end %>
     </div>
-  </div>
   <% end %>
 </div>
-  
+ 
 
-
-
-  <style>
-    .mfp-img {
+<style>
+  .mfp-img {
       max-width: 800px !important;
       max-height: 800px !important;
     }
@@ -187,25 +184,19 @@
      margin-top: 2px;
      margin-bottom: 0px;
    }
- </style>
+</style>
 
-
-
-
-
-
- <script>
-   $(document).ready(function() {
-   var maxWords = 100; // Maximum number of words to display initially
-   var historyContainer = $("#history-container");
-   var historyText = historyContainer.find("small");
-   var fullText = historyText.text();
-    // Function to trim and update the history text
-   function trimText() {
-    var words = fullText.split(' ');
-    var trimmedText = words.slice(0, maxWords).join(' ');
-    historyText.text(trimmedText);
-  }
+<script>
+$(document).ready(function() {
+  var maxWords = 100; // Maximum number of words to display initially
+  var historyContainer = $("#history-container");
+  var historyText = historyContainer.find("small");
+  var fullText = historyText.text();
+  // Function to trim and update the history text
+  function trimText() {
+  var words = fullText.split(' ');
+  var trimmedText = words.slice(0, maxWords).join(' ');
+  historyText.text(trimmedText); }
 
   // Initially trim the text
   trimText();

@@ -31,8 +31,8 @@
             <!-- Submit button -->
             <%= f.submit "Log in",class:"btn btn-primary btn-block" %><br>
          </form>
-         <a href="#!"><%#= render "users/shared/links" %></a>
-         <%= button_to 'Sign with Google', user_google_oauth2_omniauth_authorize_path, method: :post, data: { turbo: 'false' }, class: 'btn btn-outline-danger' %>
+         <a href="#!"><%= render "users/shared/links" %></a>
+         <%#= button_to 'Sign with Google', user_google_oauth2_omniauth_authorize_path, method: :post, data: { turbo: 'false' }, class: 'btn btn-outline-danger' %>
        </div>
         </div>
       </div>

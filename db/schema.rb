@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_01_122028) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_05_084603) do
   create_table "accommodations", force: :cascade do |t|
     t.string "name"
     t.string "city"
@@ -82,6 +82,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_01_122028) do
     t.string "drop_off_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "car_type"
+    t.string "car_name"
+    t.string "car_colour"
   end
 
   create_table "how_to_reaches", force: :cascade do |t|
@@ -106,6 +109,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_01_122028) do
     t.index ["tourist_point_id"], name: "index_near_by_places_on_tourist_point_id"
   end
 
+  create_table "papular_palaces", force: :cascade do |t|
+    t.string "name"
+    t.string "state"
+    t.string "about"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "city"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "state"
     t.string "name"
@@ -124,6 +136,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_01_122028) do
     t.string "name"
     t.string "email"
     t.string "contact_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "popular_places", force: :cascade do |t|
+    t.string "name"
+    t.string "city"
+    t.string "state"
+    t.string "about"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

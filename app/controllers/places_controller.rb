@@ -3,6 +3,19 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.includes(:tourist_points, images_attachments: :blob)
+
+   @places = case params[:order]
+      when 'asc'
+      @places.order(created_at: :asc)
+      when 'desc'
+      @places.order(created_at: :desc)
+     when 'A-Z'
+      @places.order(name: :asc).group(:name).order("MIN(created_at) ASC")
+     when 'Z-A'
+      @places.order(name: :desc).group(:name).order("MIN(created_at) DESC")
+      else
+      @places.order(name: :asc) # Default sorting
+   end
   end 
  
   def new
