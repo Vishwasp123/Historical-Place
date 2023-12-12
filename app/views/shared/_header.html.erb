@@ -3,11 +3,11 @@
    <%= link_to "Historical Places", root_path, class: "navbar-brand" %>
    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"       data-bs-target="#navbarSupportedContent" aria-controls="  navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-end">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            link
+          <a class="nav-link dropdown-toggle text-light " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Explore
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><%= link_to "Tourist Point", tourist_points_path, class: "dropdown-item" %></li>
@@ -19,30 +19,32 @@
             <li><%= link_to "Room", rooms_path, class: "dropdown-item" %></li>
             <li><%= link_to "plan your trip", plan_your_trips_path, class: "dropdown-item" %></li>
             <li><%= link_to "car rental", car_rentals_path, class: "dropdown-item" %></li>
-            <li><%= link_to "Papular Palace", papular_palaces_path, class: "dropdown-item" %></li>
              <li><%= link_to "Popular Place", popular_places_path, class: "dropdown-item" %></li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
+      </ul>
+      <li class="nav-item dropdown me-4">
           <a class="nav-link dropdown-toggle text-light" href="#" id="exploreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Explore
-          </a>
-          <% if user_signed_in? %>
-            <ul class="dropdown-menu" aria-labelledby="exploreDropdown">
-              <li><%= link_to "sign out", destroy_user_session_path, method: :delete  %></li>
-              <li><%= link_to current_user.email, profile_path, class: 'profile-link', style:"text-decoration:none; color:black;" %>
-              </li>
+           <i class="fa-regular fa-user fa-lg "></i>
+         </a>
+         <% if user_signed_in? %>
+           <ul class="dropdown-menu " aria-labelledby="exploreDropdown">
+             <li><%= link_to "sign out", destroy_user_session_path, method: :delete, class:"ms-3"  %></li>
+             <li><%= link_to current_user.email, profile_path, class: 'profile-link ms-3', style:"text-decoration:none; color:black;" %></li>
             </ul>
+         <% end %>
+        </li>
+    
+        <li class="">
+          <%= form_with(url: search_path, method: "get", local: true) do |form| %>
+            <div class="search-form d-flex ">
+              <%= form.text_field :search, placeholder: "Search", class: "  d-flex form-control " %>
+              <%= form.submit "Search", class: "btn btn-outline-warning ms-2 " %>
+            </div>
           <% end %>
         </li>
         
       </ul>
-      <%= form_with(url: search_path, method: "get", local: true) do |form| %>
-        <div class="search-form d-flex">
-          <%= form.text_field :search, placeholder: "Search", class: "d-flex form-control" %>
-          <%= form.submit "Search", class: "btn btn-outline-warning ms-2" %>
-        </div>
-      <% end %>
     </div>
   </div>
 </nav>

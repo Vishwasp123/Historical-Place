@@ -5,11 +5,41 @@
 				<div class="card-body">
 					<h5 class="card-title"><%= @how_to_reach.place_name%></h5>
 					<p class="card-text"><%= @how_to_reach.description %></p>
-					<%= link_to "Back", places_path, class:"btn btn-outline-warning" %>
+					<%= link_to "Back", place_path(@how_to_reach.place_name), class: "btn btn-outline-warning" %>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+<!-- app/views/how_to_reaches/show.html.erb -->
+
+<div class="container mt-4" id="how_to_rich">
+  <div class="row">
+    <% how_to_reachs = @how_to_reaches.where(place_name: @place.name) %>
+    <% if how_to_reachs.present? %>
+      <h3>How to Reach <%= @place.name %></h3>
+      <% @how_to_reaches.where(place_name: @place.name).each do |how_to_reach| %>
+        <div class="col-lg-4 justify-content-between">
+          <div class="container">
+            <%= link_to how_to_reach_path(how_to_reach), style: "text-decoration:none; color:black;" do %>
+              <div class="card mx-auto" style="width: 18rem;">
+                <div class="card-body">
+                  <p class="card-header"><span><%= how_to_reach.title %></span></p>
+                  <p class="card-text mt-2"><span><%= how_to_reach.description %></span></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <!-- Back link to the Place show page -->
+      <div class="mt-4">
+        <%= link_to "Back to Place", place_path(@place), class: "btn btn-outline-warning" %>
+      </div>
+
+    <% end %>
+  </div>
 </div>
 
 

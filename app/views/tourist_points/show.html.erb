@@ -23,9 +23,9 @@
 				<p class="card-text">History:<small class="ms-2"><%= simple_format @tourist_point.history %></small></p>
 			</div>
 			<div class="card-footer text-muted">
-				<%= link_to "Back", tourist_points_path, class:"btn btn-outline-primary" %>
-				<%= link_to "Edit", edit_tourist_point_path, class:"btn btn-outline-warning" %>
-				<%= link_to "Delete", tourist_point_path(@tourist_point), method: :delete ,data:{confirm:"Are you sure "} ,class:"btn btn-outline-danger"%>
+			 <%= link_to "Back to Place", place_path(@tourist_point.places.first), class: "btn btn-outline-primary" %>
+				<%#= link_to "Edit", edit_tourist_point_path, class:"btn btn-outline-warning" %>
+				<%#= link_to "Delete", tourist_point_path(@tourist_point), method: :delete ,data:{confirm:"Are you sure "} ,class:"btn btn-outline-danger"%>
 				<%#= link_to "destroy", place_path(@place) , method: :delete, data: {confirm: "Are you Sure?"} %>
 			</div>
 		</div>

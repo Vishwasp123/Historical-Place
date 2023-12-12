@@ -75,15 +75,13 @@
       <% @how_to_reaches.where(place_name: @place.name).each do |how_to_reach| %>
        <div class="col-lg-4 justify-content-between ">
           <div class="container ">
-            <%= link_to how_to_reach_path(how_to_reach), style:"text-decoration:none; color:black;" do %>
-              <div class="card mx-auto" style="width: 18rem;">
-                <div class="card-body">
-                  <!-- <h5 class="card-title">Place:<span><%= how_to_reach.place_name %></span></h5> -->
-                  <p class="card-header"><span><%= how_to_reach.title %></span></p>
-                  <p class="card-text mt-2"><span><%= how_to_reach.description %></span></p>
-                </div>
-              </div>
-            <% end %>
+            <div class="card mx-auto" style="width: 18rem;">
+             <div class="card-body">
+                <!-- <h5 class="card-title">Place:<span><%= how_to_reach.place_name %></span></h5> -->
+                <p class="card-header"><span><%= how_to_reach.title %></span></p>
+                <p class="card-text mt-2"><span><%= how_to_reach.description %></span></p>
+               </div>
+            </div>
           </div>
        </div>
      <% end %>
@@ -107,7 +105,7 @@
      <% end %>
    <% end %>
  </div>
- <%= link_to "Back", places_path, class:"btn btn-outline-warning mb-3" %>
+ <%#= link_to "Back", places_path, class:"btn btn-outline-warning mb-3" %>
  <%#= link_to "Delete" , places_path ,  data: {
  turbo_confirm: 'Are you Sure?', turbo_method: :delete }, class:"btn btn-primary" %>
 </div>
