@@ -1,4 +1,5 @@
 class TouristPointsController < ApplicationController
+  
   before_action :set_tourist_point, only: %i[edit show update destroy]
 
   def index

@@ -1,9 +1,11 @@
 class CarRentalsController < ApplicationController
+	
 	before_action :set_car_details, only: %i[edit show update destroy]
 
 	def index
 		@car_rentals = CarRental.all
 	end
+
 	def new
 		@car_rental = CarRental.new
 	end
@@ -16,8 +18,6 @@ class CarRentalsController < ApplicationController
 			render :new
 		end
 	end
-
-	
 
 	def show 
 	end
@@ -48,5 +48,5 @@ class CarRentalsController < ApplicationController
 	def set_car_details
 		@car_rental = CarRental.find(params[:id])
 	end
-
+	
 end

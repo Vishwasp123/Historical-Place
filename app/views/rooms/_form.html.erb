@@ -1,7 +1,6 @@
 <%= form_with model: @room, html:{ data: { turbo: false } } do |form| %>
   <%= form.hidden_field :accommodation_id, value: @accommodation.id %>
 
-
   <div class="form-outline mb-2">
     <%= form.label :title, class: "form-label m-0" %>
     <%= form.select :title, options_for_select([["Select a Title", ""], ["Super", "super"], ["Delux", "delux"], ["Premium", "premium"]], @room.title), {}, { class: "form-select", id: "title-select" } %>

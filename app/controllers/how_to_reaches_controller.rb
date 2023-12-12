@@ -21,8 +21,10 @@ class HowToReachesController < ApplicationController
 
 	def edit 
 	end 
+
 	def show
 	end
+	
 	def update
 		if @how_to_reach.update(how_to_reach_params)
 			redirect_to how_to_reaches_path , notice:"update succefully"

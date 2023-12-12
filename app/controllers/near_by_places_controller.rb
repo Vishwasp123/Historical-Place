@@ -50,5 +50,4 @@ class NearByPlacesController < ApplicationController
   def near_by_place_params
     params.require(:near_by_place).permit(:tourist_point_id, :place_id, :name, :longitude, :latitude, :city, :distance_from, images: [])
   end
-
 end

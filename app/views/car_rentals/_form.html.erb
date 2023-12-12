@@ -29,15 +29,12 @@
 	</div>
 
    <div class="form-outline mb-4">
-  <%= form.label :car_name, class: "form-label" %>
-  <%= form.select :car_name, ['Select','Mahindra', 'MarutiSuzuki', 'Hyundai','Tata'], {}, class: "form-select form-select-lg" %>
-</div>
-
-
+      <%= form.label :car_name, class: "form-label" %>
+      <%= form.select :car_name, ['Select','Mahindra', 'MarutiSuzuki', 'Hyundai','Tata'], {}, class: "form-select form-select-lg" %>
+   </div>
 
 	<div class="modal-footer">
         <%= form.submit "Submit", class:"btn btn-outline-success" %>
 		<%= link_to "Back", car_rentals_path, class:"btn btn-warning "%>  
-    </div>
-	
+    </div>	
 <% end %>

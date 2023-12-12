@@ -66,7 +66,6 @@
  <% end %>
 </div>
 
-
 <div class="container mt-4" id="how_to_rich">
   <div class="row">
     <% how_to_reachs = @how_to_reaches.where(place_name: @place.name)%>
@@ -89,7 +88,6 @@
   </div>
 </div>
 
-
 <div class="container" id="Gallery">
  <h3 class="m-2 mt-4">Gallery</h3>
  <div class="row">
@@ -109,7 +107,6 @@
  <%#= link_to "Delete" , places_path ,  data: {
  turbo_confirm: 'Are you Sure?', turbo_method: :delete }, class:"btn btn-primary" %>
 </div>
-
 
 <div class="container" id="nearby-places">
   <% if @place.near_by_places.present?%>   
@@ -175,52 +172,52 @@
       max-width: 800px !important;
       max-height: 800px !important;
     }
-    .place-img{
-     width: 100%;
-     height: 200px;
-     max-height: 200px;
-     margin-top: 2px;
-     margin-bottom: 0px;
-   }
+  .place-img{
+   width: 100%;
+   height: 200px;
+   max-height: 200px;
+   margin-top: 2px;
+   margin-bottom: 0px;
+  }
 </style>
 
 <script>
-$(document).ready(function() {
-  var maxWords = 100; // Maximum number of words to display initially
-  var historyContainer = $("#history-container");
-  var historyText = historyContainer.find("small");
-  var fullText = historyText.text();
-  // Function to trim and update the history text
-  function trimText() {
-  var words = fullText.split(' ');
-  var trimmedText = words.slice(0, maxWords).join(' ');
-  historyText.text(trimmedText); }
+  $(document).ready(function() {
+    var maxWords = 100; // Maximum number of words to display initially
+    var historyContainer = $("#history-container");
+    var historyText = historyContainer.find("small");
+    var fullText = historyText.text();
+    // Function to trim and update the history text
+    function trimText() {
+    var words = fullText.split(' ');
+    var trimmedText = words.slice(0, maxWords).join(' ');
+    historyText.text(trimmedText); }
 
-  // Initially trim the text
-  trimText();
+    // Initially trim the text
+    trimText();
 
-  // Show More button click event
-  $("#toggle-history").click(function() {
-    if ($(this).hasClass("showing-more")) {
-    // If showing more, switch to showing less
-      trimText();
-      $(this).text("Show More");
-      $(this).removeClass("showing-more");
-    } else {
-    // If showing less, display the full text
-      historyText.text(fullText);
-      $(this).text("Show Less");
-      $(this).addClass("showing-more");
-    }
+    // Show More button click event
+    $("#toggle-history").click(function() {
+      if ($(this).hasClass("showing-more")) {
+      // If showing more, switch to showing less
+        trimText();
+        $(this).text("Show More");
+        $(this).removeClass("showing-more");
+      } else {
+      // If showing less, display the full text
+        historyText.text(fullText);
+        $(this).text("Show Less");
+        $(this).addClass("showing-more");
+      }
+    });
+
+    $('.image-link').magnificPopup({
+      type: 'image',
+      gallery: {
+        enabled: true
+      }, 
+    });
   });
-
-  $('.image-link').magnificPopup({
-    type: 'image',
-    gallery: {
-      enabled: true
-    }, 
-  });
-});
 </script>
 
 

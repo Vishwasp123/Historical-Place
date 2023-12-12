@@ -18,8 +18,7 @@
 
 <body>
  <%= render 'shared/header', class:"navbar-position" %>
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
- <%= yield %>
+ <%= render 'shared/flash', class:"navbar-position "%>
+ <p><%= yield %></p>
 </body>
 </html>

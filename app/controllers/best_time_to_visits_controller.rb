@@ -19,7 +19,6 @@ class BestTimeToVisitsController < ApplicationController
 		end
 	end
 
-
 	def show
 	end
 
