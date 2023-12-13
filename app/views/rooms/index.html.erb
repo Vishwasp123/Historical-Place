@@ -8,23 +8,24 @@
           <th scope="col">room_number</th>
           <th scope="col">contact_number</th>
           <th scope="col">check_in_date</th>
-          <!-- <th scope="col">check_in_time</th> -->
           <th scope="col"> price</th> 
         </tr>
       </thead>
-      <tbody>
-       <% @rooms.each do |room|%>
-       <tr>
-        <th scope="row"><%= room.title%></th>
-        <td><%= room.room_number%></td>
-        <td><%= room.contact_number%></td>
-       <td> <%= room.check_in_date %></td>
-        <td><%= room.check_in_date %><span class="ms-1"><%= room.check_in_time%></span></td>
-        <td><%#= room.check_in_time %></td>
-        <td><%= room.price%></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      
+      <% @rooms.each do |room| %>
+        <tbody>
+          <%= link_to room_path(room), style: "text-decoration:none; color:black;" do %>
+            <tr>
+              <td><%= room.title %></td>
+              <td><%= room.room_number %></td>
+              <td><%= room.contact_number %></td>
+              <td><%= room.check_in_date %><span class="ms-1"><%= room.check_in_time %></span></td>
+              <td><%= room.price %></td>
+              <td><%= link_to "show", room, class: "btn btn-primary" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+     <% end %>
+    </table>
+  </div>
 </div>

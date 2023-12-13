@@ -1,10 +1,11 @@
 <%= form_with model: @room, html:{ data: { turbo: false } } do |form| %>
-  <%= form.hidden_field :accommodation_id, value: @accommodation.id %>
+
 
   <div class="form-outline mb-2">
     <%= form.label :title, class: "form-label m-0" %>
     <%= form.select :title, options_for_select([["Select a Title", ""], ["Super", "super"], ["Delux", "delux"], ["Premium", "premium"]], @room.title), {}, { class: "form-select", id: "title-select" } %>
   </div>
+
   <div class="d-flex justify-content-between ">
     <div class="form-outline m-0 mt-2" >
       <%= form.label :contact_number, class:"form-label m-0"%>
@@ -13,6 +14,7 @@
       <p class="text-danger"><%= message%></p>
       <% end %>
     </div>
+
     <div class="form-outline mt-2" >
       <%= form.label :location, class:"form-label m-0" %>
       <%= form.text_field :location, class:"form-control"%>
@@ -20,18 +22,19 @@
       <p class="text-danger"><%= message%></p>
       <% end %>
     </div>
+
     <div class="form-outline mt-2" >
       <%= form.label :room_number, class:"form-lablel"%>
-      <%= form.select :room_number,options_for_select([["Select a room", ""], ["1", "1"], ["2", "2"], ["3", "4"]], @room.room_number), {}, { class: "form-select", id: "title-select" } %>
+      <%= form.select :room_number, options_for_select([["Select a room", ""], ["1", "1"], ["2", "2"], ["3", "3"]], @room.room_number), {}, { class: "form-select", id: "title-select" } %>
       <% @room.errors.full_messages_for(:room_number).each do |message| %>
       <p class="text-danger"><%= message%></p>
       <% end %>
     </div>
   </div>
+
   <div class="form-outline mt-2">
     <%= form.label :check_in_time, "Check-In", class: "form-label m-0" %>
     <div class="d-flex justify-content-between ">
-
       <%= form.date_field :check_in_date, class:"form-control" %>
       <%= form.select :check_in_hour, (1..12), { include_blank: "Hour" }, id: "check_in_hour ", class: "form-select mx-3" %>
       :
@@ -39,9 +42,9 @@
       <%= form.select :check_in_period, ["AM", "PM"], { include_blank: "Select am/pm" }, id: "check_in_period", class: "form-select" %>
     </div> 
   </div>
+
   <div class="form-outline mt-3">
     <%= form.label :check_out_time, "Check-Out", class:"form-label m-0"%>
-
     <div class="d-flex justify-content-between ">
       <%= form.date_field :check_out_date, class:"form-control" %>
       <%= form.select :check_out_hour, (1..12), { include_blank: "Hour" }, id: "check_out_hour", class: "form-select mx-3" %>
@@ -54,6 +57,7 @@
       <% end %>
     </div>
   </div>
+
   <div class="form-outline mt-3">
     <%= form.label :adults, class:"form-label m-0" %>
     <%= form.text_field :adults, class:"form-control"%>
@@ -61,6 +65,7 @@
     <p class="text-danger"><%= message%></p>
     <% end %>
   </div>
+
   <div class="form-ouline mt-3">
     <%= form.label :childrens, class:"form-label m-0" %>
     <%= form.text_field :childrens, class:"form-control"%>
@@ -68,15 +73,18 @@
     <p class="text-danger"><%= message%></p>
     <% end %>
   </div>
-  <div class="form-outline mt-3">
 
+  <div class="form-outline mt-3">
     <%= form.label :facilities, class: "form-label m-0" %>
     <%= form.select :facilities, [], {}, { class: "form-select", id: "facilities-select" } %>
   </div>
+
   <div class="form-outline mt-3">
     <%= form.label :price %>
     <%= form.text_field :price, id: "price-select", class: "form-control", readonly: true %>
   </div>
+
+  <%= form.hidden_field :accommodation_id, value: @accommodation.id %>
   <%= form.submit class:"btn btn-outline-warning my-3"%>
 <% end %>
 
