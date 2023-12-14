@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_05_084603) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_14_060231) do
   create_table "accommodations", force: :cascade do |t|
     t.string "name"
     t.string "city"
@@ -107,15 +107,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_05_084603) do
     t.string "city"
     t.index ["place_id"], name: "index_near_by_places_on_place_id"
     t.index ["tourist_point_id"], name: "index_near_by_places_on_tourist_point_id"
-  end
-
-  create_table "papular_palaces", force: :cascade do |t|
-    t.string "name"
-    t.string "state"
-    t.string "about"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "city"
   end
 
   create_table "places", force: :cascade do |t|

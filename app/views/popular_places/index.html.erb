@@ -8,12 +8,12 @@
           <div class="col-lg-10 mx-auto">
             <div class="card mb-3">
               <% if popular_place.popular_place_images.attached? %>
-              <%= image_tag popular_place.popular_place_images.first, class: "img-fluid rounded-start", style:"width:100%; height:450px;" %>
-            <% end %>
+               <%= image_tag popular_place.popular_place_images.first, class: "img-fluid rounded-start", style:"width:100%; height:450px;" %>
+              <% end %>
               <div class="card-body">
                 <h5 class="card-title"><%= popular_place.name %></h5>
-                <p class="card-text">City: <span><%= popular_place.city %></span></p>
-                <p class="card-text">State: <span><%= popular_place.state %></span></p>
+                <p class="card-text">City:<span><%= popular_place.city %></span></p>
+                <p class="card-text">State:<span><%= popular_place.state %></span></p>
                 <p><small><%= popular_place.about%></small></p>
               </div>
             </div>
