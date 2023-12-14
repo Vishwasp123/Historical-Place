@@ -11,49 +11,64 @@ require 'faker'
 3.times do |index|
 
 	Place.create(
-    name: Faker::Address.unique.city,
-    state: Faker::Address.state,
-    district: Faker::Address.community,
-    latitude: Faker::Address.latitude,
-    longitude: Faker::Address.longitude
+    name: 
+    state: 
+    district: 
+    latitude: 
+    longitude: 
   )
   puts "#{index + 1} places created successfully!"
 	
 
 	TouristPoint.create(
-    location_name: Faker::Address.unique.city,
-    place_name: Faker::Address.unique.city,
-    history: Faker::Lorem.paragraph,
-    latitude: Faker::Address.latitude,
-    longitude: Faker::Address.longitude
+    location_name: 
+    place_name: 
+    history: 
+    latitude: 
+    longitude: 
   )
   puts "#{index + 1} TouristPoint create succefully"
 
+  NearByPlace.create(
+    tourist_point_id: 
+    place_id:
+    name:
+    distance_from:
+    city:
+  )
+
+  puts "#{index + 1} NearByPlace"
   BestTimeToVisit.create(
-    title: Faker::Lorem.sentence,
-    place_name: Faker::Address.unique.city,
-    description: Faker::Lorem.paragraph
+    title: 
+    place_name: 
+    description: 
   )
 
   puts "#{index + 1} best time to visit"
 
   PopularPlace.create(
-    name: Faker::Company.name,
-    state: Faker::Address.state,
-    about: Faker::Lorem.paragraph,
-    city: Faker::Address.city
+    name: 
+    state: 
+    about: 
+    city: 
   )
   puts "#{index + 1}  PopularPalace"
 
   PlanYourTrip.create(
-    days_of_travel: Faker::Number.between(from: 1, to: 30).to_s,
-    start_point_city: Faker::Address.city,
-    travel_month: Faker::Date.between(from: Date.today, to: 1.year.from_now).strftime('%B'),
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    contact_number: Faker::PhoneNumber.phone_number
+    days_of_travel: ,
+    start_point_city: ,
+    travel_month: ,
+    name: ,
+    email: ,
+    contact_number: ,
   )
   puts "#{index + 1} PlanYourTrip"
+
+
+
+
+
+
 
 end
 

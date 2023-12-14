@@ -3,7 +3,7 @@ class TouristPointsController < ApplicationController
   before_action :set_tourist_point, only: %i[edit show update destroy]
 
   def index
-    @tourist_points = TouristPoint.includes(:near_by_places, :places, images_attachments: :blob).all
+    @tourist_points = TouristPoint.includes(:near_by_places, :places, images_attachments: :blob).order("created_at DESC").all
   end
 
   def new

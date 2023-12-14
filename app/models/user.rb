@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:google_oauth2]
 
   has_one_attached :user_image
+  has_many :rooms
+
   
   def name
     "#{first_name} #{last_name}"

@@ -2,7 +2,7 @@ class PopularPlacesController < ApplicationController
    before_action :set_paln_your_trip, only: %i[show edit update destroy]
 
   def index
-    @popular_places = PopularPlace.includes(popular_place_images_attachments: :blob).all
+    @popular_places = PopularPlace.includes(popular_place_images_attachments: :blob).order("created_at DESC").all
   end
 
   def new

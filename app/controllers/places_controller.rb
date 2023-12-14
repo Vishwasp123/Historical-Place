@@ -14,7 +14,7 @@ class PlacesController < ApplicationController
      when 'Z-A'
       @places.order(name: :desc).group(:name).order("MIN(created_at) DESC")
       else
-      @places.order(name: :asc) # Default sorting
+      @places.order(name: :desc) # Default sorting
    end
   end 
  
