@@ -183,40 +183,48 @@
 
 <script>
   $(document).ready(function() {
-    var maxWords = 50; // Maximum number of words to display initially
+    var maxWords = 100; // Maximum number of words to display initially
     var historyContainer = $("#history-container");
     var historyText = historyContainer.find("small");
     var fullText = historyText.text();
+
+    // Function to check if the history text has more than maxWords
+    function hasMoreWords() {
+      var words = fullText.split(' ');
+      return words.length > maxWords;
+    }
+
     // Function to trim and update the history text
     function trimText() {
-    var words = fullText.split(' ');
-    var trimmedText = words.slice(0, maxWords).join(' ');
-    historyText.text(trimmedText); }
+      var words = fullText.split(' ');
+      var trimmedText = words.slice(0, maxWords).join(' ');
+      historyText.text(trimmedText);
+    }
 
     // Initially trim the text
     trimText();
 
     // Show More button click event
     $("#toggle-history").click(function() {
-      if ($(this).hasClass("showing-more")) {
-      // If showing more, switch to showing less
-        trimText();
-        $(this).text("Show More");
-        $(this).removeClass("showing-more");
-      } else {
-      // If showing less, display the full text
-        historyText.text(fullText);
-        $(this).text("Show Less");
-        $(this).addClass("showing-more");
+      if (hasMoreWords()) {
+        if ($(this).hasClass("showing-more")) {
+          // If showing more, switch to showing less
+          trimText();
+          $(this).text("Show More");
+          $(this).removeClass("showing-more");
+        } else {
+          // If showing less, display the full text
+          historyText.text(fullText);
+          $(this).text("Show Less");
+          $(this).addClass("showing-more");
+        }
       }
     });
 
-    $('.image-link').magnificPopup({
-      type: 'image',
-      gallery: {
-        enabled: true
-      }, 
-    });
+    // Hide the button initially if there are not more than maxWords
+    if (!hasMoreWords()) {
+      $("#toggle-history").hide();
+    }
   });
 </script>
 
