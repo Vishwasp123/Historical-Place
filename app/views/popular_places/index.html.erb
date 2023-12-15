@@ -1,6 +1,8 @@
 <div class="col-lg-12">
   <div class="container">
-    <%= link_to "create new", new_popular_place_path, class: "btn btn-primary mb-3" %>
+    <% if @popular_places.present? %>
+     <%= link_to "create new", new_popular_place_path, class: "btn btn-primary mb-3" %>
+    <% end %>
     <h4 class="card-text text-center fs-1">Best 10 Places in India</h4>
     <div class="row">
       <% @popular_places.each do |popular_place| %>

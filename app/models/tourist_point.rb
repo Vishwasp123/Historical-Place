@@ -3,7 +3,7 @@ class TouristPoint < ApplicationRecord
 	has_many :near_by_places, dependent: :destroy
 	has_many :places, through: :near_by_places, dependent: :destroy
 
-	validates :location_name, :place_name, :history , :images, presence:true 
+	validates :location_name, :place_name, :history , presence:true 
 	validates :longitude , :latitude,  uniqueness: true , presence:true
 
 	def self.ransackable_attributes(auth_object = nil)

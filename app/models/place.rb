@@ -5,7 +5,9 @@ class Place < ApplicationRecord
   has_many :near_by_places, dependent: :destroy
   has_many :tourist_points, through: :near_by_places, dependent: :destroy
 
-  validates :state, :name, :district, :history, :images, presence: true
+  
+
+  validates :state, :name, :district, :history, presence: true
   validates :latitude, :longitude, presence:true, 
               uniqueness: { message: "latitude and longitude must be uniq" }
 
