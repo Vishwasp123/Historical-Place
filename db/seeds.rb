@@ -48,7 +48,7 @@ place = [
 ]
 
 
-3.times do |index|
+1.times do |index|
   Place.create(
     name: 'Indore',
     state: 'Madhya Pradesh',
