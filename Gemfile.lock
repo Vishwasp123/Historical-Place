@@ -108,7 +108,6 @@ GEM
     ffi (1.16.3)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    gmaps4rails (2.1.2)
     hashie (5.0.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -291,7 +290,6 @@ DEPENDENCIES
   debug
   devise
   faker
-  gmaps4rails
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
