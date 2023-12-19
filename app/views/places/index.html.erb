@@ -10,8 +10,7 @@
         <li><%= link_to "A-Z", places_path(order: 'A-Z'), style: "text-decoration: none; color:black;", class:"dropdown-item" %></li>
         <li><%= link_to "Z-A", places_path(order: 'Z-A'), style: "text-decoration: none; color:black;", class:"dropdown-item" %></li>
       </ul>
-    </div>
-  
+    </div> 
   <% end %>
 
   <% @places.each do |place| %>
@@ -42,3 +41,6 @@
     max-height: 150px;
   }
 </style>
+
+
+

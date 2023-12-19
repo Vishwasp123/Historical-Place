@@ -8,13 +8,15 @@
     "autoprefixer": "^10.4.16",
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.1",
+    "gmaps": "^0.4.25",
     "jquery": "^3.7.1",
     "magnific-popup": "^1.1.0",
     "nodemon": "^3.0.1",
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "sass": "^1.69.2",
-    "trix": "^2.0.7"
+    "trix": "^2.0.7",
+    "underscore": "^1.13.6"
   },
   "scripts": {
     "build:css:compile": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",

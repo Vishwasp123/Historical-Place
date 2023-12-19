@@ -109,6 +109,14 @@ place = [
     PlanYourTrip.create(plan_attributes)
   end
   puts "#{index + 1} PlanYourTrip"
+
+  user = [
+    {first_name: 'example1', last_name: 'test1', contact_number: 6587423698, address: 'Indore', email: 'example1@gamil.com', password: 123456 },
+    {first_name: 'example2', last_name: 'test2', contact_number: 6587423852, address: 'Indore', email: 'example2@gamil.com', password: 123456 },
+    {first_name: 'example3', last_name: 'test3', contact_number: 6587423698, address: 'Indore', email: 'example3@gamil.com', password: 123456 } ]
+    user.each do |user|
+      User.create(user)
+    end
 end
 
 
