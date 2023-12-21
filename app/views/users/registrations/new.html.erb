@@ -70,6 +70,16 @@
               <%= f.label :email,class:"form-label" %><br />
               <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control form-control-lg", placeholder:"Enter valid email" %>
             </div>
+
+            <!-- Default radio -->
+            <div class="field my-3 justify-content-between">
+              <%= f.radio_button :role, 'user', class: 'form-check-input', id: 'flexRadioDefault1', checked: f.object.role.nil? || f.object.role == 'user' %>
+              <%= f.label :user, class: 'form-check-label', for: 'flexRadioDefault1' %> 
+
+              <%= f.radio_button :role, 'admin', class: 'form-check-input ms-3', id: 'flexRadioDefault2', checked: f.object.role == 'admin' %>
+              <%= f.label :admin, class: 'form-check-label', for: 'flexRadioDefault2' %> 
+            </div>
+  
             <div class="field">
               <%= f.label :password ,class:"form-label"%>
               <% if @minimum_password_length %>

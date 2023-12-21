@@ -1,0 +1,29 @@
+<div class="col-lg-12 col-md-12 col-sm-12">
+  <div class="container">
+    <% if @how_to_reaches.present? %>
+      <div class="row">
+        <% @how_to_reaches.each do |how_to_reach| %>
+          <div class="col-lg-3 col-md-6 mt-2">
+            <div class="container ">
+              <%= link_to admin_how_to_reach_path(how_to_reach), style: "text-decoration:none; color:black;" do %>
+                <div class="card" style="width: 17rem;">
+                  <div class="card-body ">
+                    <h5 class="card-title">Place:<span><%= how_to_reach.place_name %></span></h5>
+                    <p class="card-text">Title:<span><%= how_to_reach.title %></span></p>
+                    <p class="card-text">Description:<span><%= how_to_reach.description %></span></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="lead text-danger">No Data Available</p>
+    <% end %>
+    <div class="mt-2">
+      <%= paginate @how_to_reaches %>
+    </div>
+  </div>
+</div>
+

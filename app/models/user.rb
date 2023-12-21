@@ -8,9 +8,28 @@ class User < ApplicationRecord
   has_one_attached :user_image
   has_many :rooms
 
+  validates :role , presence: true
+
   
   def name
     "#{first_name} #{last_name}"
+  end
+
+
+  #roles are define for user role
+  ROLES = %w{admin user}
+
+  #create run time role method 
+  ROLES.each do |role_name| 
+    define_method "#{role_name}?" do 
+      role == role_name
+    end
+  end
+
+
+
+  def admin?
+    role== 'admin'
   end
 
   # omniauth login using google

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-   <%= link_to "Historical Places", root_path, class: "navbar-brand" %>
+   <%= link_to "Historical Places", admin_root_path, class: "navbar-brand" %>
    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"       data-bs-target="#navbarSupportedContent" aria-controls="  navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
    </button>
    <div class="collapse navbar-collapse " id="navbarSupportedContent">
@@ -10,16 +10,16 @@
            Explore
          </a>
          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to "Tourist Point", tourist_points_path, class: "dropdown-item" %></li>
-            <li><%= link_to "New Place", new_place_path, class: "dropdown-item" %></li>
-            <li><%= link_to "Nearby Place", near_by_places_path, class: "dropdown-item" %></li>
-            <li><%= link_to "How to Reach", how_to_reaches_path, class: "dropdown-item" %></li>
-            <li><%= link_to "Best Time to Visit", best_time_to_visits_path, class: "dropdown-item" %></li>
-            <li><%= link_to "Accommodation", accommodations_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Tourist Point", admin_tourist_points_path, class: "dropdown-item" %></li>
+            <li><%= link_to "New Place", new_admin_place_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Nearby Place", admin_near_by_places_path, class: "dropdown-item" %></li>
+            <li><%= link_to "How to Reach", admin_how_to_reaches_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Best Time to Visit", admin_best_time_to_visits_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Accommodation", admin_accommodations_path, class: "dropdown-item" %></li>
             <li><%#= link_to "Room", rooms_path, class: "dropdown-item" %></li>
-            <li><%= link_to "plan your trip", plan_your_trips_path, class: "dropdown-item" %></li>
-            <li><%= link_to "car rental", car_rentals_path, class: "dropdown-item" %></li>
-            <li><%= link_to "Popular Place", popular_places_path, class: "dropdown-item" %></li>
+            <li><%= link_to "plan your trip", admin_plan_your_trips_path, class: "dropdown-item" %></li>
+            <li><%= link_to "car rental", admin_car_rentals_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Popular Place", admin_popular_places_path, class: "dropdown-item" %></li>
          </ul>
         </li>
      </ul>
@@ -30,11 +30,11 @@
          <% if user_signed_in? %>
            <ul class="dropdown-menu">
               <li><%= link_to "sign out", destroy_user_session_path, method: :delete, class:"ms-3"  %></li>
-              <li><%= link_to current_user.email, profile_path , class: 'profile-link ms-3', style:"text-decoration:none; color:black;" %></li>
+              <li><%= link_to current_user.email, admin_profile_path , class: 'profile-link ms-3', style:"text-decoration:none; color:black;" %></li>
             </ul>
          <% end %>
      </div>
-     <%= form_with(url: search_path, method: "get", local: true, id:"searchForm") do |form| %>
+     <%= form_with(url: admin_search_path, method: "get", local: true, id:"searchForm") do |form| %>
         <div class=" d-flex mb-2 ">
           <%= form.text_field :search, placeholder: "Search", class: "form-control me-2"  %>
           <%= form.submit "Submit", class: "btn btn-outline-warning", id: "submitbutton", style: "display: none;"%>

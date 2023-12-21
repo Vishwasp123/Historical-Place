@@ -1,0 +1,26 @@
+<div class="container">
+  <% if @plan_your_trips.present? %>
+    <div class="row">
+        <% @plan_your_trips.each do |trip| %>
+          <div class="col-lg-6 my-3">
+            <div class="card">
+              <%= link_to admin_plan_your_trip_path(trip) , style:"text-decoration:none; color:black" do  %>
+                  <div class="card-header">Name:<span><%= trip.name %></span></div>
+                  <div class="card-body">
+                    <h5 class="card-title">Start Point:<span><%= trip.start_point_city %></span></h5>
+                    <p class="card-text"> Month:<span><%= trip.travel_month %></span></p>
+                    <p class="card-text">Total Days<span><%= trip.days_of_travel %></span></p>
+                    <p class="card-text">Email:<span class="ms-1"><%= trip.email %></span></p>
+                    <p class="card-text">Contact Number<span><%= trip.contact_number %></span></p>
+                    <%#= link_to 'show', plan_your_trip_path(trip), class: "btn btn-outline-primary" %>
+                  </div>
+               <% end %>
+           </div>
+          </div>
+        <% end %>
+    </div>
+    <% else %>
+    <p class="lead text-danger h2"> Data not Available </p>
+  <% end %>
+  <%= paginate @plan_your_trips %>
+</div>

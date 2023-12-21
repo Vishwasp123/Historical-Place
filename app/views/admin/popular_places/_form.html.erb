@@ -1,0 +1,40 @@
+<%= form_with(model: [:admin,popular_place], html: { data: { turdo:false } }) do |form| %>
+	<div class=" form-ouline mb-4">
+		<%= form.label :name, class:"form-label"%>
+		<%= form.text_field :name, class:"form-control form-control-lg"%>
+		<% @popular_place.errors.full_messages_for(:name).each do |message| %>
+		 <p class="text-danger"><%= message  %></p>
+		<% end %>
+	</div>
+
+	<div class="form-outline mb-4">
+		<%= form.label :city, class:"form-label"%>
+		<%= form.text_field :city, class:"form-control form-control-lg"%>
+		<% @popular_place.errors.full_messages_for(:city).each do |message| %>
+		 <p class="text-danger"><%=message %></p>
+		<% end %>
+	</div>
+
+	<div class="form-outline mb-4">
+		<%= form.label :state, class:"form-label"%>
+		<%= form.text_field :state, class:"form-control form-control-lg"%>
+		<% @popular_place.errors.full_messages_for(:state).each do |message| %>
+  		<p class="text-danger"><%= message%></p>
+  	<% end %>
+  </div>
+  <div class="form-outline mb-4">
+  	<%= form.label :about, class:"form-label"%>
+  	<%= form.text_area :about, class:"form-control form-control-lg "%>
+  	<% @popular_place.errors.full_messages_for(:about).each do |message| %>
+  	 <p class="text-danger"><%= message %></p>
+  	 <% end %>
+  </div>
+
+  <div class="form-outline mb-4">
+  	<%= form.label :images, class:"form-label" %>
+  	<%= form.file_field :popular_place_images, multiple: true, class:"form-control form-control-lg" %>
+  </div>
+
+  <%= form.submit class:"btn btn-outline-success mb-4" %>
+  <%= link_to "Back", admin_popular_places_path, class:"btn btn-outline-warning mb-4" %>
+<% end %>

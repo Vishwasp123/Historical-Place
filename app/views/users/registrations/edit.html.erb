@@ -31,6 +31,13 @@
             <%= f.label :email, class:"form-label" %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control form-control-lg" %>
           </div>
+           <div class="field my-3 justify-content-between">
+              <%= f.radio_button :role, 'user', class: 'form-check-input', id: 'flexRadioDefault1', checked: f.object.role.nil? || f.object.role == 'user' %>
+              <%= f.label :user, class: 'form-check-label', for: 'flexRadioDefault1' %> 
+
+              <%= f.radio_button :role, 'admin', class: 'form-check-input ms-3', id: 'flexRadioDefault2', checked: f.object.role == 'admin' %>
+              <%= f.label :admin, class: 'form-check-label', for: 'flexRadioDefault2' %> 
+            </div>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -60,8 +67,8 @@
           </div>
 
           <div class="actions text-center text-lg-start mt-4 pt-2 btn-lg">
-            <%= f.submit "Edit", class:"btn btn-outline-success" %>
-            <%= link_to "Back", :back, class:"btn btn-outline-danger" %>
+            <%= f.submit "submit", class:"btn btn-outline-success" %>
+            <%= link_to "Back", admin_root_path, class:"btn btn-outline-danger" %>
           </div>
         </div>
       </form>

@@ -1,0 +1,253 @@
+<div class="col-lg-12">
+  <div class="container">
+    <div class="col-lg-12">
+      <div class="container-fluid">
+        <div class="card mb-4">
+          <% if @place.images.attached? %>
+          <%= image_tag @place.images[0], style: "width: 100%; height: 25rem;" %>          
+          <% end %>
+        </div>
+        <h2><span class="ms-1"><%= @place.name %></span></h2>
+        <p>State:<span class="ms-1"><%= @place.state %></span></p>
+        <p>City:<span class="ms-1"><%= @place.district %></span></p>
+        <div class="d-flex">
+          <p>longitude:<span class="mx-1"><%= @place.longitude %></span></p>
+          <p class="mx-5">latitude:<span class="mx-1"><%= @place.latitude %></span></p> 
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <div id="history-container"> <!-- Added container div -->
+        <small ><%= simple_format(@place.history) %></small>
+        <button id="toggle-history" class="btn btn-link">Show More</button>
+      </div>
+    </div>  
+  </div>
+</div>
+
+<div class="container" id="tourist_places">
+  <div class="card-deck">
+    <% tourist_points = @tourist_points.where(place_name:@place.name)%>
+    <% if tourist_points.present? %>
+     <h3 class="text-center mt-3"> Tourist Place in <%= @place.name %></h3>
+     <% @tourist_points.where(place_name: @place.name).each do |tourist_point| %>
+
+      <div class="card mt-2">
+        <%= link_to admin_tourist_point_path(tourist_point), style: "text-decoration:none; color:black;" do %>
+          <div class="row no-gutters ">
+            <div class="col-md-4">
+              <% if tourist_point.images.attached? %>
+               <%= image_tag tourist_point.images.first, class: "card-img", alt: "Place Image" %>
+              <% end %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title"><%= tourist_point.location_name %></h3>
+                <p class="card-text"><%= simple_format(truncate(tourist_point.history, length: 200)) %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+     <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="container " id="best_time_to_visit">
+  <% best_time_to_visits = @best_time_to_visits.where(place_name: @place.name) %>
+   <div class="mt-4">
+      <% if best_time_to_visits.present? %>
+        <h5 class=" fs-2 text-center">Best Time To Visit <%= @place.name %><span class="ms-3"></span></h5>
+      <% end %>
+     <div class="card-body">
+      <% @best_time_to_visits.where(place_name: @place.name).each do |best_time_to_visit| %>
+       <p class="card-text"><%= simple_format(best_time_to_visit.description) %></p>
+      <% end %>
+     </div> 
+   </div>
+</div>
+
+
+
+<div class="container mt-4" id="how_to_rich">
+  <div class="row">
+    <% how_to_reachs = @how_to_reaches.where(place_name: @place.name)%>
+    <% if how_to_reachs.present?%>
+     <h3>How to Reach <%= @place.name%></h3>
+      <% @how_to_reaches.where(place_name: @place.name).each do |how_to_reach| %>
+       <div class="col-lg-4 justify-content-between ">
+          <div class="container ">
+            <div class="card mx-auto" style="width: 18rem;">
+             <div class="card-body">
+                <!-- <h5 class="card-title">Place:<span><%#= how_to_reach.place_name %></span></h5> -->
+                <p class="card-header"><span><%= how_to_reach.title %></span></p>
+                <p class="card-text mt-2"><span><%= how_to_reach.description %></span></p>
+               </div>
+            </div>
+          </div>
+       </div>
+     <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container" id="Gallery">
+  <% if @place.images.present? %>
+    <h3 class="m-2 mt-4">Gallery</h3>
+ <% end %>
+ <div class="row">
+   <% @place.images.each do |image| %>
+     <% unless image == @place.images[0] %>
+       <div class="col-lg-4">
+         <div class="card mb-2 mt-2">
+           <a class="image-link" href="<%= rails_blob_path(image, only_path: true) %>" data-mfp-src="<%= rails_blob_path(image, only_path: true) %>" data-mfp-width="800" data-mfp-height="300">
+             <%= image_tag image, style: "width: 800px; height: 300px; max-width: 100%;" %>
+           </a>
+         </div>
+       </div>
+     <% end %>
+   <% end %>
+ </div>
+ <%#= link_to "Back", places_path, class:"btn btn-outline-warning mb-3" %>
+ <%#= link_to "Delete" , places_path ,  data: {
+ turbo_confirm: 'Are you Sure?', turbo_method: :delete }, class:"btn btn-primary" %>
+</div>
+
+<div class="container" id="nearby-places">
+  <% near_by_places = @near_by_places.where(city: @place.name) %>
+  <% if near_by_places.present? %>   
+   <h3 class="text-center mt-3">Near_by Places for <%= @place.name %></h3>
+    <% @near_by_places.where(city: @place.name).each do |near_by_place| %>
+      <%= link_to admin_near_by_place_path(near_by_place), style: "text-decoration:none; color:black" do %>
+        <div class="col-lg-12 ">
+          <div class="card mb-3 near-card">
+            <div class="row g-0">
+              <div class="col-md-3"> <!-- Add mx-auto class here -->
+                <% if near_by_place.images.attached? %>
+                 <%= image_tag near_by_place.images.first, class: "near_img" %>
+                <% end %>
+              </div>
+              <div class="col-md-8 mx-auto"> <!-- Add mx-auto class here -->
+                <div class="card-body">
+                  <h2 class="card-title"><%= near_by_place.name %></h2>
+                  <h5 class="card-title">City:<span><%= near_by_place.city %></span></h5>
+                  <p class="card-title"><%= near_by_place.place.name %><span class="ms-1"><%= near_by_place.distance_from %></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="container mt-4 mb-4" id="accommodation">
+  <% accommodations = @accommodations.where(city: @place.name) %>
+  <% if accommodations.present? %>
+    <h3 class="text-center mt-3 mb-3">Accommodation in <%= @place.name %></h3>
+    <div class="row">
+      <% accommodations.each do |accommodation| %>
+        <div class="col-sm-6">
+          <%= link_to(admin_accommodation_path(accommodation), style: "text-decoration:none; color:black;", target: "_blank") do %>
+            <div class="card">
+              <% if accommodation.galleries.attached? %>
+                <%= image_tag(accommodation.galleries.first, style: "width:100%; height:250px; max-width:100%; max-height:250px;", alt: "Place Image") %>
+              <% end %>
+              <div class="card-body">
+                <h5 class="card-title"><%= accommodation.name %></h5>
+                <div class="d-flex">
+                  <p class="card-text"><%= accommodation.address %></p>
+                  <p class="card-text"><%= accommodation.city %></p>
+                </div>
+                <p class="card-text"><%= accommodation.email %></p>
+                <p class="card-text"><%= accommodation.contact_number %></p>
+                <%#= link_to "Edit", edit_accommodation_path(accommodation), class: "btn btn-primary" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+ 
+
+<style>
+  .mfp-img {
+      max-width: 800px !important;
+      max-height: 800px !important;
+    }
+  .place-img{
+   width: 100%;
+   height: 200px;
+   max-height: 200px;
+   margin-top: 2px;
+   margin-bottom: 0px;
+  }
+</style>
+
+<script>
+  $(document).ready(function() {
+    var maxWords = 100; // Maximum number of words to display initially
+    var historyContainer = $("#history-container");
+    var historyText = historyContainer.find("small");
+    var fullText = historyText.text();
+
+    // Function to check if the history text has more than maxWords
+    function hasMoreWords() {
+      var words = fullText.split(' ');
+      return words.length > maxWords;
+    }
+
+    // Function to trim and update the history text
+    function trimText() {
+      var words = fullText.split(' ');
+      var trimmedText = words.slice(0, maxWords).join(' ');
+      historyText.text(trimmedText);
+    }
+
+    // Initially trim the text
+    trimText();
+
+    // Show More button click event
+    $("#toggle-history").click(function() {
+      if (hasMoreWords()) {
+        if ($(this).hasClass("showing-more")) {
+          // If showing more, switch to showing less
+          trimText();
+          $(this).text("Show More");
+          $(this).removeClass("showing-more");
+        } else {
+          // If showing less, display the full text
+          historyText.text(fullText);
+          $(this).text("Show Less");
+          $(this).addClass("showing-more");
+        }
+      }
+    });
+
+    // Hide the button initially if there are not more than maxWords
+    if (!hasMoreWords()) {
+      $("#toggle-history").hide();
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
