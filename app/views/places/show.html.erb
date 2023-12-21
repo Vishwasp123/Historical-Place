@@ -56,15 +56,20 @@
 
 
 <div class="container " id="best_time_to_visit">
- <% @best_time_to_visits.where(place_name: @place.name).each do |best_time_to_visit| %>
+  <% best_time_to_visits = @best_time_to_visits.where(place_name: @place.name) %>
    <div class="mt-4">
-     <h5 class=" fs-2 text-center">Best Time To Visit<span class="ms-3"><%= best_time_to_visit.place_name %></span></h5>
+      <% if best_time_to_visits.present? %>
+        <h5 class=" fs-2 text-center">Best Time To Visit <%= @place.name %><span class="ms-3"></span></h5>
+      <% end %>
      <div class="card-body">
+      <% @best_time_to_visits.where(place_name: @place.name).each do |best_time_to_visit| %>
        <p class="card-text"><%= simple_format(best_time_to_visit.description) %></p>
+      <% end %>
      </div> 
    </div>
- <% end %>
 </div>
+
+
 
 <div class="container mt-4" id="how_to_rich">
   <div class="row">
@@ -89,7 +94,9 @@
 </div>
 
 <div class="container" id="Gallery">
- <h3 class="m-2 mt-4">Gallery</h3>
+  <% if @place.images.present? %>
+    <h3 class="m-2 mt-4">Gallery</h3>
+ <% end %>
  <div class="row">
    <% @place.images.each do |image| %>
      <% unless image == @place.images[0] %>
@@ -109,9 +116,10 @@
 </div>
 
 <div class="container" id="nearby-places">
-  <% if @place.near_by_places.present?%>   
+  <% near_by_places = @near_by_places.where(city: @place.name) %>
+  <% if near_by_places.present? %>   
    <h3 class="text-center mt-3">Near_by Places for <%= @place.name %></h3>
-    <% @near_by_places.each do |near_by_place| %>
+    <% @near_by_places.where(city: @place.name).each do |near_by_place| %>
       <%= link_to near_by_place_path(near_by_place), style: "text-decoration:none; color:black" do %>
         <div class="col-lg-12 ">
           <div class="card mb-3 near-card">

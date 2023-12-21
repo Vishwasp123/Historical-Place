@@ -17,6 +17,8 @@ class NearByPlace < ApplicationRecord
 		["images_attachments", "images_blobs", "place", "tourist_point"]
 	end
 	
+	paginates_per 5
+
 	private
 
 	def nullify_associations

@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
   before_action :set_place, only: %i[ edit show update destroy ]
 
   def index
-    @places = Place.includes(:tourist_points, images_attachments: :blob)
+    @places = Place.includes(:tourist_points, images_attachments: :blob).page params[:page]
     arrange_order
   end 
  

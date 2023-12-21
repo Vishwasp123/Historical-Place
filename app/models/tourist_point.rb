@@ -12,4 +12,5 @@ class TouristPoint < ApplicationRecord
 	def self.ransackable_associations(auth_object = nil)
 		["images_attachments", "images_blobs", "near_by_places", "places"]
 	end
+	paginates_per 5
 end

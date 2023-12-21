@@ -2,7 +2,7 @@ class PlanYourTripsController < ApplicationController
   before_action :set_paln_your_trip, only: %i[show edit update destroy]
 
   def index
-    @plan_your_trips = PlanYourTrip.order("created_at DESC").all
+    @plan_your_trips = PlanYourTrip.order("created_at DESC").page params[:page]
   end
 
   def new

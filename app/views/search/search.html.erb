@@ -1,137 +1,141 @@
-<div class="container mt-0">
-  <h1 class="display-4">Search Results</h1>
-  <div class="row d-flex align-items-stretch">
-   <% if @places.any? %>
-     <h2 class="text-center">Places</h2>
-      <% @places.each do |place| %>
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-          <%= link_to place_path(place), style: 'text-decoration:none;' do %>
-           <div class="card">
-                <% if place.images.attached? %>
-                <%= image_tag place.images.first, class: "card-img-top", style: "height: 200px; object-fit: cover;", alt: "Place Image" %>
-                <% end %>
-                <div class="card-body">
-                  <h5 class="card-title"><%= place.name %></h5>
-                </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <%# else %>
-  <!-- <p class="text-danger"> No Places are Available</p> -->
-  <div class="row mt-4">
-    <div class="col-lg-6 mb-3">
-      <div class="row">
-        <% if @tourist_points.any? %>
-          <h2 class="text-center">Tourist Points</h2>
-          <% @tourist_points.each do |tourist_point| %>
-            <div class="col-lg-6 col-sm-12">
-             <%= link_to tourist_point_path(tourist_point), style:"text-decoration:none;" do %>
-               <div class="card">
-                  <% if tourist_point.images.attached? %>
-                    <%= image_tag tourist_point.images[0], class: "card-img-top",style:"width:100%;height:200px; max-height:200px", alt: "Tourist Point Image" %>
+<% if @places.any? || @tourist_points.any? || @near_by_places.any? || @accommodations.any? || @popular_places.any? %>
+  <div class="container mt-0">
+    <h1 class="display-4">Search Results</h1>
+    <div class="row d-flex align-items-stretch">
+     <% if @places.any? %>
+       <h2 class="text-center">Places</h2>
+        <% @places.each do |place| %>
+          <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+            <%= link_to place_path(place), style: 'text-decoration:none;' do %>
+             <div class="card">
+                  <% if place.images.attached? %>
+                  <%= image_tag place.images.first, class: "card-img-top", style: "height: 200px; object-fit: cover;", alt: "Place Image" %>
                   <% end %>
                   <div class="card-body">
-                    <div class="card-title">
-                      <%=  tourist_point.location_name %>
-                    </div>
+                    <h5 class="card-title"><%= place.name %></h5>
                   </div>
-               </div>
-              <% end %>
-            </div>
-         <% end %>
+              </div>
+            <% end %>
+          </div>
         <% end %>
+      <% end %>
+    </div>
+    <%# else %>
+    <!-- <p class="text-danger"> No Places are Available</p> -->
+    <div class="row mt-4">
+      <div class="col-lg-6 mb-3">
+        <div class="row">
+          <% if @tourist_points.any? %>
+            <h2 class="text-center">Tourist Points</h2>
+            <% @tourist_points.each do |tourist_point| %>
+              <div class="col-lg-6 col-sm-12">
+               <%= link_to tourist_point_path(tourist_point), style:"text-decoration:none;" do %>
+                 <div class="card">
+                    <% if tourist_point.images.attached? %>
+                      <%= image_tag tourist_point.images[0], class: "card-img-top",style:"width:100%;height:200px; max-height:200px", alt: "Tourist Point Image" %>
+                    <% end %>
+                    <div class="card-body">
+                      <div class="card-title">
+                        <%=  tourist_point.location_name %>
+                      </div>
+                    </div>
+                 </div>
+                <% end %>
+              </div>
+           <% end %>
+          <% end %>
+          <%# else %>
+          <!-- <p class="text-danger">Tourist Point Not Present</p> -->
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+       <% if @near_by_places.any? %>
+         <h2 class="text-center">Nearby Places</h2>
+         <div class="row">
+           <% @near_by_places.each do |near_by_place| %>
+             <div class="container">
+               <div class="col-lg-8 mt-2 mx-auto">
+                 <%= link_to near_by_place_path(near_by_place), style:"text-decoration:none;" do %>
+                   <div class="card">
+                     <% if near_by_place.images.attached? %>
+                     <%= image_tag near_by_place.images[0], class: "card-img-top", style: "max-height: 200px; height: 150px;", alt: "Nearby Place Image" %>
+                     <% end %>
+                     <div class="card-body">
+                        <div class="card-title ">
+                          <p class="fs-3"><%=  near_by_place.name %></p>
+                          <p>City:<span><%= near_by_place.city %></span></p>
+                          <p> Near:<span><%= near_by_place.place.name %></span></p>
+                          <p><%= near_by_place.distance_from %><%= near_by_place.place.name %></p>
+                        </div>
+                     </div>
+                    </div>
+                 <% end %>
+                </div>
+              </div>
+           <% end %>
+          </div>
+       <% end %>
         <%# else %>
-        <!-- <p class="text-danger">Tourist Point Not Present</p> -->
+        <!-- <p class="text-danger"> Near By Place not Available</p> -->
       </div>
     </div>
-
-    <div class="col-lg-6">
-     <% if @near_by_places.any? %>
-       <h2 class="text-center">Nearby Places</h2>
-       <div class="row">
-         <% @near_by_places.each do |near_by_place| %>
-           <div class="container">
-             <div class="col-lg-8 mt-2 mx-auto">
-               <%= link_to near_by_place_path(near_by_place), style:"text-decoration:none;" do %>
-                 <div class="card">
-                   <% if near_by_place.images.attached? %>
-                   <%= image_tag near_by_place.images[0], class: "card-img-top", style: "max-height: 200px; height: 150px;", alt: "Nearby Place Image" %>
-                   <% end %>
-                   <div class="card-body">
-                      <div class="card-title ">
-                        <p class="fs-3"><%=  near_by_place.name %></p>
-                        <p>City:<span><%= near_by_place.city %></span></p>
-                        <p> Near:<span><%= near_by_place.place.name %></span></p>
-                        <p><%= near_by_place.distance_from %><%= near_by_place.place.name %></p>
-                      </div>
-                   </div>
-                  </div>
-               <% end %>
-              </div>
-            </div>
-         <% end %>
-        </div>
-     <% end %>
-      <%# else %>
-      <!-- <p class="text-danger"> Near By Place not Available</p> -->
-    </div>
   </div>
-</div>
 
-<div class="container">
-  <% if @accommodations.any? %>
-   <h2 class="text-center">Accommodation</h2>
-   <div class="row  d-flex align-items-stretch">
-     <% @accommodations.each do |accommodation| %>
-       <div class="col-lg-4 mb-3">
-         <%= link_to accommodation_path(accommodation), style:"text-decoration:none; color:black;" do %>
-            <div class="card"  style="height: 31rem;"> 
-           <% if accommodation.galleries.attached? %>
-           <%= image_tag accommodation.galleries.first, style:"width:100%;height:250px;" %>
-           <% end %>
-           <div class="card-body">
-              <h5 class="card-title"><%= accommodation.name %></h5>
-              <p class="card-text">City:<span><%= accommodation.city %></span></p>
-              <p class="card-text">State:<span><%= accommodation.state %></span></p>
-              <p class="card-text">Address:<span><%= accommodation.address %></span></p>
-              <p class="card-text">Pincode:<span><%= accommodation.pincode %></span></p>
-              <%#= link_to "View" , accommodation_path(accommodation), class:"btn btn-primary" %>
-              <%#= link_to "Delete", accommodation_path(accommodation), data: {turbo_method: :delete, turbo_confirm:"are you sure to delete"}, class:"btn btn-outline-primary" %>
-           </div>
-            </div>
-         <% end %>
-       </div>
-     <% end %>
-   </div>
-  <% end %>
-</div>
-
-<div class="col-lg-12">
   <div class="container">
-    <div class="row">
-      <% @popular_places.each do |popular_place| %>
-        <%#= link_to papular_palace_path(papular_palace), style: "text-decoration:none; color:black;" do %>
-         <div class="col-lg-10 mx-auto">
-          <div class="card mb-3"> 
-           <% if popular_place.popular_place_images.attached? %>
-              <%= image_tag popular_place.popular_place_images.first, class: "img-fluid rounded-start", style:"width:100%; height:450px;" %>
+    <% if @accommodations.any? %>
+     <h2 class="text-center">Accommodation</h2>
+     <div class="row  d-flex align-items-stretch">
+       <% @accommodations.each do |accommodation| %>
+         <div class="col-lg-4 mb-3">
+           <%= link_to accommodation_path(accommodation), style:"text-decoration:none; color:black;" do %>
+              <div class="card"  style="height: 31rem;"> 
+             <% if accommodation.galleries.attached? %>
+             <%= image_tag accommodation.galleries.first, style:"width:100%;height:250px;" %>
+             <% end %>
+             <div class="card-body">
+                <h5 class="card-title"><%= accommodation.name %></h5>
+                <p class="card-text">City:<span><%= accommodation.city %></span></p>
+                <p class="card-text">State:<span><%= accommodation.state %></span></p>
+                <p class="card-text">Address:<span><%= accommodation.address %></span></p>
+                <p class="card-text">Pincode:<span><%= accommodation.pincode %></span></p>
+                <%#= link_to "View" , accommodation_path(accommodation), class:"btn btn-primary" %>
+                <%#= link_to "Delete", accommodation_path(accommodation), data: {turbo_method: :delete, turbo_confirm:"are you sure to delete"}, class:"btn btn-outline-primary" %>
+             </div>
+              </div>
            <% end %>
-            <div class="card-body">
-             <h5 class="card-title"><%= popular_place.name %></h5>
-              <p class="card-text">City: <span><%= popular_place.city %></span></p>
-              <p class="card-text">State: <span><%= popular_place.state %></span></p>
-              <p><small><%= popular_place.about %></small></p>
-           </div>
-          </div>
          </div>
-        <%# end %>
-      <% end %>
+       <% end %>
+     </div>
+    <% end %>
+  </div>
+
+  <div class="col-lg-12">
+    <div class="container">
+      <div class="row">
+        <% @popular_places.each do |popular_place| %>
+          <%#= link_to papular_palace_path(papular_palace), style: "text-decoration:none; color:black;" do %>
+           <div class="col-lg-10 mx-auto">
+            <div class="card mb-3"> 
+             <% if popular_place.popular_place_images.attached? %>
+                <%= image_tag popular_place.popular_place_images.first, class: "img-fluid rounded-start", style:"width:100%; height:450px;" %>
+             <% end %>
+              <div class="card-body">
+               <h5 class="card-title"><%= popular_place.name %></h5>
+                <p class="card-text">City: <span><%= popular_place.city %></span></p>
+                <p class="card-text">State: <span><%= popular_place.state %></span></p>
+                <p><small><%= popular_place.about %></small></p>
+             </div>
+            </div>
+           </div>
+          <%# end %>
+        <% end %>
+     </div>
    </div>
- </div>
-</div>
+  </div>
+  <% else %>
+  <p class="lead h2 text-danger text-center"> No data available</p>
+<% end %>
 
 
 

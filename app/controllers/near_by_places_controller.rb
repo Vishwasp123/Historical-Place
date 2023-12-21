@@ -2,7 +2,7 @@ class NearByPlacesController < ApplicationController
   before_action :set_near_by_place, only: %i[ show edit update destroy ]
 
   def index
-    @near_by_places = NearByPlace.includes(:place, :tourist_point ,images_attachments: :blob).order("created_at DESC").all
+    @near_by_places = NearByPlace.includes(:place, :tourist_point ,images_attachments: :blob).order("created_at DESC").page params[:page]
   end
 
   def new

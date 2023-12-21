@@ -2,7 +2,7 @@ class AccommodationsController < ApplicationController
 	before_action :set_accommodation, only: %i[ show edit update destroy ]
 
 	def index
-     @accommodations = Accommodation.includes(galleries_attachments: :blob).all
+     @accommodations = Accommodation.includes(galleries_attachments: :blob).page params[:page]
  	 end
 
 	def new

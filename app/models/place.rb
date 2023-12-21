@@ -5,6 +5,8 @@ class Place < ApplicationRecord
   has_many :near_by_places, dependent: :destroy
   has_many :tourist_points, through: :near_by_places, dependent: :destroy
 
+  paginates_per 5
+
   
 
   validates :state, :name, :district, :history, presence: true

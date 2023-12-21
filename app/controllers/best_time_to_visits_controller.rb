@@ -3,7 +3,7 @@ class BestTimeToVisitsController < ApplicationController
 	before_action :set_best_time_to_visit, only: %i[ show edit update destroy ]
 
 	def index
-		@best_time_to_visits = BestTimeToVisit.all
+		@best_time_to_visits = BestTimeToVisit.page params[:page]
 	end
 
 	def new

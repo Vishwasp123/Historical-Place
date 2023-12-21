@@ -24,7 +24,9 @@
          </div>
        </div>
        <div class="container mt-3 mb-3" id="Gallery">
-          <h4 class="card-text text-center"><i>Hotel Views</i></h4>
+          <% if  @accommodation.galleries.present? %>
+             <h4 class="card-text text-center"><i>Hotel Views</i></h4>
+          <% end %>
           <div class="row">
             <% @accommodation.galleries.each do |gallery| %>
               <% unless gallery == @accommodation.galleries.first %>
