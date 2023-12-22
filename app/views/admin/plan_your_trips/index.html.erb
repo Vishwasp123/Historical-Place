@@ -12,7 +12,7 @@
                     <p class="card-text">Total Days<span><%= trip.days_of_travel %></span></p>
                     <p class="card-text">Email:<span class="ms-1"><%= trip.email %></span></p>
                     <p class="card-text">Contact Number<span><%= trip.contact_number %></span></p>
-                    <%#= link_to 'show', plan_your_trip_path(trip), class: "btn btn-outline-primary" %>
+                    <%= link_to 'show', admin_plan_your_trip_path(trip), class: "btn btn-outline-primary" %>
                   </div>
                <% end %>
            </div>

@@ -65,6 +65,8 @@
     <p class="text-danger"><%= message%></p>
     <% end %>
   </div>
+  
+
 
   <div class="form-ouline mt-3">
     <%= form.label :childrens, class:"form-label m-0" %>
@@ -84,7 +86,7 @@
     <%= form.text_field :price, id: "price-select", class: "form-control", readonly: true %>
   </div>
 
- <%= form.hidden_field :user_id, value: @current_user_id %>
+  <%= form.hidden_field :user_id, value: @current_user_id %>
   <%= form.hidden_field :accommodation_id, value: @accommodation_id %>
   <%= form.submit class:"btn btn-outline-warning my-3"%>
 <% end %>
@@ -106,7 +108,7 @@
     }
 
     const facilitiesMap = {
-      Super: ["Break fast"],
+      Super: ["Break fast", "Dinner"],
       Delux:  ["Brakfast", "Dinner"],
       Premium: ["Break fast", "Luch + Brakfast", "Dinner"]
     };

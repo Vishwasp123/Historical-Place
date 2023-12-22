@@ -10,6 +10,10 @@
               <p class="card-text">Email:<span class="me-2"><%= @plan_your_trip.email %></span></p>
               <p class="card-text">Contact Number:<span class="ms-1"><%= @plan_your_trip.contact_number %></span></p>
               <%= link_to 'Back', admin_plan_your_trips_path, class: "btn btn-outline-primary" %>
+              <% if current_user.admin? %>
+                <%= link_to 'edit', edit_admin_plan_your_trip_path(@plan_your_trip), class:"btn btn-outline-warning"%>
+                <%= link_to 'delete', admin_plan_your_trip_path(@plan_your_trip), class:"btn btn-outline-danger" %>
+              <% end %>
             </div>
           </div>
         </div>

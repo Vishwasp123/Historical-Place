@@ -94,7 +94,7 @@
 </div>
 
 <div class="container" id="Gallery">
-  <% if @place.images.present? %>
+  <% if  @place.images[1] %>
     <h3 class="m-2 mt-4">Gallery</h3>
  <% end %>
  <div class="row">
@@ -110,9 +110,14 @@
      <% end %>
    <% end %>
  </div>
- <%#= link_to "Back", places_path, class:"btn btn-outline-warning mb-3" %>
- <%#= link_to "Delete" , places_path ,  data: {
- turbo_confirm: 'Are you Sure?', turbo_method: :delete }, class:"btn btn-primary" %>
+ <div class="container my-2">
+   <%= link_to "Back", admin_places_path, class:"btn btn-outline-warning  " %>
+   <% if current_user.admin? %>
+     <%= link_to "Edit", edit_admin_place_path(@place), class:"btn btn-outline-primary " %>
+     <%= link_to "Delete" , admin_places_path ,  data: {
+     turbo_confirm: 'Are you Sure?', turbo_method: :delete }, class:"btn btn-outline-danger " %>
+    <% end %>
+  </div>
 </div>
 
 <div class="container" id="nearby-places">

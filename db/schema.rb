@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_21_083852) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_22_142057) do
   create_table "accommodations", force: :cascade do |t|
     t.string "name"
     t.string "city"
@@ -75,10 +75,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_21_083852) do
     t.string "contact_number"
     t.string "car_number"
     t.string "pick_up_location"
-    t.string "pick_up_date"
+    t.date "pick_up_date"
     t.string "pick_up_time"
     t.string "drop_off_location"
-    t.string "drop_off_date"
+    t.date "drop_off_date"
     t.string "drop_off_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -93,6 +93,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_21_083852) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "place_name"
+  end
+
+  create_table "inquiries", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "near_by_places", force: :cascade do |t|
@@ -123,7 +131,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_21_083852) do
   create_table "plan_your_trips", force: :cascade do |t|
     t.string "days_of_travel"
     t.string "start_point_city"
-    t.string "travel_month"
+    t.date "travel_month"
     t.string "name"
     t.string "email"
     t.string "contact_number"
@@ -145,16 +153,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_21_083852) do
     t.string "room_number"
     t.string "contact_number"
     t.string "facilities"
-    t.string "check_in_time"
-    t.string "check_out_time"
+    t.time "check_in_time"
+    t.time "check_out_time"
     t.string "price"
     t.string "location"
     t.string "adults"
     t.string "childrens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "check_out_date"
-    t.string "check_in_date"
+    t.date "check_out_date"
+    t.date "check_in_date"
     t.integer "accommodation_id"
     t.integer "user_id"
     t.index ["accommodation_id"], name: "index_rooms_on_accommodation_id"

@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+  
   devise_for :users, controllers: {
   sessions: 'users/sessions',
   registrations: 'users/registrations',
   omniauth_callbacks: 'users/omniauth_callbacks'
   }
+
+  get 'inquiries/new'
+  get 'inquiries/create'
+
+  resources :inquiries
 
 
   namespace :admin do 

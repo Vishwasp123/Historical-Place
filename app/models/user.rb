@@ -7,8 +7,10 @@ class User < ApplicationRecord
 
   has_one_attached :user_image
   has_many :rooms
+  validates :first_name, :last_name, :contact_number, :address, presence:true
 
-  validates :role , presence: true
+
+
 
   
   def name

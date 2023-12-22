@@ -1,4 +1,5 @@
-<%= form_with(model: [:admin, plan_your_trip], html: { data: { turbo: false } }) do |form| %>
+<%= form_with(model: [:admin, @plan_your_trip], html: { data: { turbo: false } }) do |form| %>
+
 	<div class="form-ouline mb-4">
 		<%= form.label :days_of_travel, class:"form-label"%>
 		<%= form.text_field :days_of_travel, class:"form-control form-control-lg"%>
@@ -12,11 +13,11 @@
 		<%= form.date_field :travel_month, class:"form-control form-control-lg"%>
 	</div>
 	<div class="form-ouline mb-4">
-		<%= form.label :name, class:"form-label"%>
+		<%#= form.label :name, class:"form-label"%>
 		<%= form.hidden_field :name, class:"form-control form-control-lg", value: current_user.name%>
 	</div>
 	<div class="form-ouline mb-4">
-		<%= form.label :email, class:"form-label"%>
+		<%#= form.label :email, class:"form-label"%>
 		<%= form.hidden_field :email, class:"form-control form-control-lg", value:current_user.email%>
 	</div>
 	<div class="form-ouline mb-4">

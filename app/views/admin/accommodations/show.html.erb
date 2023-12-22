@@ -38,10 +38,14 @@
                   </div>
                 </div>
               <% end %>
-            <% end %>
-            <%#= link_to "Edit", edit_accommodation_path(@accommodation), class: "btn btn-primary" %>
-            <%#= link_to "Delete", accommodation_path(@accommodation), method: :delete, data: { confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
-            <%#= link_to "Back", places_path,class:"btn btn-outline-warning"%>
+            <% end %>          
+            <div class="mt-2">
+              <% if current_user.admin? %>
+                <%= link_to "Edit", edit_admin_accommodation_path(@accommodation), class: "btn btn-primary" %>
+                <%= link_to "Delete", admin_accommodation_path(@accommodation), method: :delete, data: { confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
+                <%= link_to "Back", admin_places_path, class:"btn btn-outline-warning"%>
+                <% end %>
+            </div>
           </div>
         </div>
      </div>
