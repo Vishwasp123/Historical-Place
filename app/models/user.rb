@@ -9,9 +9,7 @@ class User < ApplicationRecord
   has_many :rooms
   validates :first_name, :last_name, :contact_number, :address, presence:true
 
-
-
-
+  before_create :assign_role
   
   def name
     "#{first_name} #{last_name}"
@@ -29,11 +27,6 @@ class User < ApplicationRecord
   end
 
 
-
-  def admin?
-    role== 'admin'
-  end
-
   # omniauth login using google
   def self.from_omniauth(access_token)
     data = access_token.info
@@ -49,4 +42,8 @@ class User < ApplicationRecord
     user
   end
 
+  private
+  def assign_role
+      self.role = 'admin' if email.ends_with?('@admin.com')
+  end 
 end

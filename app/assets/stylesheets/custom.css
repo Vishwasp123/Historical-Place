@@ -1,15 +1,4 @@
-/*near by image */
 
-.near_img{
-	width: 100%;
-	height: 150px;
-	max-width: 100%;
-	
-}
-
-.near-card{
-	max-height: 250px;
-}
-
-
-
+	body {
+      padding-top: 56px; /* Adjust this value based on your navbar height */
+    }

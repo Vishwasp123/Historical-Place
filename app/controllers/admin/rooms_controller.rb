@@ -13,8 +13,6 @@ class Admin::RoomsController < AdminController
 
 	def create	
 		@room = Room.new(rooms_params)
-		@room.check_in_time = "#{params[:room][:check_in_hour]}:#{params[:room][:check_in_minute]} #{params[:room][:check_in_period]}"
-		@room.check_out_time = "#{params[:room][:check_out_hour]}:#{params[:room][:check_out_minute]} #{params[:room][:check_out_period]}"
 		create_room #method 
 		
 		if @room.save	

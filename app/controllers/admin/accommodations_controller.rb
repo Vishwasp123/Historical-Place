@@ -1,5 +1,5 @@
 class Admin::AccommodationsController < AdminController
-	
+
 	before_action :set_accommodation, only: %i[ show edit update destroy ]
 
 	def index

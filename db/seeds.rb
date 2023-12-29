@@ -63,33 +63,34 @@ puts " #{TouristPoint.count}TouristPoint create successfully"
 
 
 near_by_palce = [ 
-  { tourist_point_id: 1, place_id: 1, name: 'Lal Bagh Palace', distance_from: 'Lal Bagh Palce distace is 3 km ', city: 'Indore'},
+  { tourist_point_id: 1, place_id: 1, name: 'Lal Bagh Palace', distance_from: 'Lal Bagh Palace distance is 3 km', city: 'Indore', longitude: '22.7001' },
 
- { tourist_point_id: 2, place_id: 1, name: 'Kamla Nehru Prani Sangrahalaya (Indore Zoo)', distance_from: 'Kamla Nehru Prani Sangrahalaya (Indore Zoo) is 8 km', city: 'Indore'},
- { tourist_point_id: 3, place_id: 1, name: 'Gommatagiri Digambar Jain Temple', distance_from: 'Gommatagiri Digambar Jain Temple distace from Shree Annapurna Temple is 13 km', city: 'Indore'},
+  { tourist_point_id: 2, place_id: 1, name: 'Kamla Nehru Prani Sangrahalaya (Indore Zoo)', distance_from: 'Kamla Nehru Prani Sangrahalaya (Indore Zoo) is 8 km', city: 'Indore', longitude: '75.88006', latitude: '22.70103' },
+  
+  { tourist_point_id: 3, place_id: 1, name: 'Gommatagiri Digambar Jain Temple', distance_from: 'Gommatagiri Digambar Jain Temple distance from Shree Annapurna Temple is 13 km', city: 'Indore', latitude: '22.745684960052397', longitude: '75.77320272451213' },
 
- #Dewas
- { tourist_point_id: 4, place_id: 2, name: 'Chamunda Hill Dewas', distance_from: 'maa chamunda darshan 6 km', city: 'Dewas'},
+  # Dewas
+  { tourist_point_id: 4, place_id: 2, name: 'Chamunda Hill Dewas', distance_from: 'maa chamunda darshan 6 km', city: 'Dewas', latitude: '22.9722', longitude: '76.0572' },
 
- { tourist_point_id: 5 , place_id: 2, name: 'Kheoni Wildlife Sanctuary.', distance_from: 'Meetha Talab  nearby places 12 km', city: 'Dewas'},
- #bhopal
+  { tourist_point_id: 5, place_id: 2, name: 'Kheoni Wildlife Sanctuary.', distance_from: 'Meetha Talab nearby places 12 km', city: 'Dewas', latitude: '22.12', longitude: '75.3' },
 
- { tourist_point_id: 6 , place_id: 3, name: 'Upper Lake', distance_from: ' Van Vihar National Park  nearby places 25 km', city: 'Bhopal'},
+  # Bhopal
+  { tourist_point_id: 6, place_id: 3, name: 'Upper Lake', distance_from: 'Van Vihar National Park nearby places 25 km', city: 'Bhopal', latitude: '22.7001', longitude: '75.8471' },
 
-  { tourist_point_id: 7 , place_id: 3, name: 'Rani Kamlapati Palace
-  0.7km from', distance_from: '0.7km from Bhrat Bhawan', city: 'Bhopal'},
+  { tourist_point_id: 7, place_id: 3, name: 'Rani Kamlapati Palace 0.7km from', distance_from: '0.7km from Bharat Bhawan', city: 'Bhopal', latitude: '23.2507', longitude: '77.3975' },
 
   # Gwalior
-  { tourist_point_id: 8 , place_id: 4, name: 'Gopachal Parvat', distance_from: '1.7 km from Gwalior Fort', city: 'Gwalior'},
+  { tourist_point_id: 8, place_id: 4, name: 'Gopachal Parvat', distance_from: '1.7 km from Gwalior Fort', city: 'Gwalior', latitude: 'GWL_LATITUDE', longitude: 'GWL_LONGITUDE' },
 
- { tourist_point_id: 9 , place_id: 4, name: 'HH Maharaja Sir Jiwajirao Scindia Museum', distance_from: '118m from Jai Vilas Palace', city: 'Gwalior'}
+  { tourist_point_id: 9, place_id: 4, name: 'HH Maharaja Sir Jiwajirao Scindia Museum', distance_from: '118m from Jai Vilas Palace', city: 'Gwalior', latitude: '26.2145', longitude: '78.1674' }
 ]
 
-near_by_palce.each do |near_by_palce|
- NearByPlace.create(near_by_palce)
+near_by_palce.each do |nearby_place|
+  NearByPlace.create(nearby_place)
 end
-  
+
 puts "NearByPlace #{NearByPlace.count}"
+
 
 
 best_times_to_visit = [ {title:'Bhopal', place_name:'Bhopal', description:'Bhopal is best visited during the winter months of October to February. The weather is moderate and travelling across the plains would prove to be a very good experience.'},

@@ -9,9 +9,9 @@ class Place < ApplicationRecord
 
   
 
-  validates :state, :name, :district, :history, presence: true
-  validates :latitude, :longitude, presence:true, 
-              uniqueness: { message: "latitude and longitude must be uniq" }
+  # validates :state, :name, :district, :history, presence: true
+  # validates :latitude, :longitude, presence:true, 
+  #             uniqueness: { message: "latitude and longitude must be uniq" }
 
   def self.ransackable_attributes(auth_object = nil)
     ["created_at", "district", "history", "id", "latitude", "longitude", "name", "state", "updated_at","name", "distance_from", "location_name", "place_name", "histroy", "longitude", "latitude"]

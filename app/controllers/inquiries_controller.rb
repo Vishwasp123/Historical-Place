@@ -12,7 +12,7 @@ class InquiriesController < ApplicationController
     @inquiry = Inquiry.create(inquiry_params)
     if @inquiry.save
       UserInquiryMailer.inquiry(@inquiry).deliver
-      redirect_to admin_root_path, notice:"Inquiry submit successfully"
+      redirect_to root_path, notice:"Inquiry submit successfully"
     else
       render :new
     end

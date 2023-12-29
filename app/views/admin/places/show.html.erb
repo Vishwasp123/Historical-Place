@@ -33,7 +33,7 @@
      <% @tourist_points.where(place_name: @place.name).each do |tourist_point| %>
 
       <div class="card mt-2">
-        <%= link_to admin_tourist_point_path(tourist_point), style: "text-decoration:none; color:black;" do %>
+        <%= link_to tourist_point_path(tourist_point), style: "text-decoration:none; color:black;" do %>
           <div class="row no-gutters ">
             <div class="col-md-4">
               <% if tourist_point.images.attached? %>
@@ -79,7 +79,7 @@
       <% @how_to_reaches.where(place_name: @place.name).each do |how_to_reach| %>
        <div class="col-lg-4 justify-content-between ">
           <div class="container ">
-            <div class="card mx-auto" style="width: 18rem;">
+            <div class="card mx-auto" style="width: 14rem;">
              <div class="card-body">
                 <!-- <h5 class="card-title">Place:<span><%#= how_to_reach.place_name %></span></h5> -->
                 <p class="card-header"><span><%= how_to_reach.title %></span></p>
@@ -111,10 +111,10 @@
    <% end %>
  </div>
  <div class="container my-2">
-   <%= link_to "Back", admin_places_path, class:"btn btn-outline-warning  " %>
+   <%= link_to "Back", places_path, class:"btn btn-outline-warning  " %>
    <% if current_user.admin? %>
-     <%= link_to "Edit", edit_admin_place_path(@place), class:"btn btn-outline-primary " %>
-     <%= link_to "Delete" , admin_places_path ,  data: {
+     <%= link_to "Edit", edit_place_path(@place), class:"btn btn-outline-primary " %>
+     <%= link_to "Delete" , places_path ,  data: {
      turbo_confirm: 'Are you Sure?', turbo_method: :delete }, class:"btn btn-outline-danger " %>
     <% end %>
   </div>
@@ -125,7 +125,7 @@
   <% if near_by_places.present? %>   
    <h3 class="text-center mt-3">Near_by Places for <%= @place.name %></h3>
     <% @near_by_places.where(city: @place.name).each do |near_by_place| %>
-      <%= link_to admin_near_by_place_path(near_by_place), style: "text-decoration:none; color:black" do %>
+      <%= link_to near_by_place_path(near_by_place), style: "text-decoration:none; color:black" do %>
         <div class="col-lg-12 ">
           <div class="card mb-3 near-card">
             <div class="row g-0">
@@ -156,7 +156,7 @@
     <div class="row">
       <% accommodations.each do |accommodation| %>
         <div class="col-sm-6">
-          <%= link_to(admin_accommodation_path(accommodation), style: "text-decoration:none; color:black;", target: "_blank") do %>
+          <%= link_to(accommodation_path(accommodation), style: "text-decoration:none; color:black;", target: "_blank") do %>
             <div class="card">
               <% if accommodation.galleries.attached? %>
                 <%= image_tag(accommodation.galleries.first, style: "width:100%; height:250px; max-width:100%; max-height:250px;", alt: "Place Image") %>
