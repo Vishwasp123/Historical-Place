@@ -3,11 +3,41 @@ class CarRentalsController < ApplicationController
 	before_action :set_car_details, only: %i[edit show update destroy]
 
 	def index
-		@car_rentals = CarRental.all
-	end
+    @car_rental = CarRental.new
+  end
 
-	def show 
-	end
+  def new
+    @car_rental = CarRental.new
+  end
+
+  def create
+    @car_rental = CarRental.new(car_params)
+    if @car_rental.save
+      redirect_to car_rentals_path, notice: "Car rental created"
+    else
+      render :new
+    end
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @car_rental.update(car_params)
+      redirect_to car_rentals_path, notice: "Car rental updated"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @car_rental.destroy
+      redirect_to car_rentals_path, notice: "Car rental destroyed"
+    end
+  end
 
 	private
 

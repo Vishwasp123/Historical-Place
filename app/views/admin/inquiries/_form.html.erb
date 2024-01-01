@@ -1,0 +1,25 @@
+
+<div class="col-md-12 col-lg-8	mx-auto">
+	<div class="container border-2 bg-light ">
+		<div class="col-lg-12 col-sm-12">
+			<%= form_with model:  @inquiry, html: {data: {turbo:false} }  do |form| %>
+				<div class="form-outline">
+					<%= form.label :name, class:"form-label" %>
+					<%= form.text_field :name, class:"form-control form-control-lg" %>
+				</div>
+				<div class="form-outline">
+					<%= form.label :email, class:"form-label" %>
+					<%= form.text_field :email,class:"form-control form-control-lg" %>
+				</div>
+				<div class="form-outline">
+					<%= form.label :message, class:"form-label" %>
+					<%= form.text_area :message, class:"form-control form-control-lg" %>
+				</div>
+				<div class="form-outline">
+					<%= form.submit "Submit Inquery", class:"btn btn-primary my-2" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+

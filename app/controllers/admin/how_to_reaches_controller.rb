@@ -1,4 +1,6 @@
-class Admin::HowToReachesController < AdminController
+class Admin::HowToReachesController< AdminController
+	layout 'admin'
+
 	before_action :set_how_to_reach, only: %i[ show edit update destroy ]
 
 	def index

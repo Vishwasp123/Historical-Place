@@ -1,23 +1,19 @@
-<div class="position-fixed ">
-      <div class="list-group list-group-flush mx-3 mt-4">
-        <a
-          href="#"
-          class="list-group-item list-group-item-action py-2 ripple"
-          aria-current="true"
-          >
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
-       </a>
-       <div >
-          <span><%= link_to "Tourist Point", admin_tourist_points_path, class: "list-group-item list-group-acion py-2 ripple  " %></span>
-          <span> <%= link_to " Place", admin_places_path, class: "list-group-item list-group-acion py-2" %></span>
-          <span> <%= link_to "Nearby Place", admin_near_by_places_path, class: "list-group-item list-group-acion py-2" %></span>
-          <span><%= link_to "How to Reach", admin_how_to_reaches_path, class: "list-group-item list-group-acion py-2" %></span>
-          <span><%= link_to "Best Time to Visit", admin_best_time_to_visits_path, class: "list-group-item list-group-acion py-2" %></span>
-          <span><%= link_to "Accommodation", admin_accommodations_path, class: "list-group-item list-group-acion py-2" %></span>
-          <span><%= link_to "plan your trip", admin_plan_your_trips_path, class: "list-group-item list-group-acion py-2" %></span>
-          <span><%= link_to "car rental", admin_car_rentals_path, class: "list-group-item list-group-acion py-2" %></span>
-          <span><%= link_to "Popular Place", admin_popular_places_path, class: "list-group-item list-group-acion py-2" %></span>
-          <span><%= link_to "Inquiry ", admin_inquiries_path, class: "list-group-item list-group-acion py-2" %></span> 
-        </div>          
-      </div>
+<div class="position-sticky ">
+  <div class="list-group list-group-flush mx-3">
+    <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+      <i class="fas fa-tachometer-alt fa-fw me-3 mt-2"></i><span>Main dashboard</span>
+    </a>
+    <div>
+      <span><%= link_to "Tourist Point", admin_tourist_points_path, class: "list-group-item list-group-acion py-2 ripple" %></span>
+      <span><%= link_to "Place", admin_places_path, class: "list-group-item list-group-acion py-2 ripple" %></span>
+      <span><%= link_to "Nearby Place", admin_near_by_places_path, class: "list-group-item list-group-acion py-2 ripple" %></span>
+      <span><%= link_to "How to Reach", admin_how_to_reaches_path, class: "list-group-item list-group-acion py-2 ripple" %></span>
+      <span><%= link_to "Best Time to Visit", admin_best_time_to_visits_path, class: "list-group-item list-group-acion py-2 ripple" %></span>
+      <span><%= link_to "Accommodation", admin_accommodations_path, class: "list-group-item list-group-acion py-2 ripple" %></span>
+      <span><%= link_to "Plan Your Trip", admin_plan_your_trips_path, class: "list-group-item list-group-acion py-2 ripple" %></span>
+      <span><%= link_to "Car Rental", admin_car_rentals_path, class: "list-group-item list-group-acion py-2 ripple" %></span>
+      <span><%= link_to "Popular Place", admin_popular_places_path, class: "list-group-item list-group-acion py-2 ripple" %></span>
+      <span><%= link_to "Inquiry", admin_inquiries_path, class: "list-group-item list-group-acion py-2 ripple" %></span>
     </div>
+  </div>
+</div>

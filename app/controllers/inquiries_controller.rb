@@ -1,7 +1,7 @@
 class InquiriesController < ApplicationController
 
   def index
-    @inquirys = Inquiry.all
+    @inquiries = Inquiry.all
   end
 
   def new

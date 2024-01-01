@@ -1,4 +1,4 @@
-class BestTimeToVisitsController < AdminController
+class BestTimeToVisitsController < ApplicationController
 	
 	before_action :set_best_time_to_visit, only: %i[ show edit update destroy ]
 

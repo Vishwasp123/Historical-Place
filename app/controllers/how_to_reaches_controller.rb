@@ -1,4 +1,4 @@
-class HowToReachesController < AdminController
+class HowToReachesController < ApplicationController
 	before_action :set_how_to_reach, only: %i[ show edit update destroy ]
 
 	def index

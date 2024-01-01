@@ -1,10 +1,10 @@
-<div class="col-lg-10 mx-auto mb-2">
+<div class="col-lg-10 mx-auto mb-2 mt-5">
 	<% if @tourist_points.present? %>
 		<% if current_user.admin? %>
 			<%= link_to "Add ", new_admin_tourist_point_path, class:"btn btn-primary mb-2" %>
 		<% end %>
 		<% @tourist_points.each do |tourist_point| %>
-			<%= link_to tourist_point_path(tourist_point),style:"text-decoration:none; color:black;" do%>
+			<%= link_to admin_tourist_point_path(tourist_point),style:"text-decoration:none; color:black;" do%>
 			<div class="card mb-3" style="max-width: 800;">
 				<div class="row g-0">
 					<div class="col-md-4">

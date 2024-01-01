@@ -1,4 +1,4 @@
-class SearchController < AdminController
+class SearchController < ApplicationController
   def search
     if params[:search].present?
       @places = Place.where("name LIKE ? OR state LIKE ? OR district LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")

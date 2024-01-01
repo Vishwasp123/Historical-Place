@@ -1,14 +1,10 @@
 <div class="col-lg-12">
   <div class="container">
     <% if @popular_places.present? %>
-      <% if current_user.admin? %>
-        <%= link_to "create new", new_admin_popular_place_path, class: "btn btn-primary mb-3" %>
-       <% end %>
-    
       <h4 class="card-text text-center fs-1">Best 10 Places in India</h4>
       <div class="row">
         <% @popular_places.each do |popular_place| %>
-          <%#= link_to popular_place_path(popular_place), style: "text-decoration:none; color:black;" do %>
+          <%= link_to popular_place_path(popular_place), style: "text-decoration:none; color:black;" do %>
             <div class="col-lg-10 mx-auto">
               <div class="card mb-3">
                 <% if popular_place.popular_place_images.attached? %>
@@ -18,20 +14,18 @@
                   <h5 class="card-title"><%= popular_place.name %></h5>
                   <p class="card-text">City:<span><%= popular_place.city %></span></p>
                   <p class="card-text">State:<span><%= popular_place.state %></span></p>
-                  <p><small><%= popular_place.about%></small></p>
-                  <% if current_user.admin? %>
-                    <%= link_to "Edit", edit_popular_place_path(popular_place), class:"btn btn-outline-warning"%>
-                    <%= link_to "Delete", popular_place_path(popular_place), method: :delete, data: {confirm: "Are you sure to delete"}, class:"btn btn-outline-danger"%>
-                  <% end %>
+                  <p><small><%= popular_place.about%></small></p> 
                 </div>
               </div>
             </div>
-          <%# end %>
+          <% end %>
         <% end %>
       </div>
       <% else %>
       <p class="lead h2 text-danger"> Popular Palace Data not Vailable </p>
     <% end %>
-    <%= paginate @popular_places %>
+    <div class="col-lg-10 mx-auto">
+      <%= paginate @popular_places %>
+    </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 class Admin::BestTimeToVisitsController < AdminController
-	
+	layout 'admin'
 	before_action :set_best_time_to_visit, only: %i[ show edit update destroy ]
 
 	def index
@@ -35,7 +35,7 @@ class Admin::BestTimeToVisitsController < AdminController
 
 	def destroy
 		if @best_time_to_visit.destroy
-			redirect_to best_time_to_visits, alert:"delete succesfully"
+			redirect_to admin_best_time_to_visits_path, alert:"delete succesfully"
 		end
 	end
 

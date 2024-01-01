@@ -1,4 +1,4 @@
-class PopularPlacesController < AdminController
+class PopularPlacesController < ApplicationController
    before_action :set_paln_your_trip, only: %i[show edit update destroy]
 
   def index

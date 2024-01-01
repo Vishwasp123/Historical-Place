@@ -1,4 +1,4 @@
-class PlacesController < AdminController  
+class PlacesController < ApplicationController 
   before_action :set_place, only: %i[ edit show update destroy ]
 
   def index
@@ -7,7 +7,7 @@ class PlacesController < AdminController
   end 
  
   def show
-    @how_to_reaches = HowToReach.all
+   @how_to_reaches = HowToReach.where(place_name: @place.name)
     @best_time_to_visits = BestTimeToVisit.all
     @tourist_points = TouristPoint.all
     @accommodations = Accommodation.all

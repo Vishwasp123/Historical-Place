@@ -1,4 +1,5 @@
 class Admin::NearByPlacesController < AdminController
+  layout 'admin'
   before_action :set_near_by_place, only: %i[ show edit update destroy ]
 
   def index

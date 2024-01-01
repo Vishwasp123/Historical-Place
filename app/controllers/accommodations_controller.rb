@@ -1,4 +1,4 @@
-class AccommodationsController < AdminController
+class AccommodationsController < ApplicationController
 	
 	before_action :set_accommodation, only: %i[ show edit update destroy ]
 

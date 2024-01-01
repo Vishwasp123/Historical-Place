@@ -1,0 +1,26 @@
+<!-- app/views/admin/car_rentals/car_all.html.erb -->
+<h1 class="mt-5">All Car Rentals</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Pick_up_location</th>
+      <th scope="col">Pick_up_date</th>
+      <th scope="col">Pick_up_time</th>
+      <th scope="col">Drop_off_location</th>
+      <th scope="col">Action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @car_rentals.each do |car_rental| %>
+      <tr>
+        <td><%= car_rental.pick_up_location %></td>
+        <td><%= car_rental.pick_up_date %></td>
+        <td><%= car_rental.pick_up_time %></td>
+        <td><%= car_rental.drop_off_location %></td>
+        <td><%= link_to 'Show', admin_car_rental_path(car_rental) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

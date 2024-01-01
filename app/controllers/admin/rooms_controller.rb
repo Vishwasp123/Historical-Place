@@ -1,4 +1,5 @@
 class Admin::RoomsController < AdminController
+	layout 'admin'
 	before_action :set_room, only: %i[show update edit destroy]
 	
 	def index

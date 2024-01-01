@@ -1,4 +1,4 @@
-class ProfileController < AdminController
+class ProfileController < ApplicationController
   
 
   def show

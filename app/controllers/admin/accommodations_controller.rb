@@ -1,4 +1,5 @@
 class Admin::AccommodationsController < AdminController
+	layout 'admin'
 
 	before_action :set_accommodation, only: %i[ show edit update destroy ]
 

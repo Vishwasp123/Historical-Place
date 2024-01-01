@@ -63,14 +63,14 @@ puts " #{TouristPoint.count}TouristPoint create successfully"
 
 
 near_by_palce = [ 
-  { tourist_point_id: 1, place_id: 1, name: 'Lal Bagh Palace', distance_from: 'Lal Bagh Palace distance is 3 km', city: 'Indore', longitude: '22.7001' },
+  { tourist_point_id: 1, place_id: 1, name: 'Lal Bagh Palace', distance_from: 'Lal Bagh Palace distance is 3 km', city: 'Indore', latitude: 22.7001 , longitude: 75.8471},
 
-  { tourist_point_id: 2, place_id: 1, name: 'Kamla Nehru Prani Sangrahalaya (Indore Zoo)', distance_from: 'Kamla Nehru Prani Sangrahalaya (Indore Zoo) is 8 km', city: 'Indore', longitude: '75.88006', latitude: '22.70103' },
+  { tourist_point_id: 2, place_id: 1, name: 'Kamla Nehru Prani Sangrahalaya (Indore Zoo)', distance_from: 'Kamla Nehru Prani Sangrahalaya (Indore Zoo) is 8 km', city: 'Indore', longitude: '75.88006', latitude: '22.7010'},
   
-  { tourist_point_id: 3, place_id: 1, name: 'Gommatagiri Digambar Jain Temple', distance_from: 'Gommatagiri Digambar Jain Temple distance from Shree Annapurna Temple is 13 km', city: 'Indore', latitude: '22.745684960052397', longitude: '75.77320272451213' },
+  { tourist_point_id: 3, place_id: 1, name: 'Gommatagiri Digambar Jain Temple', distance_from: 'Gommatagiri Digambar Jain Temple distance from Shree Annapurna Temple is 13 km', city: 'Indore', latitude: '22.745', longitude: '75.773' },
 
   # Dewas
-  { tourist_point_id: 4, place_id: 2, name: 'Chamunda Hill Dewas', distance_from: 'maa chamunda darshan 6 km', city: 'Dewas', latitude: '22.9722', longitude: '76.0572' },
+  { tourist_point_id: 4, place_id: 2, name: 'Chamunda Hill Dewas', distance_from: 'maa chamunda darshan 6 km', city: 'Dewas', latitude: '22.972', longitude: '76.0572' },
 
   { tourist_point_id: 5, place_id: 2, name: 'Kheoni Wildlife Sanctuary.', distance_from: 'Meetha Talab nearby places 12 km', city: 'Dewas', latitude: '22.12', longitude: '75.3' },
 
@@ -80,28 +80,29 @@ near_by_palce = [
   { tourist_point_id: 7, place_id: 3, name: 'Rani Kamlapati Palace 0.7km from', distance_from: '0.7km from Bharat Bhawan', city: 'Bhopal', latitude: '23.2507', longitude: '77.3975' },
 
   # Gwalior
-  { tourist_point_id: 8, place_id: 4, name: 'Gopachal Parvat', distance_from: '1.7 km from Gwalior Fort', city: 'Gwalior', latitude: 'GWL_LATITUDE', longitude: 'GWL_LONGITUDE' },
+  { tourist_point_id: 8, place_id: 4, name: 'Gopachal Parvat', distance_from: '1.7 km from Gwalior Fort', city: 'Gwalior', latitude: '26.2145', longitude: '78.1674' },
 
   { tourist_point_id: 9, place_id: 4, name: 'HH Maharaja Sir Jiwajirao Scindia Museum', distance_from: '118m from Jai Vilas Palace', city: 'Gwalior', latitude: '26.2145', longitude: '78.1674' }
 ]
 
-near_by_palce.each do |nearby_place|
-  NearByPlace.create(nearby_place)
+near_by_palce.each do |near_by_place|
+  NearByPlace.create(near_by_place)
 end
 
 puts "NearByPlace #{NearByPlace.count}"
 
 
 
-best_times_to_visit = [ {title:'Bhopal', place_name:'Bhopal', description:'Bhopal is best visited during the winter months of October to February. The weather is moderate and travelling across the plains would prove to be a very good experience.'},
+best_times_to_visit = 
+[ {title:'Bhopal', place_name:'Bhopal', description:'Bhopal is best visited during the winter months of October to February. The weather is moderate and travelling across the plains would prove to be a very good experience.'},
 
   {title:'Indore', place_name:'Indore', description:'The best time to visit Indore is between the months of October and March when the weather is conducive enough for sightseeing and outdoor activities. The temperature during this period ranges between 8°C and 32°C'},
 
-   {title:'Gwalior', place_name:'Gwalior', description:'This city can be explored throughout the year, however, the best time to visit Gwalior is from September to March. During these months, Gwalior weather is enjoyable, making it favourable to go out and explore. Travelers who love a little rain can discover the city during July and September.'},
+  {title:'Gwalior', place_name:'Gwalior', description:'This city can be explored throughout the year, however, the best time to visit Gwalior is from September to March. During these months, Gwalior weather is enjoyable, making it favourable to go out and explore. Travelers who love a little rain can discover the city during July and September.'},
 
-   {title:'Ujjain', place_name:'Ujjain', description:'October to March are the best months to visit Ujjain as the weather is pleasant and windy. It is the perfect time for sightseeing as the entire place_name looks spellbinding with temperatures hovering at a pleasant 20 degree celcius.'},
+  {title:'Ujjain', place_name:'Ujjain', description:'October to March are the best months to visit Ujjain as the weather is pleasant and windy. It is the perfect time for sightseeing as the entire place_name looks spellbinding with temperatures hovering at a pleasant 20 degree celcius.'},
 
-   {title:'Dewas', place_name:'Dewas', description:'Fall (September through November). Fall daily highs range from 91.8°F (33.2°C) and 83°F (28.3°C), which will feel very nice given the humidity and wind.'},
+  {title:'Dewas', place_name:'Dewas', description:'Fall (September through November). Fall daily highs range from 91.8°F (33.2°C) and 83°F (28.3°C), which will feel very nice given the humidity and wind.'},
 ]
 
 best_times_to_visit.each do |best_times_to_visit|
@@ -110,7 +111,8 @@ end
 
 puts " best time to visit #{BestTimeToVisit.count}"
 
-popular_places_in_india = [
+popular_places_in_india =
+[
   #1
   { name: 'Mysore Palace', state: 'Karnataka', about: 'Mysore Palace, also known as Amba Vilas Palace, is a historical palace and a royal residence. It is located in Mysore, Karnataka, India. It used to be the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward.', city: 'Mysore' },
  #2
@@ -127,11 +129,11 @@ popular_places_in_india = [
   { name: 'Lalgarh Palace', state: 'Rajasthan', about: "Lalgarh Palace is a palace and heritage hotel in Bikaner, in the Indian state of Rajasthan, built for Sir Ganga Singh, Maharaja of Bikaner, between 1902 and 1926. Laxmi Niwas Palace is a part of Lalgarh Palace but it has been given on lease and recently is being used as a heritage hotel.", city: 'Bikaner' },
 
   #8
-   { name: 'Rambagh Palace', state: 'Rajasthan', about: "The Rambagh Palace in Jaipur, Rajasthan is the former residence of the Maharaja of Jaipur located 5 miles outside the walls of the city of Jaipur on Bhawani Singh road.", city: 'Jaipur' },
-   #9
-   { name: 'Kowdiar Palace', state: 'Kerala', about: "Kowdiar Palace in Thiruvananthapuram, Kerala, India was built in 1934 by Maharajah Sree Chithira Thirunal Balarama Varma, on Pallikettu of his only sister, Maharani Karthika Thirunal Lakshmi Bayi with Lt. Col. G. V. Raja", city: 'Thiruvananthapuram' },
-   #10
-    { name: 'Prag Mahal ', state: 'Gujarat', about: "Prag Mahal is named after Rao Pragmalji II, who commissioned it and construction began in 1865.[1][2] It was designed by Colonel Henry St Clair Wilkins in what the local tourist office describes as the Italian Gothic style,[3] although it would be better described as a Romanesque architecture twist on the Indo-Saracenic Revival style, and many Italian artisans were involved in its construction.[2] The palace artisans' wages were paid in gold coins.[4] Construction of the palace, which ultimately cost 3.1 million rupees,[2] was completed in 1879 during the regency of Khengarji III (Pragmalji II's son) following Pragmalji II's death in 1875.[1][5][6] The local Kutchi builder community (Mistris of Kutch) were also involved in construction of Prag Mahal along with Colonel Wilkins.[", city: 'Bhuj(kutch)' },
+  { name: 'Rambagh Palace', state: 'Rajasthan', about: "The Rambagh Palace in Jaipur, Rajasthan is the former residence of the Maharaja of Jaipur located 5 miles outside the walls of the city of Jaipur on Bhawani Singh road.", city: 'Jaipur' },
+  #9
+  { name: 'Kowdiar Palace', state: 'Kerala', about: "Kowdiar Palace in Thiruvananthapuram, Kerala, India was built in 1934 by Maharajah Sree Chithira Thirunal Balarama Varma, on Pallikettu of his only sister, Maharani Karthika Thirunal Lakshmi Bayi with Lt. Col. G. V. Raja", city: 'Thiruvananthapuram' },
+  #10
+  { name: 'Prag Mahal ', state: 'Gujarat', about: "Prag Mahal is named after Rao Pragmalji II, who commissioned it and construction began in 1865.[1][2] It was designed by Colonel Henry St Clair Wilkins in what the local tourist office describes as the Italian Gothic style,[3] although it would be better described as a Romanesque architecture twist on the Indo-Saracenic Revival style, and many Italian artisans were involved in its construction.[2] The palace artisans' wages were paid in gold coins.[4] Construction of the palace, which ultimately cost 3.1 million rupees,[2] was completed in 1879 during the regency of Khengarji III (Pragmalji II's son) following Pragmalji II's death in 1875.[1][5][6] The local Kutchi builder community (Mistris of Kutch) were also involved in construction of Prag Mahal along with Colonel Wilkins.[", city: 'Bhuj(kutch)' },
   # Add more popular places in India as needed
 ]
 
@@ -142,7 +144,8 @@ puts "popular palce #{PopularPlace.count
 } "
 
 
-trip_plans = [
+trip_plans =
+[
   { days_of_travel: 7, start_point_city: 'Delhi', travel_month: 'March', name: 'John Doe', email: 'john.doe@example.com', contact_number: '1234567890' },
   { days_of_travel: 5, start_point_city: 'Mumbai', travel_month: 'July', name: 'Jane Doe', email: 'jane.doe@example.com', contact_number: '9876543210' },
   { days_of_travel: 10, start_point_city: 'Bangalore', travel_month: 'October', name: 'Alice Smith', email: 'alice.smith@example.com', contact_number: '5551234567' }, 
@@ -152,16 +155,19 @@ trip_plans.each do |plan_attributes|
 end
 puts "#{PlanYourTrip.count} PlanYourTrip"
 
-user = [
+user = 
+[
   {first_name: 'example1', last_name: 'test1', contact_number: 6587423698, address: 'Indore', email: 'example1@gamil.com', password: 123456 },
   {first_name: 'example2', last_name: 'test2', contact_number: 6587423852, address: 'Indore', email: 'example2@gamil.com', password: 123456  },
   {first_name: 'example3', last_name: 'test3', contact_number: 6587423698, address: 'Indore', email: 'example3@gamil.com', password: 123456  },
-  {first_name: 'example3', last_name: 'test3', contact_number: 6587423698, address: 'Indore', email: 'admin@gamil.com', password: 123456, role: "admin" } ]
+  {first_name: 'example3', last_name: 'test3', contact_number: 6587423698, address: 'Indore', email: 'admin@gamil.com', password: 123456, role: "admin" } 
+]
   user.each do |user|
     User.create(user)
   end
 
-  accommodations = [
+accommodations = 
+[
   { name: 'Sayaji Hotel', city: 'Indore', state: 'Madhya Pradesh', address: 'Vijay Nagar', pincode: '452010', about: 'Off a main road, this warm hotel is 4 km from Khajrana Ganesh Temple and 8 km from Mayank Blue Water Park. Informal rooms come with minibars and flat-screen TVs. Suites add living areas and/or whirlpool baths. Club quarters have access to a lounge, a private fitness centre and personal chefs. Breakfast is free. Dining options include a rooftop Mediterranean restaurant, a grill, and a Chinese eatery, as well as a coffee shop and a casual bar. Other amenities consist of an outdoor pool, a gym, a spa, and multiple sports courts. There\'s also a game room and a discotheque.', contact_number: '0731 400 6666' },
   { name: 'Playotel Inn', city: 'Indore', state: 'Madhya Pradesh', address: 'Kanchan Vihar, Scheme no 114, near Mahindra', pincode: '452010', about: 'In a business district, this unassuming hotel is a 5-minute walk from Maa Vindhyavasini Devi Temple, 6 km from Mangliyagaon railway station and 8 km from Gandhi Hall. Simply furnished rooms provide TVs, tea and coffee-making facilities, and Wi-Fi, in addition to en suite bathrooms. Upgraded rooms add minifridges. There\'s a rooftop restaurant with city views.', contact_number: '075299 98998' },
   { name: 'Hotel Shipra Avenue', city: 'Ujjain', state: 'Madhya Pradesh', address: '8 Mahakal Ghati Opp Mahakal Police Station', pincode: '456006', about: 'Hotel Shipra Avenue- Ujjain is located in Ujjain. With a restaurant, the 2-star hotel has air-conditioned rooms with free WiFi, each with a private bathroom. The accommodation provides room service and a 24-hour front desk for guests.', contact_number: '075299 98985' },
@@ -183,7 +189,37 @@ end
 
 puts "#{Accommodation.count} Accommodation created successfully"
 
+# how to reach 
 
+how_to_reach = 
+[  #Bhopal
+  {title: "By Bus", description:"Bus services may vary in terms of comfort, duration, and cost. Some buses are air-conditioned, while others may be non-AC. Choose a bus type that suits your preferences and budget.", place_name:"Bhopal"},
+  {title: "By Train", description:"If you prefer purchasing tickets in person, visit your local railway station. Inquire about the train services to Bhopal, check the schedules, and find out about the types of trains available (e.g., Express, Superfast, Duronto).", place_name:"Bhopal"},
+  {title: "By Air", description:"Bhopal Airport is also famous as Raja Bhoj Airport and it is located around 8.3 km away from Bhopal city. Major airlines run flight namely Air India, Jet Airways, Spice Jet and Jetlite to Mumbai, Delhi, Indore, Hyderabad and Chandigarh.", place_name:"Bhopal"},
+  #Indore
+  {title: "By Bus", description:"Travelers can reach Indore by bus from several cities, enjoying a cost-effective journey with various bus services available. The well-connected road network facilitates comfortable travel to Indore, and numerous bus operators offer regular services, providing a convenient and economical transportation option for those exploring this vibrant city.", place_name:"Indore"},
+  {title: "By Train", description:"Indore is easily accessible by train, offering a comfortable and scenic journey for travelers. With regular train services connecting major railway stations, including Indore Junction, passengers can enjoy a smooth and efficient rail travel experience. The railway network provides an excellent option for those seeking a relaxed and well-connected journey to Indore.", place_name:"Indore"},
+  {title: "By Air", description:"For a swift and efficient journey, travelers can opt for flights to Indore's Devi Ahilya Bai Holkar Airport. The airport is well-connected with major cities across the country, offering a convenient air travel option. With multiple airlines providing regular services, flying to Indore ensures a quick and comfortable journey for both domestic and international travelers.", place_name:"Indore"},
+  #Dewas
+  {title: "By Bus", description:"Dewas is accessible by bus, and travelers can reach the city through various bus services connecting from nearby towns and cities. Multiple bus operators provide regular services, offering a convenient and cost-effective mode of transportation to Dewas. Bus terminals and stands facilitate easy boarding and alighting.", place_name:"Dewas"},
+  {title: "By Train", description:"Dewas is well-connected by train, and reaching the city by rail is a comfortable option. The Dewas Junction is a major railway station serving the city, with regular train services connecting it to various destinations across the country. Passengers can enjoy a smooth and scenic journey via the extensive railway network.", place_name:"Dewas"},
+  {title: "By Air", description:"Although Dewas does not have its own airport, travelers can reach the city by air by flying into the nearest airport, Devi Ahilya Bai Holkar Airport in Indore. From the airport, one can avail ground transportation options, such as buses or taxis, to reach Dewas, ensuring a convenient and efficient journey.", place_name:"Dewas"},
+  #Ujjain
+  {title: "By Bus", description:"Ujjain is well-connected by a network of roads, and travelers can reach the city by bus from various nearby towns and cities. Multiple bus services operate regular routes to Ujjain, offering a convenient and affordable mode of transportation. Bus terminals within the city facilitate easy boarding and alighting.", place_name:"Ujjain"},
+  {title: "By Train", description:"Ujjain has a major railway station, Ujjain Junction, with regular train services connecting it to different parts of the country. Travelers can reach Ujjain by train, enjoying a comfortable and scenic journey through the extensive railway network. The railway station is centrally located in the city.", place_name:"Ujjain"},
+  {title: "By Air", description:"The nearest airport to Ujjain is Devi Ahilya Bai Holkar Airport in Indore. Travelers can reach Ujjain by air by flying into the Indore airport and then using ground transportation options, such as buses or taxis, to cover the remaining distance to Ujjain. The airport provides good connectivity to major cities.", place_name:"Ujjain"},
+  #Gwalior
+  {title: "By Bus", description:"Gwalior is well-connected by road, and travelers can reach the city by bus from various nearby towns and cities. State-run buses and private operators offer regular services to Gwalior, providing a convenient and affordable mode of transportation. Central Bus Stand (Sarwate Bus Stand) is a major terminal in the city.", place_name:"Gwalior"},
+  {title: "By Train", description:"Gwalior Junction is a prominent railway station, and travelers can reach Gwalior by train from different parts of the country. The city is well-connected through the Indian Railways network, offering both express and local train services. The railway station is centrally located, facilitating easy access to the city.", place_name:"Gwalior"},
+  {title: "By Air", description:"Gwalior Airport (Rajmata Vijaya Raje Scindia Airport) is the city's airport, and travelers can reach Gwalior by air. The airport connects Gwalior to major cities, providing domestic flights. From the airport, ground transportation options, such as taxis or buses, are available for convenient travel within the city.", place_name:"Gwalior"},
+
+]
+
+how_to_reach.each do |how_to_reach|
+  HowToReach.create(how_to_reach)
+end
+
+puts "#{HowToReach.count} How to reach Created successfully"
 
 
 

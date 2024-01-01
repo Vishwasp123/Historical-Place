@@ -1,4 +1,4 @@
-class NearByPlacesController < AdminController
+class NearByPlacesController < ApplicationController
   before_action :set_near_by_place, only: %i[ show edit update destroy ]
 
   def index

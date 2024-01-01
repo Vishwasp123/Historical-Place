@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_22_142057) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_31_095127) do
   create_table "accommodations", force: :cascade do |t|
     t.string "name"
     t.string "city"
@@ -38,8 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_22_142057) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -58,7 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_22_142057) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -76,10 +76,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_22_142057) do
     t.string "car_number"
     t.string "pick_up_location"
     t.date "pick_up_date"
-    t.string "pick_up_time"
+    t.time "pick_up_time"
     t.string "drop_off_location"
     t.date "drop_off_date"
-    t.string "drop_off_time"
+    t.time "drop_off_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "car_type"
@@ -90,9 +90,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_22_142057) do
   create_table "how_to_reaches", force: :cascade do |t|
     t.string "title"
     t.string "description"
+    t.string "place_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "place_name"
   end
 
   create_table "inquiries", force: :cascade do |t|
@@ -118,7 +118,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_22_142057) do
   end
 
   create_table "places", force: :cascade do |t|
-    t.string "state"
+    t.string "state"  
     t.string "name"
     t.string "district"
     t.datetime "created_at", null: false
@@ -161,10 +161,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_22_142057) do
     t.string "childrens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "check_out_date"
-    t.date "check_in_date"
     t.integer "accommodation_id"
     t.integer "user_id"
+    t.date "check_out_date"
+    t.date "check_in_date"
     t.index ["accommodation_id"], name: "index_rooms_on_accommodation_id"
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end

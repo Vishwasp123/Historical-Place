@@ -79,7 +79,7 @@
       <% @how_to_reaches.where(place_name: @place.name).each do |how_to_reach| %>
        <div class="col-lg-4 justify-content-between ">
           <div class="container ">
-            <div class="card mx-auto" style="width: 18rem;">
+            <div class="card mx-auto" style="width: 14rem;">
              <div class="card-body">
                 <!-- <h5 class="card-title">Place:<span><%#= how_to_reach.place_name %></span></h5> -->
                 <p class="card-header"><span><%= how_to_reach.title %></span></p>
@@ -92,6 +92,7 @@
     <% end %>
   </div>
 </div>
+
 
 <div class="container" id="Gallery">
   <% if  @place.images[1] %>

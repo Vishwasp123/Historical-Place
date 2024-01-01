@@ -16,7 +16,7 @@
               <p class="card-text">Address:<span class="ms-1"><%= @accommodation.address %></span></p>
             </div>
             <div class="col-lg-6 my-5">
-             <%= link_to "Book Room", new_room_path(accommodation_id: @accommodation.id), class:"btn btn-outline-danger"%>
+             <%= link_to "Book Room", new_admin_room_path(accommodation_id: @accommodation.id), class:"btn btn-outline-danger"%>
            </div>
            <div class="col-lg-12 mt-3">
              <p class="card-text">About:<br><small><%= @accommodation.about %></small></p>
@@ -40,11 +40,9 @@
               <% end %>
             <% end %>          
             <div class="mt-2">
-              <% if current_user.admin? %>
-                <%= link_to "Edit", edit_accommodation_path(@accommodation), class: "btn btn-primary" %>
-                <%= link_to "Delete", accommodation_path(@accommodation), method: :delete, data: { confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
-                <%= link_to "Back", places_path, class:"btn btn-outline-warning"%>
-                <% end %>
+              <%= link_to "Edit", edit_admin_accommodation_path(@accommodation), class: "btn btn-primary" %>
+              <%= link_to "Delete", admin_accommodation_path(@accommodation), method: :delete, data: { confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
+              <%= link_to "Back", admin_places_path, class:"btn btn-outline-warning"%>
             </div>
           </div>
         </div>

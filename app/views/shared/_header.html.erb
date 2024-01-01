@@ -9,25 +9,13 @@
    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"       data-bs-target="#navbarSupportedContent" aria-controls="  navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
    </button>
    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-0 mt-1 mb-lg-0 ">
+      <ul class="navbar-nav me-auto mb-0  mb-lg-0 ">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-light " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            Explore
          </a>
          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <% if current_user.admin? %>
-              <li><%= link_to "Tourist Point", admin_tourist_points_path, class: "dropdown-item" %></li>
-              <li><%= link_to "New Place", new_admin_place_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Nearby Place", admin_near_by_places_path, class: "dropdown-item" %></li>
-              <li><%= link_to "How to Reach", admin_how_to_reaches_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Best Time to Visit", admin_best_time_to_visits_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Accommodation", admin_accommodations_path, class: "dropdown-item" %></li>
-              <li><%#= link_to "Room", rooms_path, class: "dropdown-item" %></li>
-              <li><%= link_to "plan your trip", admin_plan_your_trips_path, class: "dropdown-item" %></li>
-              <li><%= link_to "car rental", admin_car_rentals_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Popular Place", admin_popular_places_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Inquiry ", admin_inquiries_path, class: "dropdown-item" %></li>
-              <% else %>
+          
                <li><%= link_to "Tourist Point", tourist_points_path, class: "dropdown-item" %></li>
               
               <li><%= link_to "Nearby Place", near_by_places_path, class: "dropdown-item" %></li>
@@ -38,7 +26,6 @@
               <li><%= link_to "plan your trip", plan_your_trips_path, class: "dropdown-item" %></li>
               <li><%= link_to "car rental", car_rentals_path, class: "dropdown-item" %></li>
               <li><%= link_to "Popular Place", popular_places_path, class: "dropdown-item" %></li>
-            <% end %>
          </ul>
      <li class="text-end"><%= link_to "Inquiry Form", new_inquiry_path, class: "dropdown-item text-light mt-2 " %></li>
         </li>

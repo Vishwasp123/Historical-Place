@@ -1,4 +1,5 @@
 class Admin::TouristPointsController < AdminController
+  layout 'admin'
   
   before_action :set_tourist_point, only: %i[edit show update destroy]
 

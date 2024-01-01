@@ -1,4 +1,5 @@
 class Admin::PlanYourTripsController < AdminController
+  layout 'admin'
   before_action :set_paln_your_trip, only: %i[show edit update destroy]
 
   def index
@@ -13,7 +14,7 @@ class Admin::PlanYourTripsController < AdminController
     @plan_your_trip = PlanYourTrip.create(trip_params)
     if @plan_your_trip.save
       PlanYourTripMailer.welcome(@plan_your_trip).deliver
-      redirect_to admin_plan_your_trips_path
+      redirect_to admin_plan_your_trips_path, alert:"Place is create succesfully"
     else
       render :new 
     end 
@@ -27,9 +28,16 @@ class Admin::PlanYourTripsController < AdminController
 
   def update
    if  @plan_your_trip.update(trip_params)
-      redirect_to admin_plan_your_trips_path
+    PlanYourTripMailer.welcome(@plan_your_trip).deliver
+      redirect_to admin_plan_your_trips_path , alert:"Place is update succesfully"
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @plan_your_trip.destroy
+      redirect_to admin_plan_your_trip_path, alert:"Place is delete succesfully"
     end
   end
 

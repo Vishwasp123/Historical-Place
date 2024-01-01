@@ -1,5 +1,5 @@
-<div class="col-lg-12">
-	<div class="container">
+<div class="col-lg-12 mt-4">
+	<div class="container mt-4">
 		<% if @best_time_to_visits.present? %>
 			<% @best_time_to_visits.each do |best_time_to_visit| %>
 			<div class="card mt-3">
@@ -7,7 +7,7 @@
 				<div class="card-body">
 					<h5 class="card-title"><%= best_time_to_visit.place_name %></h5>
 					<p class="card-text"><%= simple_format(truncate(best_time_to_visit.description, length:200)) %></p>
-					<%= link_to "View" , best_time_to_visit_path(best_time_to_visit), class:"btn btn-outline-info" %>
+					<%= link_to "View" , admin_best_time_to_visit_path(best_time_to_visit), class:"btn btn-outline-info" %>
 				</div>
 			</div>
 			<% end %>

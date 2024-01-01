@@ -25,7 +25,9 @@
    <% else %>
    <p class="lead text-danger "> No Data available </p>
   <% end %>
-  <%= paginate @near_by_places %>
+  <div class="col-lg-10 mx-auto">
+    <%= paginate @near_by_places %>
+  </div>
 </div>
 
 

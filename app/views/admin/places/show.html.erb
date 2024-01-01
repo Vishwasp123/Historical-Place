@@ -73,11 +73,11 @@
 
 <div class="container mt-4" id="how_to_rich">
   <div class="row">
-    <% how_to_reachs = @how_to_reaches.where(place_name: @place.name)%>
-    <% if how_to_reachs.present?%>
-     <h3>How to Reach <%= @place.name%></h3>
-      <% @how_to_reaches.where(place_name: @place.name).each do |how_to_reach| %>
-       <div class="col-lg-4 justify-content-between ">
+    <% how_to_reaches = @how_to_reaches.where(place_name: @place.name) %>
+    <% if how_to_reaches.present? %>
+      <h3>How to Reach <%= @place.name %></h3>
+      <% how_to_reaches.each do |how_to_reach| %>
+        <div class="col-lg-4 justify-content-between ">
           <div class="container ">
             <div class="card mx-auto" style="width: 14rem;">
              <div class="card-body">
@@ -88,10 +88,11 @@
             </div>
           </div>
        </div>
-     <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>
+
 
 <div class="container" id="Gallery">
   <% if  @place.images[1] %>
@@ -110,15 +111,6 @@
      <% end %>
    <% end %>
  </div>
- <div class="container my-2">
-   <%= link_to "Back", places_path, class:"btn btn-outline-warning  " %>
-   <% if current_user.admin? %>
-     <%= link_to "Edit", edit_place_path(@place), class:"btn btn-outline-primary " %>
-     <%= link_to "Delete" , places_path ,  data: {
-     turbo_confirm: 'Are you Sure?', turbo_method: :delete }, class:"btn btn-outline-danger " %>
-    <% end %>
-  </div>
-</div>
 
 <div class="container" id="nearby-places">
   <% near_by_places = @near_by_places.where(city: @place.name) %>
@@ -177,6 +169,15 @@
       <% end %>
     </div>
   <% end %>
+</div>
+ <div class="container my-2">
+   <%= link_to "Back", admin_places_path, class:"btn btn-outline-warning  " %>
+   <% if current_user.admin? %>
+     <%= link_to "Edit", edit_admin_place_path(@place), class:"btn btn-outline-primary " %>
+     <%= link_to "Delete" , admin_place_path(@place) ,  data: {
+     turbo_confirm: 'Are you Sure?', turbo_method: :delete }, class:"btn btn-outline-danger " %>
+    <% end %>
+  </div>
 </div>
  
 
@@ -240,7 +241,6 @@
     }
   });
 </script>
-
 
 
 

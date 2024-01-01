@@ -8,8 +8,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
-  get 'inquiries/new'
-  get 'inquiries/create'
+
 
   resources :inquiries
   root "places#index"
@@ -39,9 +38,13 @@ Rails.application.routes.draw do
     resources :how_to_reaches
     resources :accommodations
     resources :rooms
-    resources :car_rentals
     resources :popular_places
     resources :plan_your_trips
     resources :inquiries
+    resources :car_rentals do
+      collection do
+        get :car_all
+     end
+    end
   end
-end
+end  

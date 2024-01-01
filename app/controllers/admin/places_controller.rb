@@ -1,4 +1,5 @@
 class Admin::PlacesController < AdminController  
+  layout 'admin'
   before_action :set_place, only: %i[ edit show update destroy ]
 
   def index
@@ -13,7 +14,7 @@ class Admin::PlacesController < AdminController
   def create
     @place = Place.new(place_params)
     if @place.save
-      redirect_to admin_places_path ,notice:"Place is add succesfully"
+      redirect_to admin_places_path , notice:"Place is add succesfully"
     else
       render :new
     end 
@@ -23,7 +24,7 @@ class Admin::PlacesController < AdminController
   end
 
   def show
-    @how_to_reaches = HowToReach.all
+   @how_to_reaches = HowToReach.where(place_name: @place.name)
     @best_time_to_visits = BestTimeToVisit.all
     @tourist_points = TouristPoint.all
     @accommodations = Accommodation.all
