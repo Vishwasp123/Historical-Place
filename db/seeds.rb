@@ -81,9 +81,9 @@ near_by_palce = [
   { tourist_point_id: 7, place_id: 3, name: 'Rani Kamlapati Palace 0.7km from', distance_from: '0.7km from Bharat Bhawan', city: 'Bhopal', latitude: '23.2507', longitude: '77.3975' },
 
   #Ujjain
-  { tourist_point_id: 8, place_id: 10, name: 'Shree Kaal Bhairav Mandir, Ujjain', distance_from: 'distance from Mahakaleshwar temple 5 km', city: 'Ujjain', latitude: '22.7001', longitude: '75.8471' },
+  { tourist_point_id: 8, place_id: 4, name: 'Shree Kaal Bhairav Mandir, Ujjain', distance_from: 'distance from Mahakaleshwar temple 5 km', city: 'Ujjain', latitude: '22.7001', longitude: '75.8471' },
 
-  { tourist_point_id: 9, place_id:11, name: 'ISKCON Temple, Ujjain', distance_from: '4.7km from Mahakaleshwar temple', city: 'Ujjain', latitude: '23.2507', longitude: '77.3975' },
+  { tourist_point_id: 9, place_id:4, name: 'ISKCON Temple, Ujjain', distance_from: '4.7km from Mahakaleshwar temple', city: 'Ujjain', latitude: '23.2507', longitude: '77.3975' },
 
   # Gwalior
   { tourist_point_id: 10, place_id: 5, name: 'Gopachal Parvat', distance_from: '1.7 km from Gwalior Fort', city: 'Gwalior', latitude: '26.2145', longitude: '78.1674' },
@@ -166,11 +166,12 @@ user =
   {first_name: 'example1', last_name: 'test1', contact_number: 6587423698, address: 'Indore', email: 'example1@gamil.com', password: 123456 },
   {first_name: 'example2', last_name: 'test2', contact_number: 6587423852, address: 'Indore', email: 'example2@gamil.com', password: 123456  },
   {first_name: 'example3', last_name: 'test3', contact_number: 6587423698, address: 'Indore', email: 'example3@gamil.com', password: 123456  },
-  {first_name: 'example3', last_name: 'test3', contact_number: 6587423698, address: 'Indore', email: 'admin@gamil.com', password: 123456, role: "admin" } 
+  {first_name: 'example', last_name: 'test', contact_number: 6587423698, address: 'Indore', email: 'example@admin.com', password: 123456, role: "admin" } 
 ]
   user.each do |user|
     User.create(user)
   end
+  puts "#{User.count} user create "
 
 accommodations = 
 [
