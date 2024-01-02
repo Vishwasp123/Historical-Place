@@ -3,8 +3,8 @@ class RoomsController < ApplicationController
 	before_action :set_room, only: %i[show update edit destroy]
 	
 	def index
-		@rooms = Room.page params[:page]
-	end
+    	@rooms = current_user.rooms.page(params[:page])
+  	end
 	
 	def new
 		@room = Room.new

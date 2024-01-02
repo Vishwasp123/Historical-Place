@@ -63,6 +63,7 @@ puts " #{TouristPoint.count}TouristPoint create successfully"
 
 
 near_by_palce = [ 
+
   { tourist_point_id: 1, place_id: 1, name: 'Lal Bagh Palace', distance_from: 'Lal Bagh Palace distance is 3 km', city: 'Indore', latitude: 22.7001 , longitude: 75.8471},
 
   { tourist_point_id: 2, place_id: 1, name: 'Kamla Nehru Prani Sangrahalaya (Indore Zoo)', distance_from: 'Kamla Nehru Prani Sangrahalaya (Indore Zoo) is 8 km', city: 'Indore', longitude: '75.88006', latitude: '22.7010'},
@@ -79,10 +80,15 @@ near_by_palce = [
 
   { tourist_point_id: 7, place_id: 3, name: 'Rani Kamlapati Palace 0.7km from', distance_from: '0.7km from Bharat Bhawan', city: 'Bhopal', latitude: '23.2507', longitude: '77.3975' },
 
-  # Gwalior
-  { tourist_point_id: 8, place_id: 4, name: 'Gopachal Parvat', distance_from: '1.7 km from Gwalior Fort', city: 'Gwalior', latitude: '26.2145', longitude: '78.1674' },
+  #Ujjain
+  { tourist_point_id: 8, place_id: 10, name: 'Shree Kaal Bhairav Mandir, Ujjain', distance_from: 'distance from Mahakaleshwar temple 5 km', city: 'Ujjain', latitude: '22.7001', longitude: '75.8471' },
 
-  { tourist_point_id: 9, place_id: 4, name: 'HH Maharaja Sir Jiwajirao Scindia Museum', distance_from: '118m from Jai Vilas Palace', city: 'Gwalior', latitude: '26.2145', longitude: '78.1674' }
+  { tourist_point_id: 9, place_id:11, name: 'ISKCON Temple, Ujjain', distance_from: '4.7km from Mahakaleshwar temple', city: 'Ujjain', latitude: '23.2507', longitude: '77.3975' },
+
+  # Gwalior
+  { tourist_point_id: 10, place_id: 5, name: 'Gopachal Parvat', distance_from: '1.7 km from Gwalior Fort', city: 'Gwalior', latitude: '26.2145', longitude: '78.1674' },
+
+  { tourist_point_id: 11, place_id: 5, name: 'HH Maharaja Sir Jiwajirao Scindia Museum', distance_from: '118m from Jai Vilas Palace', city: 'Gwalior', latitude: '26.2145', longitude: '78.1674' }
 ]
 
 near_by_palce.each do |near_by_place|

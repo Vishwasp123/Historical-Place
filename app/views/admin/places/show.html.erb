@@ -33,7 +33,7 @@
      <% @tourist_points.where(place_name: @place.name).each do |tourist_point| %>
 
       <div class="card mt-2">
-        <%= link_to tourist_point_path(tourist_point), style: "text-decoration:none; color:black;" do %>
+        <%= link_to admin_tourist_point_path(tourist_point), style: "text-decoration:none; color:black;" do %>
           <div class="row no-gutters ">
             <div class="col-md-4">
               <% if tourist_point.images.attached? %>
