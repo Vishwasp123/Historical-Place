@@ -190,6 +190,7 @@ accommodations =
   { name: 'Eco Holiday', city: 'Dewas', state: 'Madhya Pradesh', address: 'kanadiya road Sannod,', pincode: '455221', about: 'Straightforward rooms provide flat-screen TVs, Wi-Fi and minifridges, as well as safes, sitting areas, and tea and coffee-making facilities; some add balconies. Suites feature separate living rooms.', contact_number: '091091 01761', email: 'ecoholiday@gmail.com' }
 ]
 
+
 accommodations.each do |accommodation|
   Accommodation.create(accommodation)
 end
