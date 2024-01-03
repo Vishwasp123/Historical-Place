@@ -14,14 +14,16 @@
         <% @rooms.each do |room| %>
           <tbody>
             <%= link_to room_path(room), style: "text-decoration:none; color:black;" do %>
-              <tr>
-                <td><%= room.title %></td>
-                <td><%= room.room_number %></td>
-                <td><%= room.contact_number %></td>
-                <td><%= room.check_in_date %><span class="ms-1"><%= room.check_in_time %></span></td>
-                <td><%= room.price %></td>
-                <td><%= link_to "show", room_path(room), class: "btn btn-primary" %></td>
-              </tr>
+              <% if current_user && current_user.id == room.user_id %>
+                <tr>
+                  <td><%= room.title %></td>
+                  <td><%= room.room_number %></td>
+                  <td><%= room.contact_number %></td>
+                  <td><%= room.check_in_date %><span class="ms-1"><%= room.check_in_time %></span></td>
+                  <td><%= room.price %></td>
+                  <td><%= link_to "show", room_path(room), class: "btn btn-primary" %></td>
+                </tr>
+                <% end %>
             <% end %>
           </tbody>
        <% end %>

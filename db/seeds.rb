@@ -27,30 +27,35 @@ puts "#{Place.count} places created successfully!"
 
 
 tourist_point = [ 
+  
+  #Indore 1
+
   { location_name: 'Rajwada Palace' , place_name: 'Indore', history: 'Rajwada is a historical palace in Indore city. It was built by the Holkars of the Maratha Empire about two centuries ago. This seven storied structure is located near the Chhatris and serves today as a fine example of royal grandeur and architectural skills.', latitude: 22.7184 , longitude:  75.8551},
-
+#2
   { location_name: 'Khajrana Ganesh Mandir', place_name: 'Indore', history: 'The temple is managed by the Bhatt family. It is believed that in order to safe guard the idol from Aurangzeb, the idol was hidden in a well and in 1735, it was taken out from the well and a temple was established in 1735 by Ahilyabai Holkar belonging to the Holkar dynasty of the Maratha Empire.', latitude: 22.7312, longitude: 75.9081},
-
+#3
   { location_name: 'Shree Annapurna Temple', place_name: 'Indore', history: 'This temple has great religious importance in Hinduism and is dedicated to the goddess Annapurna. Annapurna is the Hindu goddess for nourishment and is a form of the goddess Parvati. The current Annapurna Mandir was constructed in the 18th century by Maratha Peshwa Bajirao I.', latitude: 22.6902 , longitude: 75.8378},
 
   # Dewas
+  #4
   { location_name: 'Maa Chamunda Darshan', place_name: 'Dewas', history: 'The reason for its unique fame is two sisters sitting here. Yes, there are two goddesses in this unique court of Mother. Here, mother Tulja Bhavani and mother Chamunda Devi are seated. This temple is known as Tekri and it is said that the blood of Goddess Mother was spilled here.', latitude: 22.967 , longitude: 76.0644},
-
+#5
   { location_name: 'Meetha Talab', place_name: 'Dewas', history: 'Dewas is a city in the Malwa region of the Indian state of Madhya Pradesh. The municipality was formerly the seat of two 15-Gun Salute state princely states', latitude: 22.9649 , longitude: 76.0697},
 
   # Bhopal
+  #6
   { location_name: 'Van Vihar National Park ', place_name: 'Bhopal', history: 'Van Vihar National Park was formed from a depleted forest area. In order to bring back and protect the rich flora& fauna, this unproductive land was declared a National Park in 1981 under the wildlife protection act.', latitude: 23.2322 , longitude: 77.3664},
-
+#7
   { location_name: 'Bharat Bhawan', place_name: 'Bhopal', history: 'BHARAT BHAVAN. Inaugurated by the then Prime Minister of India, Shrimati Indira Gandhi on 13th February 1982, Bharat Bhavan is multi art centre set up to create an interactive proximity between the verbal, visual and performing arts. It provides space for contemporary expression, thought, quest and innovation', latitude: 23.2470 , longitude: 77.3921},
-
+#8
   # Ujjain
   { location_name: 'Mahakaleshwar Jyotirlinga', place_name: 'Ujjain', history: 'The temple was built in the 6th century AD by Kumarasena, the son of a former king of Ujjain, Chandpradyot. It was reconstructed in the 12th century AD under King Udayaditya and King Naravarman. Later, the Maratha commander Ranoji Shinde under Peshwa Bajirao-I renovated this temple in the 18th century AD.', latitude: 23.1829 , longitude: 75.7683},
-
+#9
   { location_name: 'Shree Harsiddhi Mata Shaktipeeth Temple', place_name: 'Ujjain', history: 'Dedicated goddess Parvati, Harsiddhi Temple is one of the 51 Shaktipeeths of Mata Sati. According to the legend, when Goddess Parvati had gone into the sacrificial fire, Lord Shiva carried her body and her elbow is fell here and thus the temple came into existence.', latitude: 23.184544 , longitude: 75.76475},
-
+#10
   # Gwalior
   { location_name: 'Gwalior Fort', place_name: 'Gwalior', history: 'The Gwalior Fort, commonly known as the Gwāliiyar Qila, is a hill fort near Gwalior, Madhya Pradesh, India. The fort has existed at least since the 10th century, and the inscriptions and monuments found within what is now the fort campus indicate that it may have existed as early as the beginning of the 6th century.', latitude: 26.2313 , longitude: 78.1695},
-
+#11
   { location_name: 'Jai Vilas Palace', place_name: 'Gwalior', history: 'It was built in 1874 by Jayajirao Scindia, the Maharaja of Gwalior in the British Raj. While the major part of the palace is now the "Jiwajirao Scindia Museum" which opened to the public in 1964, a part of it is still the residence of some of his descendants', latitude: 26.2042 , longitude: 78.1685}
 ]
 
@@ -63,32 +68,33 @@ puts " #{TouristPoint.count}TouristPoint create successfully"
 
 
 near_by_palce = [ 
-
-  { tourist_point_id: 1, place_id: 1, name: 'Lal Bagh Palace', distance_from: 'Lal Bagh Palace distance is 3 km', city: 'Indore', latitude: 22.7001 , longitude: 75.8471},
-
-  { tourist_point_id: 2, place_id: 1, name: 'Kamla Nehru Prani Sangrahalaya (Indore Zoo)', distance_from: 'Kamla Nehru Prani Sangrahalaya (Indore Zoo) is 8 km', city: 'Indore', longitude: '75.88006', latitude: '22.7010'},
   
-  { tourist_point_id: 3, place_id: 1, name: 'Gommatagiri Digambar Jain Temple', distance_from: 'Gommatagiri Digambar Jain Temple distance from Shree Annapurna Temple is 13 km', city: 'Indore', latitude: '22.745', longitude: '75.773' },
+#indore
+  { tourist_point_id: 2, place_id: 1, name: 'Ralamandal Wildlife Sanctuary', distance_from: ' 15.4 km ', city: 'Indore', latitude: '22.38 ', longitude: '55.048'},
+
+  { tourist_point_id: 3, place_id: 1, name: 'Patalpani Falls', distance_from: '30 km', city: 'Indore', longitude: '75.79871', latitude: '22.50386'},
+  
+  { tourist_point_id: 1, place_id: 1, name: 'Omkareshwar', distance_from: ' (81.2 km) ', city: 'Omkareshwar', latitude: '22.2445', longitude: '76.1523' },
 
   # Dewas
-  { tourist_point_id: 4, place_id: 2, name: 'Chamunda Hill Dewas', distance_from: 'maa chamunda darshan 6 km', city: 'Dewas', latitude: '22.972', longitude: '76.0572' },
+  { tourist_point_id: 4, place_id: 2, name: 'Kavadia Hills ', distance_from: 'maa chamunda darshan 6 km', city: 'Dewas', latitude: '22.972', longitude: '76.0572' },
 
   { tourist_point_id: 5, place_id: 2, name: 'Kheoni Wildlife Sanctuary.', distance_from: 'Meetha Talab nearby places 12 km', city: 'Dewas', latitude: '22.12', longitude: '75.3' },
 
   # Bhopal
-  { tourist_point_id: 6, place_id: 3, name: 'Upper Lake', distance_from: 'Van Vihar National Park nearby places 25 km', city: 'Bhopal', latitude: '22.7001', longitude: '75.8471' },
+  { tourist_point_id: 6, place_id: 3, name: 'Bhimbetka Rock Shelters', distance_from: '46km from Bhoapl', city: 'Bhojpur Raisen', latitude: '22.9395', longitude: '77.6124' },
 
-  { tourist_point_id: 7, place_id: 3, name: 'Rani Kamlapati Palace 0.7km from', distance_from: '0.7km from Bharat Bhawan', city: 'Bhopal', latitude: '23.2507', longitude: '77.3975' },
+  { tourist_point_id: 7, place_id: 3, name: 'Sanchi Stupa', distance_from: ' ', city: 'Sanchi', latitude: '23.47934', longitude: '77.73981' },
 
   #Ujjain
-  { tourist_point_id: 8, place_id: 4, name: 'Shree Kaal Bhairav Mandir, Ujjain', distance_from: 'distance from Mahakaleshwar temple 5 km', city: 'Ujjain', latitude: '22.7001', longitude: '75.8471' },
+  { tourist_point_id: 8, place_id: 4, name: ' Chintaman Ganesh Temple', distance_from: '', city: 'Ujjain', latitude: '23.1468', longitude: '75.7391' },
 
-  { tourist_point_id: 9, place_id:4, name: 'ISKCON Temple, Ujjain', distance_from: '4.7km from Mahakaleshwar temple', city: 'Ujjain', latitude: '23.2507', longitude: '77.3975' },
+  { tourist_point_id: 9, place_id:4, name: 'Kaliadeh Palace', distance_from: '', city: 'Ujjain', latitude: '23.2491', longitude: '75.7780' },
 
   # Gwalior
-  { tourist_point_id: 10, place_id: 5, name: 'Gopachal Parvat', distance_from: '1.7 km from Gwalior Fort', city: 'Gwalior', latitude: '26.2145', longitude: '78.1674' },
+  { tourist_point_id: 10, place_id: 5, name: 'Madhav National Park', distance_from: '', city: ' Shivpuri', latitude: '25.43169653785', longitude: '77.7390432244' },
 
-  { tourist_point_id: 11, place_id: 5, name: 'HH Maharaja Sir Jiwajirao Scindia Museum', distance_from: '118m from Jai Vilas Palace', city: 'Gwalior', latitude: '26.2145', longitude: '78.1674' }
+  { tourist_point_id: 11, place_id: 5, name: 'Jahangir Mahal', distance_from: '120km', city: 'Orchha', latitude: '25.3508', longitude: '78.6441' }
 ]
 
 near_by_palce.each do |near_by_place|

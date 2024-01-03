@@ -1,5 +1,8 @@
 <div class="col-lg-12 col-md-12 col-sm-12">
   <div class="container">
+    <div class="col-lg-3 ms-4">
+      <%= link_to "Add How To Reach", new_admin_how_to_reach_path, class:"btn btn-primary"%>
+    </div>
     <% if @how_to_reaches.present? %>
       <div class="row">
         <% @how_to_reaches.each do |how_to_reach| %>
@@ -21,7 +24,7 @@
     <% else %>
       <p class="lead text-danger">No Data Available</p>
     <% end %>
-    <div class="mt-2">
+    <div class="col-lg-3 ms-4 mt-2">
       <%= paginate @how_to_reaches %>
     </div>
   </div>

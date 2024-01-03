@@ -9,19 +9,21 @@ class RoomsController < ApplicationController
 	def new
 		@room = Room.new
 		@accommodation = Accommodation.find(params[:accommodation_id])	
-		@current_user_id = current_user 
+		@current_user = current_user 
 	end
 
-	def create	
-		@room = Room.new(rooms_params)
-		create_room #method 
-		
-		if @room.save	
-			redirect_to rooms_path, notice:"room create succefully"
-		else
-			render :new 
-		end
-	end 
+	def create
+ 	 @room = Room.new(rooms_params)
+ 	 @room.user = current_user
+
+	  if @room.save
+	    redirect_to rooms_path, notice: "Room created successfully"
+	  else
+	    # If the save fails, re-render the 'new' view
+	    render :new, status: :unprocessable_entity
+	  end
+	end
+
 
 	def edit
 	end
@@ -56,5 +58,6 @@ class RoomsController < ApplicationController
 	def create_room
 		@room.check_in_time = "#{params[:room][:check_in_hour]}:#{params[:room][:check_in_minute]} #{params[:room][:check_in_period]}"
 		@room.check_out_time = "#{params[:room][:check_out_hour]}:#{params[:room][:check_out_minute]} #{params[:room][:check_out_period]}"
+		@room.user = current_user
 	end
 end

@@ -1,5 +1,6 @@
 <div class="col-lg-12 mt-4">
 	<div class="container mt-4">
+		<%= link_to "Add Best time to visits" , new_admin_best_time_to_visit_path, class:"btn btn-primary"%>
 		<% if @best_time_to_visits.present? %>
 			<% @best_time_to_visits.each do |best_time_to_visit| %>
 			<div class="card mt-3">

@@ -1,8 +1,6 @@
 <div class="col-lg-10 mx-auto mb-2 mt-5">
+		<%= link_to "Add ", new_admin_tourist_point_path, class:"btn btn-primary mb-2" %>
 	<% if @tourist_points.present? %>
-		<% if current_user.admin? %>
-			<%= link_to "Add ", new_admin_tourist_point_path, class:"btn btn-primary mb-2" %>
-		<% end %>
 		<% @tourist_points.each do |tourist_point| %>
 			<%= link_to admin_tourist_point_path(tourist_point),style:"text-decoration:none; color:black;" do%>
 			<div class="card mb-3" style="max-width: 800;">
@@ -14,8 +12,8 @@
 					</div>
 					<div class="col-md-8">
 						<div class="card-body">
-							<h3 class="card-title"><%= tourist_point.place_name%></h3>
 							<h5 class="card-title"><%= tourist_point.location_name %></h5>
+							<h3 class="card-title"><%= tourist_point.place_name%></h3>
 							<p class="card-text"><%= simple_format(truncate(tourist_point.history, length: 200 ))%></p>
 						</div>
 					</div>
