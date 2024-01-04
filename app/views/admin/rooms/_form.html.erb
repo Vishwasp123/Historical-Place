@@ -85,72 +85,8 @@
     <%= form.label :price %>
     <%= form.text_field :price, id: "price-select", class: "form-control", readonly: true %>
   </div>
-
-  <%= form.hidden_field :user_id, value: @current_user_id %>
-  <%= form.hidden_field :accommodation_id, value: @accommodation_id %>
+  
+  <%= form.hidden_field :user_id, value: @current_user&.id %>
+   <%= form.text_field :accommodation_id, value: @accommodation_id %> 
   <%= form.submit class:"btn btn-outline-warning my-3"%>
 <% end %>
-
-
-
-
-
-<script>
-  $(document).ready(function () {
-    const titleSelect = $('#title-select');
-    const facilitiesSelect = $('#facilities-select');
-    const priceSelect = $('#price-select');
-
-    const priceMap = {
-      Super: 2500,
-      Delux: 3500,
-      Premium: 4500,
-    }
-
-    const facilitiesMap = {
-      Super: ["Break fast", "Dinner"],
-      Delux:  ["Brakfast", "Dinner"],
-      Premium: ["Break fast", "Luch + Brakfast", "Dinner"]
-    };
-
-    // Function to update the facilities options based on the selected title
-    const updateFacilities = () => {
-      const selectedTitle = titleSelect.val();
-      const facilities = facilitiesMap[selectedTitle] || [];
-      // Clear and populate the facilities select field
-      facilitiesSelect.empty();
-      facilitiesSelect.append('<option value="">Select Facility</option>'); // Add a default option
-
-      facilities.forEach(facility => {
-        facilitiesSelect.append($('<option>', {
-          value: facility,
-          text: facility
-        }));
-      });
-
-      // Automatically update the price field
-      const price = priceMap[selectedTitle];
-      if (price) {
-        priceSelect.val(price);
-      } else {
-        priceSelect.val("");
-      }
-    };
-
-    const updatePrice = () => {
-      const selectedTitle = titleSelect.val();
-      const price = priceMap[selectedTitle] || "";
-      priceSelect.val(price);
-    };
-
-    // Listen for changes in the title select field and update facilities
-    titleSelect.on('change', updateFacilities);
-    titleSelect.on('change', updatePrice);
-    updatePrice();
-  });
-</script>
-
-
-
-
-

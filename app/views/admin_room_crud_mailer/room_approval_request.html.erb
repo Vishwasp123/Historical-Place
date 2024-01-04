@@ -1,0 +1,6 @@
+<h2>Room Approval Request</h2>
+<p>User <%= @room.user.email %> has requested to create a room in accommodation <%= @room.accommodation.name %>.</p>
+<p>
+  <%= link_to 'Approve', approve_room_url(@room), method: :post %> |
+  <%= link_to 'Unapprove', unapprove_room_url(@room), method: :post %>
+</p>

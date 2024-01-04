@@ -5,12 +5,12 @@ class Place < ApplicationRecord
   has_many :near_by_places, dependent: :destroy
   has_many :tourist_points, through: :near_by_places, dependent: :destroy
 
-  paginates_per 5
+  paginates_per 3 
 
   
 
-  # validates :state, :name, :district, :history, presence: true
-  # validates :latitude, :longitude, presence:true, 
+   validates :state, :name, :district, :history, presence: true
+   validates :latitude, :longitude, presence:true 
   #             uniqueness: { message: "latitude and longitude must be uniq" }
 
   def self.ransackable_attributes(auth_object = nil)

@@ -15,10 +15,11 @@
           <p class="card-text">Adults:<span class="ms-2"><%= @room.adults %></span></p>
           <p class="card-text">Children:<span class="ms-2"><%= @room.adults %></span></p>
           <% if current_user && current_user.id == @room.user_id.to_i %>
-            <%= link_to "Delete", room_path(@room), method: :delete, data: { confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
-            <%= link_to "Back", rooms_path, class:"btn btn-warning"%>
+            <%#= link_to "Delete", edit_accommodation_room, method: :delete, data: { confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
+            <%= link_to "Edit", edit_accommodation_room_path(@accommodation, @room), class:"btn btn-primary"%> 
+            <%#= link_to "Back", rooms_path, class:"btn btn-warning"%>
            <% else %> 
-            <%= link_to "Back", rooms_path, class:"btn btn-warning"%>
+            <%#= link_to "Back", rooms_path, class:"btn btn-warning"%>
           <% end %>
         </tr>
       </div>

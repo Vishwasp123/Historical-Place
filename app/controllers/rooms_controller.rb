@@ -1,28 +1,29 @@
 class RoomsController < ApplicationController
 
+	before_action :set_accommodation, only: %i[new create index]
 	before_action :set_room, only: %i[show update edit destroy]
 	
 	def index
-    	@rooms = current_user.rooms.page(params[:page])
+    	   @rooms = @accommodation.rooms.all
   	end
 	
 	def new
-		@room = Room.new
-		@accommodation = Accommodation.find(params[:accommodation_id])	
-		@current_user = current_user 
-	end
+    	@room = @accommodation.rooms.new
+ 	end
 
 	def create
- 	 @room = Room.new(rooms_params)
- 	 @room.user = current_user
+	 @room = @accommodation.rooms.new(rooms_params)
+	 @room.user = current_user
 
 	  if @room.save
-	    redirect_to rooms_path, notice: "Room created successfully"
+	  	UserRoomCrudMailer.room_approval_request(@room).deliver_now
+	    redirect_to root_path, notice: 'Room request sent for approval.'
 	  else
-	    # If the save fails, re-render the 'new' view
-	    render :new, status: :unprocessable_entity
+	    
+	    render :new
 	  end
 	end
+
 
 
 	def edit
@@ -46,6 +47,10 @@ class RoomsController < ApplicationController
 	end
 
 	private
+
+	def set_accommodation 
+		@accommodation = Accommodation.find(params[:accommodation_id])
+	end
 
 	def set_room
 		@room = Room.find(params[:id])

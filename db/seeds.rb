@@ -87,9 +87,9 @@ near_by_palce = [
   { tourist_point_id: 7, place_id: 3, name: 'Sanchi Stupa', distance_from: ' ', city: 'Sanchi', latitude: '23.47934', longitude: '77.73981' },
 
   #Ujjain
-  { tourist_point_id: 8, place_id: 4, name: ' Chintaman Ganesh Temple', distance_from: '', city: 'Ujjain', latitude: '23.1468', longitude: '75.7391' },
+  { tourist_point_id: 8, place_id: 4, name: 'Janapav Kuti', distance_from: 'Distance from Ujjain: 112 km', city: ' Manpur', latitude: '23.1468', longitude: '75.7391' },
 
-  { tourist_point_id: 9, place_id:4, name: 'Kaliadeh Palace', distance_from: '', city: 'Ujjain', latitude: '23.2491', longitude: '75.7780' },
+  { tourist_point_id: 9, place_id:4, name: 'Nagda Birla Mandir', distance_from: 'Distance from Ujjain: 56.9 Km.', city: 'Nagda', latitude: '23.2491', longitude: '75.7780' },
 
   # Gwalior
   { tourist_point_id: 10, place_id: 5, name: 'Madhav National Park', distance_from: '', city: ' Shivpuri', latitude: '25.43169653785', longitude: '77.7390432244' },

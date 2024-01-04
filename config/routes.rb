@@ -1,15 +1,11 @@
 Rails.application.routes.draw do
   
-
-  
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
     passwords: 'users/passwords',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-
-
 
   resources :inquiries
   root "places#index"
@@ -21,11 +17,15 @@ Rails.application.routes.draw do
   resources :near_by_places
   resources :best_time_to_visits
   resources :how_to_reaches
-  resources :accommodations
-  resources :rooms
   resources :car_rentals
   resources :papular_palaces
   resources :popular_places
+  
+  resources :accommodations do 
+    resources :rooms
+  end
+
+  
 
 
   namespace :admin do 
