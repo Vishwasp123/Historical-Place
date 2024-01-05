@@ -1,47 +1,26 @@
 class Admin::RoomsController < AdminController
+	include RoomsHelper
+	
 	layout 'admin'
-	before_action :set_room, only: %i[show update edit destroy]
+	
+	before_action :set_room, only: %i[show update edit destroy approve unapprove]
 	
 	def index
-		@rooms = Room.page params[:page]
-	end
-	
-	def new
-		@room = Room.new
-		@accommodation = Accommodation.find(params[:accommodation_id])	
-		@current_user_id = current_user.id 
+		@rooms = Room.where(status: ['pending']).page(params[:page])
 	end
 
-	def create	
-		@room = Room.new(rooms_params)
-		create_room #method 
-		
-		if @room.save	
-			redirect_to admin_root_path, notice:"room create succefully"
-		else
-			render :new 
-		end
-	end 
-
-	def edit
+	def approve
+		@room.update(status: 'approved')
+		UserRoomCrudMailer.room_approved_notification(@room).deliver_now 
+		redirect_to admin_rooms_path, notice: "Room approved successfully"
 	end
 
-	def show
+	def unapprove
+		@room.update(status: 'unapproved')
+		UserRoomCrudMailer.room_unapproved_notification(@room).deliver_now 
+		redirect_to admin_rooms_path, notice: "Room unapproved successfully"
 	end
 
-	def update
-		if @room.update(rooms_params)
-			redirect_to admin_rooms_path, notice:" Room update succefully"
-		else
-			render :edit 
-		end 
-	end
-
-	def destroy
-		if @room.destroy
-			redirect_to admin_rooms_path ,notice:"room destroy succefully"
-		end
-	end
 
 	private
 
@@ -51,10 +30,5 @@ class Admin::RoomsController < AdminController
 
 	def rooms_params
 		params.require(:room).permit(:title, :room_number, :contact_number, :facilities, :check_in_time, :check_out_time, :check_out_date, :check_in_date,  :price, :location, :adults, :childrens, :accommodation_id, :user_id )
-	end
-
-	def create_room
-		@room.check_in_time = "#{params[:room][:check_in_hour]}:#{params[:room][:check_in_minute]} #{params[:room][:check_in_period]}"
-		@room.check_out_time = "#{params[:room][:check_out_hour]}:#{params[:room][:check_out_minute]} #{params[:room][:check_out_period]}"
 	end
 end

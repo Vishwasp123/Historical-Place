@@ -2,28 +2,26 @@
   <div class="container mt-5">
     <div class="col-lg-6 mx-auto text-center">
       <div class="card" style="width: 25rem;">
-          <h5 class="card-header">Room Booking Details</h5>
+        <h5 class="card-header">Room Booking Details</h5>
         <div class="card-body">
           <small>User ID : <%= @room.user_id %></small>
           <p class="card-text"> Room Type:<span class="ms-2"><%= @room.title %></span></p>
           <p class="card-text">Total Room:<span class="ms-2"><%= @room.room_number %></span></p>
           <p class="card-text"> Contact Number:<span class="ms-2"><%= @room.contact_number %></span></p>
           <p class="card-text"> Check In:<span class="ms-2"><%= @room.check_in_date %></span><span class="ms-1"><%= @room.check_in_time %></span></p>
-           <p class="card-text"> Check Out:<span class="ms-2"><%= @room.check_out_date %></span><span class="ms-1"><%= @room.check_out_time %></span></p>
+          <p class="card-text"> Check Out:<span class="ms-2"><%= @room.check_out_date %></span><span class="ms-1"><%= @room.check_out_time %></span></p>
           <p class="card-text"> Room Facilities: <span class="ms-2"><%= @room.facilities %></span></p>
           <p class="card-text">Location:<span class="ms-2"><%= @room.location %></span></p>
           <p class="card-text">Adults:<span class="ms-2"><%= @room.adults %></span></p>
           <p class="card-text">Children:<span class="ms-2"><%= @room.adults %></span></p>
-          <% if current_user && current_user.id == @room.user_id.to_i %>
-            <%#= link_to "Delete", edit_accommodation_room, method: :delete, data: { confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
-            <%= link_to "Edit", edit_accommodation_room_path(@accommodation, @room), class:"btn btn-primary"%> 
-            <%#= link_to "Back", rooms_path, class:"btn btn-warning"%>
-           <% else %> 
-            <%#= link_to "Back", rooms_path, class:"btn btn-warning"%>
-          <% end %>
+          <p class="card-text">Status:<span class="ms-2 h5 text-danger"><%= @room.status %></span></p>
+          <%# if current_user && current_user.id == @room.user_id.to_i %>
+          <%#= link_to "Delete", edit_accommodation_room, method: :delete, data: { confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
+          <%#= link_to "Edit", edit_accommodation_room_path(@accommodation, @room), class:"btn btn-primary"%> 
+          <%#= link_to "Back", rooms_path, class:"btn btn-warning"%>
+          <%= link_to "Back", accommodation_rooms_path, class:"btn btn-warning"%>
         </tr>
       </div>
     </div>
   </div>
 </div>
-  

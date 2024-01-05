@@ -17,6 +17,13 @@
             </div>
             <div class="col-lg-6 my-5">
              <%= link_to "Book Room", new_accommodation_room_path(@accommodation), class: "btn btn-outline-danger" %>
+             <% if current_user.rooms.where(accommodation: @accommodation, status: 'approved').exists? %>
+                <%= link_to "View Our Rooms", accommodation_rooms_path(@accommodation), class: 'btn btn-primary' %>
+              <% end %>
+
+             <%# if current_user.rooms.where(accommodation: @accommodation, status: 'approved').present? %>
+                <%#= link_to "View Our Rooms", accommodation_rooms_path(@accommodation), class: 'btn btn-primary' %>
+              <%# end %>
            </div>
            <div class="col-lg-12 mt-3">
              <p class="card-text">About:<br><small><%= @accommodation.about %></small></p>

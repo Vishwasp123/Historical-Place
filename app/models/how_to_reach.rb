@@ -1,3 +1,3 @@
 class HowToReach < ApplicationRecord
-	paginates_per 5
+	paginates_per 6
 end

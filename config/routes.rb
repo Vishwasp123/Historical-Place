@@ -25,9 +25,6 @@ Rails.application.routes.draw do
     resources :rooms
   end
 
-  
-
-
   namespace :admin do 
     root "dashboard#show"
     get 'profile', to: 'profile#show'
@@ -45,7 +42,13 @@ Rails.application.routes.draw do
     resources :car_rentals do
       collection do
         get :car_all
-     end
+      end
+    end
+    resources :rooms do
+      member do
+        put :approve
+        put :unapprove
+      end
     end
   end
-end  
+end

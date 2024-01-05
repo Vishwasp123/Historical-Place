@@ -1,8 +1,6 @@
 <div class="col-lg-12">
 	<div class="container">
-    <% if @rooms.present? %>
-      <%= link_to "Add room", admin_accommodations_path, class:"btn btn-primary"%>
-    
+    <%  if @rooms.present? %>
       <table class="table table-hover">
         <thead>
           <tr>
@@ -14,6 +12,7 @@
           </tr>
         </thead>
         <% @rooms.each do |room| %>
+        <% if room.status == 'pending' %>
           <tbody>
             <%= link_to admin_room_path(room), style: "text-decoration:none; color:black;" do %>
               <tr>
@@ -24,10 +23,14 @@
                 <td><%= room.price %></td>
                 <td><%= link_to "show", admin_room_path(room), class: "btn btn-primary" %></td>
               </tr>
+              <% end %>
             <% end %>
           </tbody>
        <% end %>
       </table>
+      <%= paginate @rooms %>
+      <% else %>
+      <p class="text-danger lead"> No Pending Room Details </p>
     <% end %>
   </div>
 </div>

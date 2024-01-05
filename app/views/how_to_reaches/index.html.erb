@@ -3,17 +3,17 @@
     <% if @how_to_reaches.present? %>
       <div class="row">
         <% @how_to_reaches.each do |how_to_reach| %>
-          <div class="col-lg-3 col-md-6 mt-2">
-            <div class="container ">
+          <div class="col-lg-4 col-md-6 mt-3">
+            <div class="container" style="height: 25rem;">
               <%= link_to how_to_reach_path(how_to_reach), style: "text-decoration:none; color:black;" do %>
-                <div class="card" style="width: 17rem;">
-                  <div class="card-body ">
-                    <h5 class="card-title">Place:<span><%= how_to_reach.place_name %></span></h5>
-                    <p class="card-text">Title:<span><%= how_to_reach.title %></span></p>
-                    <p class="card-text">Description:<span><%= how_to_reach.description %></span></p>
-                  </div>
+              <div class="card" style="width: 17rem; height: 25rem;">
+                <div class="card-body ">
+                  <h5 class="card-title">Place:<span><%= how_to_reach.place_name %></span></h5>
+                  <p class="card-text">Title:<span><%= how_to_reach.title %></span></p>
+                  <p class="card-text">Description:<span><%= how_to_reach.description %></span></p>
                 </div>
-              <% end %>
+              </div>
+            <% end %>
             </div>
           </div>
         <% end %>
@@ -21,7 +21,7 @@
     <% else %>
       <p class="lead text-danger">No Data Available</p>
     <% end %>
-    <div class="mt-2">
+    <div class="mt-3 ms-2">
       <%= paginate @how_to_reaches %>
     </div>
   </div>

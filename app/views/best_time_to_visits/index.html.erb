@@ -2,7 +2,7 @@
 	<div class="container">
 		<% if @best_time_to_visits.present? %>
 			<% @best_time_to_visits.each do |best_time_to_visit| %>
-			<div class="card mt-3">
+			<div class="card mt-3" >
 				<div class="card-header fs-2"><%= best_time_to_visit.title %></div>
 				<div class="card-body">
 					<h5 class="card-title"><%= best_time_to_visit.place_name %></h5>
