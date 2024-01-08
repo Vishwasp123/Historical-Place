@@ -62,8 +62,6 @@ class RoomsController < ApplicationController
 	end
 
 	def create_room
-		@room.check_in_time = "#{params[:room][:check_in_hour]}:#{params[:room][:check_in_minute]} #{params[:room][:check_in_period]}"
-		@room.check_out_time = "#{params[:room][:check_out_hour]}:#{params[:room][:check_out_minute]} #{params[:room][:check_out_period]}"
 		@room.user = current_user
 	end
 end

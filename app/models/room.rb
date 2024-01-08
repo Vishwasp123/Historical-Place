@@ -8,6 +8,5 @@ class Room < ApplicationRecord
 
 	validates :contact_number, presence: true, format: { with: /\A[6789]\d{9}\z/, message: "should start with 6789 and be 10 digits long" }
 
-	 enum status: [:pending, :approved, :unapproved]
-	
+	 enum status: [:pending, :approved, :unapproved]	
 end

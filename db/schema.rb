@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_05_092552) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_08_065949) do
   create_table "accommodations", force: :cascade do |t|
     t.string "name"
     t.string "city"
@@ -153,8 +153,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_05_092552) do
     t.string "room_number"
     t.string "contact_number"
     t.string "facilities"
-    t.time "check_in_time"
-    t.time "check_out_time"
     t.string "price"
     t.string "location"
     t.string "adults"
@@ -166,6 +164,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_05_092552) do
     t.date "check_out_date"
     t.date "check_in_date"
     t.integer "status"
+    t.time "check_in_time"
+    t.time "check_out_time"
     t.index ["accommodation_id"], name: "index_rooms_on_accommodation_id"
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end

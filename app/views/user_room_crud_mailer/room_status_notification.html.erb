@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+  <h1>Room Status Notification</h1>
+  
+  <p>Hello <%= @user.email %></p> 
+
+  <p>Your room request for "<%= @room.title %>" has the following status: <%= @room.status %>.</p>
+
+  <% case @room.status.to_sym %>
+  <% when :pending %>
+    <p>The room is awaiting approval. Please be patient.</p>
+  <% when :approved %>
+    <p>Congratulations! Your room request has been approved.</p>
+  <% when :unapproved %>
+    <p>We're sorry, but your room request has been unapproved.</p>
+    <p>Please <%= link_to 'contact support', contact_support_url %> for more information.</p>
+  <% end %>
+
+  <p>Thank you,</p>
+  
+</body>
+</html>

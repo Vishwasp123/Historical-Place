@@ -10,7 +10,7 @@
 		<%= form.label :place_name, class:"form-label"%>
 		<%= form.text_field :place_name, class:"form-control"%>
 		<% @best_time_to_visit.errors.full_messages_for(:place_name).each do |message| %>
-		<p class="card-text"><%= message %></p>
+		<p class="text-danger"><%= message %></p>
 		<% end %>
 	</div>
 	<div class="form-outline mb-4">

@@ -3,14 +3,23 @@
 	<div class="form-ouline mb-4">
 		<%= form.label :days_of_travel, class:"form-label"%>
 		<%= form.text_field :days_of_travel, class:"form-control form-control-lg"%>
+		<% @plan_your_trip.errors.full_messages_for(:days_of_travel).each do |message| %>
+			<p class="text-danger"><%=message%></p>
+		<% end %>
 	</div>
 	<div class="form-ouline mb-4">
 		<%= form.label :start_point_city, class:"form-label"%>
 		<%= form.text_field :start_point_city, class:"form-control form-control-lg"%>
+		<% @plan_your_trip.errors.full_messages_for(:start_point_city).each do |message| %>
+			<p class="text-danger"><%=message%></p>
+		<% end %>
 	</div>
 	<div class="form-ouline mb-4">
 		<%= form.label :travel_month, class:"form-label"%>
 		<%= form.date_field :travel_month, class:"form-control form-control-lg"%>
+		<% @plan_your_trip.errors.full_messages_for(:travel_month).each do |message| %>
+			<p class="text-danger"><%=message%></p>
+		<% end %>
 	</div>
 	<div class="form-ouline mb-4">
 		<%#= form.label :name, class:"form-label"%>

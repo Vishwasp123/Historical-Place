@@ -20,6 +20,8 @@
             <div class="col-md-4 col-sm-12">
               <% if place.images.attached? %>
                 <%= image_tag place.images.first, class: "img-fluid rounded-start place-img" %>
+                <%# else %>
+                <%#= image_tag "no-images.png", class:"d-block w-100",style:"width:100%; height:450px; max-height:450px;" %>
               <% end %>
             </div>
             <div class="col-md-8 col-sm-12">

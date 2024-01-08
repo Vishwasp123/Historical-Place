@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+  <h1><span class="badge bg-secondary">Room Approval Notification</span></h1>
+  <h4>Hello <%= @room.user.email %></h4>
+  <p>Your room request for "<%= @room.title %>" has been approved.</p>
+  <div class="col-lg-12 col-sm-12 ">
+    <div class="container mt-5">
+      <div class="col-lg-10 mx-auto text-center">
+        <div class="card" style="width: 25rem;">
+          <h5 class="card-header">Room Booking Details</h5>
+          <div class="card-body">
+            <p class="card-text h3">Hello <%= @room.user.email %></p>
+            <p>Accommodation:<%= @room.accommodation.name %></p>
+            <p class="card-text"> Room Type:<span class="ms-2"><%= @room.title %></span></p>
+            <p class="card-text">Total Room:<span class="ms-2"><%= @room.room_number %></span></p>
+            <p class="card-text"> Contact Number:<span class="ms-2"><%= @room.contact_number %></span></p>
+            <p class="card-text"> Room Facilities: <span class="ms-2"><%= @room.facilities %></span></p>
+            <p class="card-text">Location:<span class="ms-2"><%= @room.location %></span></p>
+            <p class="card-text">Adults:<span class="ms-2"><%= @room.adults %></span></p>
+            <p class="card-text">Children:<span class="ms-2"><%= @room.adults %></span></p>
+            <p class="card-text">Status:<span class="ms-2 h5 text-danger"><%= @room.status %></span></p>
+            <%# if current_user && current_user.id == @room.user_id.to_i %>
+            <%#= link_to "Delete", edit_accommodation_room, method: :delete, data: { confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>
+            <%#= link_to "Edit", edit_accommodation_room_path(@accommodation, @room), class:"btn btn-primary"%> 
+            <%#= link_to "Back", rooms_path, class:"btn btn-warning"%>
+          </tr>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>Thank you,</p>
+</body>
+</html>
