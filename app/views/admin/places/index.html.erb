@@ -13,32 +13,30 @@
       </ul>
     </div> 
 
-   <% @places.each do |place| %>
-      <%#= link_to admin_place_path(place), style: "text-decoration:none; color:black;" do %>
-        <div class="card mb-3">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <% if place.images.attached? %>
-                <%= image_tag place.images.first, class: "img-fluid rounded-start place-img " %>
-              <% end %>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title"><%= place.name %></h5>
-                <p class="card-text"><%= simple_format(truncate(place.history, length: 200)) %></p>
-                 <%= link_to "View", admin_place_path(place), class:"btn btn-outline-primary ms-2 mb-2"%>
-                <%= link_to "Edit", edit_admin_place_path(place), class:"btn btn-outline-warning ms-2 mb-2"%>
-                <%= link_to 'Destroy', admin_place_path(place), turbo_confirm: "Are you sure?", method: :delete, class:"btn btn-outline-danger mb-2" %>
-              </div>
+    <% @places.each do |place| %>
+      <%= link_to admin_place_path(place),style:"text-decoration:none; color:black;" do%>
+      <div class="card mb-3" style="max-width: 800;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <% if place.images.attached? %>
+            <%= image_tag place.images.first, class: "img-fluid rounded-start place-img " %>
+            <% end %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= place.name %></h5>
+              <h3 class="card-title"></h3>
+              <p class="card-text"><%= simple_format(truncate(place.history, length: 200)) %></p> 
             </div>
           </div>
         </div>
-      <%# end %>
+      </div>
+      <% end %>
     <% end %>
+    <%= paginate @places %>
     <% else %>
-   <p class="lead text-danger"> No data Present</p>
+    <p class="lead text-danger h3"> No data Found</p>
   <% end %>
-  <%= paginate @places %>
 </div>
 
 <style>

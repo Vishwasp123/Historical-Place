@@ -86,22 +86,22 @@ puts "#{PopularPlace.count} PopularPlace records created."
 
 accommodations = [
   # Indore
-  { name: 'Hotel WoW', city: 'Indore', state: 'Madhya Pradesh', address: 'Vijay Nagar', pincode: '452010', about: 'Off a main road, this warm hotel is 4 km from Khajrana Ganesh Temple and 8 km from Mayank Blue Water Park. Informal rooms come with minibars and flat-screen TVs. Suites add living areas and/or whirlpool baths. Club quarters have access to a lounge, a private fitness centre and personal chefs. Breakfast is free. Dining options include a rooftop Mediterranean restaurant, a grill, and a Chinese eatery, as well as a coffee shop and a casual bar. Other amenities consist of an outdoor pool, a gym, a spa, and multiple sports courts. There\'s also a game room and a discotheque.', contact_number: '0731 400 6666', galleries: ['hotel-wow-1.jpeg', 'hotel-wow-2.jpeg', 'hotel-wow-3.jpeg', 'hotel-wow-4.jpeg', 'hotel-wow-5.jpeg', 'hotel-wow-6.jpeg']
+  { name: 'Hotel WoW', city: 'Indore', state: 'Madhya Pradesh', address: 'Vijay Nagar', pincode: '452010', about: 'Off a main road, this warm hotel is 4 km from Khajrana Ganesh Temple and 8 km from Mayank Blue Water Park. Informal rooms come with minibars and flat-screen TVs. Suites add living areas and/or whirlpool baths. Club quarters have access to a lounge, a private fitness centre and personal chefs. Breakfast is free. Dining options include a rooftop Mediterranean restaurant, a grill, and a Chinese eatery, as well as a coffee shop and a casual bar. Other amenities consist of an outdoor pool, a gym, a spa, and multiple sports courts. There\'s also a game room and a discotheque.', contact_number: '0731 400 6666', galleries: ['hotel-wow-6.jpeg','hotel-wow-1.jpeg', 'hotel-wow-2.jpeg', 'hotel-wow-3.jpeg', 'hotel-wow-4.jpeg', 'hotel-wow-5.jpeg']
   },
-  { name: 'Playotel Inn', city: 'Indore', state: 'Madhya Pradesh', address: 'Kanchan Vihar, Scheme no 114, near Mahindra', pincode: '452010', about: 'In a business district, this unassuming hotel is a 5-minute walk from Maa Vindhyavasini Devi Temple, 6 km from Mangliyagaon railway station and 8 km from Gandhi Hall. Simply furnished rooms provide TVs, tea and coffee-making facilities, and Wi-Fi, in addition to en suite bathrooms. Upgraded rooms add minifridges. There\'s a rooftop restaurant with city views.', contact_number: '075299 98998', galleries: ['hotel-1.jpeg', 'hotel-2.jpeg'] },
+  { name: 'Playotel Inn', city: 'Indore', state: 'Madhya Pradesh', address: 'Kanchan Vihar, Scheme no 114, near Mahindra', pincode: '452010', about: 'In a business district, this unassuming hotel is a 5-minute walk from Maa Vindhyavasini Devi Temple, 6 km from Mangliyagaon railway station and 8 km from Gandhi Hall. Simply furnished rooms provide TVs, tea and coffee-making facilities, and Wi-Fi, in addition to en suite bathrooms. Upgraded rooms add minifridges. There\'s a rooftop restaurant with city views.', contact_number: '075299 98998', galleries: ['hotel-1.jpeg', 'hotel-2.jpeg','indore-hotel-2-1.jpeg', 'indore-hotel-2-2.jpeg','indore-hotel-2-3.jpeg','indore-hotel-2-4.jpeg'] },
 
   # Ujjain
-  { name: 'Hotel Shipra Avenue', city: 'Ujjain', state: 'Madhya Pradesh', address: '8 Mahakal Ghati Opp Mahakal Police Station', pincode: '456006', about: 'Hotel Shipra Avenue- Ujjain is located in Ujjain. With a restaurant, the 2-star hotel has air-conditioned rooms with free WiFi, each with a private bathroom. The accommodation provides room service and a 24-hour front desk for guests.', contact_number: '075299 98985', galleries: ['hotel-ujjain-mg.jpeg'] },
-  { name: 'Hotel Mittal Avenue & Paradise', city: 'Ujjain', state: 'Madhya Pradesh', address: 'Ring Road,', pincode: '456010', about: 'Mittal Paradise is situated in Ujjain, 2.8 km from Mahakaleshwar Jyotirlinga. Guests can enjoy the on-site bar. Certain units feature views of the river or garden. All rooms are equipped with a private bathroom. You will find a 24-hour front desk at the property.', contact_number: '075299 98741', galleries: ['ujjain-hotel-2.jpeg'] },
+  { name: 'Hotel Shipra Avenue', city: 'Ujjain', state: 'Madhya Pradesh', address: '8 Mahakal Ghati Opp Mahakal Police Station', pincode: '456006', about: 'Hotel Shipra Avenue- Ujjain is located in Ujjain. With a restaurant, the 2-star hotel has air-conditioned rooms with free WiFi, each with a private bathroom. The accommodation provides room service and a 24-hour front desk for guests.', contact_number: '075299 98985', galleries: ['hotel-ujjain-mg.jpeg','ujjain-hotel-1-1.jpeg','ujjain-hotel-1-2.jpeg','ujjain-hotel-1-3.jpeg','ujjain-hotel-1-4.jpeg' ] },
+  { name: 'Hotel Mittal Avenue & Paradise', city: 'Ujjain', state: 'Madhya Pradesh', address: 'Ring Road,', pincode: '456010', about: 'Mittal Paradise is situated in Ujjain, 2.8 km from Mahakaleshwar Jyotirlinga. Guests can enjoy the on-site bar. Certain units feature views of the river or garden. All rooms are equipped with a private bathroom. You will find a 24-hour front desk at the property.', contact_number: '075299 98741', galleries: ['ujjain-hotel-2.jpeg','ujjain-hotel-2-1.jpeg','ujjain-hotel-2-2.jpeg','ujjain-hotel-2-3.jpeg','ujjain-hotel-2-4.jpeg'] },
   # Gwalior
-  { name: 'Radisson Gwalior', city: 'Gwalior', state: 'Madhya Pradesh', address: 'Plot No. 13-14, behind Sada Office, City Center, Tulsi Vihar Colony', pincode: '474011', about: 'Set in the business district, this straightforward hotel is 3 km from the opulent Jai Vilas Palace and 7 km from the 10th-century Gwalior Fort. It\'s 12 km from Gwalior Airport. Simple, colourfully furnished rooms offer minibars, and tea and coffee-making facilities, as well as free Wi-Fi and flat-screen TVs. Upgraded rooms have sitting areas, and suites add separate living rooms. Room service is available 24/7.', contact_number: '075171 05555', galleries: ['hotel-gwalior-1.jpeg'] },
-  { name: 'Hotel Ramaya', city: 'Gwalior', state: 'Madhya Pradesh', address: 'Raja Pancham Singh Marg, Mela Road Opposite Akashwani Staff Campus', pincode: '474002', about: 'Set in a residential area next to the Lakshmibai National Institute of Physical Education, this unpretentious hotel is 18 minutes\' walk from Gwalior train station and 5 km from the hilltop Gwalior Fort. The straightforward rooms have Wi-Fi and flat-screen TVs. Suites add sitting areas and/or whirlpool baths. Room service is available 24/7.', contact_number: '077730 03967', galleries: ['hotel-gwalior.jpeg'] },
+  { name: 'Radisson Gwalior', city: 'Gwalior', state: 'Madhya Pradesh', address: 'Plot No. 13-14, behind Sada Office, City Center, Tulsi Vihar Colony', pincode: '474011', about: 'Set in the business district, this straightforward hotel is 3 km from the opulent Jai Vilas Palace and 7 km from the 10th-century Gwalior Fort. It\'s 12 km from Gwalior Airport. Simple, colourfully furnished rooms offer minibars, and tea and coffee-making facilities, as well as free Wi-Fi and flat-screen TVs. Upgraded rooms have sitting areas, and suites add separate living rooms. Room service is available 24/7.', contact_number: '075171 05555', galleries: ['hotel-gwalior-1.jpeg','gwalior-hotel-1-1.jpeg','gwalior-hotel-1-2.jpeg','gwalior-hotel-1-3.jpeg','gwalior-hotel-1-4.jpeg'] },
+  { name: 'Hotel Ramaya', city: 'Gwalior', state: 'Madhya Pradesh', address: 'Raja Pancham Singh Marg, Mela Road Opposite Akashwani Staff Campus', pincode: '474002', about: 'Set in a residential area next to the Lakshmibai National Institute of Physical Education, this unpretentious hotel is 18 minutes\' walk from Gwalior train station and 5 km from the hilltop Gwalior Fort. The straightforward rooms have Wi-Fi and flat-screen TVs. Suites add sitting areas and/or whirlpool baths. Room service is available 24/7.', contact_number: '077730 03967', galleries: ['hotel-gwalior.jpeg','gwalior-hotel-2-1.jpeg','gwalior-hotel-2-2.jpeg','gwalior-hotel-2-3.jpeg','gwalior-hotel-2-4.jpeg'] },
   # Bhopal
-  { name: 'Taj Lakefront', city: 'Bhopal', state: 'Madhya Pradesh', address: '698M+99, Bhadbhada Road, Main Rd No. 3, Chouraha', pincode: '462003', about: 'In a grand building overlooking Upper Lake, this sophisticated hotel is 3 km from Van Vihar National Park and 17 km from Raja Bhoj Airport. Elegant rooms provide Wi-Fi, smart TVs, minibars, and tea and coffee-making facilities. Upgraded rooms and suites have living areas, balconies and/or lake views. Room service is available.', contact_number: '0755 437 0000', email: 'tajLakefront@gmail.com', galleries: ['hotel-bhopal-1.jpeg'] },
-  { name: 'Courtyard by Marriott', city: 'Bhopal', state: 'Madhya Pradesh', address: 'DB City Mall, Zone-I, Arera Hills', pincode: '462011', about: 'Set within DB City Mall, this upscale hotel is a 6-minute walk from Shaurya Smarak Bhopal, a park and war museum, and 2 km from Habibganj railway station. Featuring marble bathrooms, the contemporary rooms come with free Wi-Fi, iPod docks and flat-screen TVs, as well as minifridges, and tea and coffee-making equipment. Suites offer living areas. Club quarters feature access to a lounge with complimentary', contact_number: '0755 666 1666', email: 'marriottbhopal@gmail.com', galleries: ['hotel-bhopal-2.jpeg'] },
+  { name: 'Taj Lakefront', city: 'Bhopal', state: 'Madhya Pradesh', address: '698M+99, Bhadbhada Road, Main Rd No. 3, Chouraha', pincode: '462003', about: 'In a grand building overlooking Upper Lake, this sophisticated hotel is 3 km from Van Vihar National Park and 17 km from Raja Bhoj Airport. Elegant rooms provide Wi-Fi, smart TVs, minibars, and tea and coffee-making facilities. Upgraded rooms and suites have living areas, balconies and/or lake views. Room service is available.', contact_number: '0755 437 0000', email: 'tajLakefront@gmail.com', galleries: ['hotel-bhopal-1.jpeg','bhopal-hotel-1-1.jpeg','bhopal-hotel-1-2.jpeg','bhopal-hotel-1-3.jpeg','bhopal-hotel-1-4.jpeg'] },
+  { name: 'Courtyard by Marriott', city: 'Bhopal', state: 'Madhya Pradesh', address: 'DB City Mall, Zone-I, Arera Hills', pincode: '462011', about: 'Set within DB City Mall, this upscale hotel is a 6-minute walk from Shaurya Smarak Bhopal, a park and war museum, and 2 km from Habibganj railway station. Featuring marble bathrooms, the contemporary rooms come with free Wi-Fi, iPod docks and flat-screen TVs, as well as minifridges, and tea and coffee-making equipment. Suites offer living areas. Club quarters feature access to a lounge with complimentary', contact_number: '0755 666 1666', email: 'marriottbhopal@gmail.com', galleries: ['hotel-bhopal-2.jpeg','bhopal-hotel-2-1.jpeg','bhopal-hotel-2-2.jpeg','bhopal-hotel-2-3.jpeg','bhopal-hotel-2-4.jpeg'] },
   # Dewas
-  { name: 'HOTEL REGENTA CENTRAL', city: 'Dewas', state: 'Madhya Pradesh', address: 'Mumbai - Agra National Hwy, Rd', pincode: '453771', about: 'On a stretch of the Mangliya Bypass flanked by fields and meadows, this relaxed hotel is 18 km from Indore railway station. It\'s 19 km from both the eclectic Rajwada Palace and history exhibit at the Central Museum. Straightforward rooms provide flat-screen TVs, Wi-Fi and minifridges, as well as safes, sitting areas, and tea and coffee-making facilities; some add balconies. Suites feature separate living rooms.', contact_number: '074411 22233', email: 'regenta@gmail.com', galleries: ['hotel-dewas-1.jpeg'] },
-  { name: 'Eco Holiday', city: 'Dewas', state: 'Madhya Pradesh', address: 'kanadiya road Sannod,', pincode: '455221', about: 'Straightforward rooms provide flat-screen TVs, Wi-Fi and minifridges, as well as safes, sitting areas, and tea and coffee-making facilities; some add balconies. Suites feature separate living rooms.', contact_number: '091091 01761', email: 'ecoholiday@gmail.com', galleries: ['hotel-dewas-2.jpeg'] }
+  { name: 'HOTEL REGENTA CENTRAL', city: 'Dewas', state: 'Madhya Pradesh', address: 'Mumbai - Agra National Hwy, Rd', pincode: '453771', about: 'On a stretch of the Mangliya Bypass flanked by fields and meadows, this relaxed hotel is 18 km from Indore railway station. It\'s 19 km from both the eclectic Rajwada Palace and history exhibit at the Central Museum. Straightforward rooms provide flat-screen TVs, Wi-Fi and minifridges, as well as safes, sitting areas, and tea and coffee-making facilities; some add balconies. Suites feature separate living rooms.', contact_number: '074411 22233', email: 'regenta@gmail.com', galleries: ['hotel-dewas-1.jpeg','dewas-hotel-1-1.jpeg','dewas-hotel-1-2.jpeg','dewas-hotel-1-3.jpeg','dewas-hotel-1-4.jpeg'] },
+  { name: 'Eco Holiday', city: 'Dewas', state: 'Madhya Pradesh', address: 'kanadiya road Sannod,', pincode: '455221', about: 'Straightforward rooms provide flat-screen TVs, Wi-Fi and minifridges, as well as safes, sitting areas, and tea and coffee-making facilities; some add balconies. Suites feature separate living rooms.', contact_number: '091091 01761', email: 'ecoholiday@gmail.com', galleries: ['hotel-dewas-2.jpeg','dewas-hotel-2-2.jpeg','dewas-hotel-2-3.jpeg','dewas-hotel-2-4.jpeg'] }
 ]
 
 accommodations.each do |accommodation_data|
@@ -137,7 +137,7 @@ place = [
  {name: 'Bhopal', state: 'Madhya Pradesh', district: 'Bhopal ', latitude: 23.2599, longitude: 77.4126, history: 'Bhopal, city, capital of Madhya Pradesh state, central India. Situated in the fertile plain of the Malwa Plateau, the city lies just north of the Vindhya Range, along the slopes of a sandstone ridge. It is a major rail junction and has an airport. Pop. (2001) 1,437,354; (2011) 1,798,218.', images: ['bhopal.jpeg', 'bhopal-main.jpeg','bhopal-2.jpeg','bhopal-3.jpeg']}, 
  {name: 'Ujjain', state: 'Madhya Pradesh', district: 'Ujjain', latitude: 23.179300, longitude: 75.7885, history: 'The city, lying on the first meridian of the ancient Hindu geographers, was the capital (as Ujjayini) of the Aryan Avanti kingdom (6th–4th century bce). In the 2nd century bce Ujjain was the seat of the emperor Ashoka, the last of the Mauryan rulers and one of the most influential early Buddhists', images:['ujjain -mahakal.jpeg','ujjain-1.jpeg','ujjain-2.jpeg','ujjain-3.jpeg','ujjain-4.jpeg','ujjain-5.jpeg','ujjain-6.jpeg','ujjain-7.jpeg']},
 
- {name: 'Gwalior', state: 'Madhya Pradesh', district: 'Gwalior', latitude: 26.2124, longitude: 78.1772, history: 'This has created the word Gwalior. Gwaliors history is traced back to a legend in 8th century AD when a chief tain known as Suraj Sen was struck by a deadly disease and cured by a hermit-saint Gwalipa. As a gratitude for that incidence, he founded this city by his name', images:['gwalior-1.avif', 'gwalior-1.jpg', 'gwalior-1.webp','gwalior-2.webp','gwalior-3.webp','gwalior-4.webp','gwalior-5.webp']}
+ {name: 'Gwalior', state: 'Madhya Pradesh', district: 'Gwalior', latitude: 26.2124, longitude: 78.1772, history: 'This has created the word Gwalior. Gwaliors history is traced back to a legend in 8th century AD when a chief tain known as Suraj Sen was struck by a deadly disease and cured by a hermit-saint Gwalipa. As a gratitude for that incidence, he founded this city by his name', images:['gwalior-fort.jpg', 'gwalior-1.jpg', 'gwalior-1.webp','gwalior-2.webp','gwalior-3.webp','gwalior-4.webp','gwalior-5.webp']}
 ]
 place.each do |place_data|
   place = Place.new(
@@ -152,7 +152,7 @@ place.each do |place_data|
   place_data[:images].each do |images_filename|
     image_path = Rails.root.join('app', 'assets', 'images', images_filename)
 
-    place.images.attach(io: File.open(image_path), filename: images_filename, content_type: 'image/jpeg')
+    place.images.attach(io: File.open(image_path), filename: images_filename, content_type: 'image/jpeg/jpg/webp')
   end
 
   place.save!
@@ -222,31 +222,31 @@ puts "#{TouristPoint.count} TouristPoints created successfully!"
 near_by_places_data = [ 
   
 #indore
-  { tourist_point_id: 8, place_id: 6, name: 'Ralamandal Wildlife Sanctuary', distance_from: ' 15.4 km ', city: 'Indore', latitude: '22.38 ', longitude: '55.048', images: ['Ralamandal Wildlife Sanctuary.jpg']},
+  { tourist_point_id: 1, place_id: 1, name: 'Ralamandal Wildlife Sanctuary', distance_from: ' 15.4 km  away from indore', city: 'Indore', latitude: '22.38 ', longitude: '55.048', images: ['Ralamandal Wildlife Sanctuary.jpg']},
 
-  { tourist_point_id: 9, place_id: 6, name: 'Patalpani Falls', distance_from: '30 km', city: 'Indore', longitude: '75.79871', latitude: '22.50386', images: ['patalpani-indore.jpeg']},
+  { tourist_point_id: 2, place_id: 1, name: 'Patalpani Falls', distance_from: '30 km away from indore', city: 'Indore', longitude: '75.79871', latitude: '22.50386', images: ['patalpani-indore.jpeg']},
   
-  { tourist_point_id: 10, place_id: 6, name: 'Omkareshwar', distance_from: ' (81.2 km) ', city: 'Omkareshwar', latitude: '22.2445', longitude: '76.1523', images:['omkareshwar.webp'] },
+  { tourist_point_id: 3, place_id: 1, name: 'Omkareshwar', distance_from: ' (81.2 km) away from indore ', city: 'Omkareshwar', latitude: '22.2445', longitude: '76.1523', images:['omkareshwar.webp'] },
 
   # Dewas
-  { tourist_point_id: 11, place_id: 7, name: 'Kavadia Hills ', distance_from: 'maa chamunda darshan 6 km', city: 'Dewas', latitude: '22.972', longitude: '76.0572', images:['kavadia-hills-dewas.jpg'] },
+  { tourist_point_id: 4, place_id: 2, name: 'Kavadia Hills ', distance_from: ' 6.0 km  away from Dewas ', city: 'Dewas', latitude: '22.972', longitude: '76.0572', images:['kavadia-hills-dewas.jpg'] },
 
-  { tourist_point_id: 12, place_id: 7, name: 'Kheoni Wildlife Sanctuary', distance_from: 'Meetha Talab nearby places 12 km', city: 'Dewas', latitude: '22.12', longitude: '75.3', images:['Kheoni Wildlife Sanctuary.webp'] },
+  { tourist_point_id: 5, place_id: 2, name: 'Kheoni Wildlife Sanctuary', distance_from: ' 12 km  away from Dewas', city: 'Dewas', latitude: '22.12', longitude: '75.3', images:['Kheoni Wildlife Sanctuary.webp'] },
 
   # Bhopal
-  { tourist_point_id: 13, place_id: 8, name: 'Bhimbetka Rock Shelters', distance_from: '46km from Bhoapl', city: 'Bhojpur Raisen', latitude: '22.9395', longitude: '77.6124', images:['bhimbetka-bhopal.jpeg'] },
+  { tourist_point_id: 6, place_id: 3, name: 'Bhimbetka Rock Shelters', distance_from: '46km away from Bhopal', city: 'Bhojpur Raisen', latitude: '22.9395', longitude: '77.6124', images:['bhimbetka-bhopal.jpeg'] },
 
-  { tourist_point_id: 14, place_id:8 , name: 'Sanchi Stupa', distance_from: ' ', city: 'Sanchi', latitude: '23.47934', longitude: '77.73981', images:['carousel-1.jpg'] },
+  { tourist_point_id: 7, place_id:3 , name: 'Sanchi Stupa', distance_from: ' 50 km away from Bhopal ', city: 'Sanchi', latitude: '23.47934', longitude: '77.73981', images:['carousel-1.jpg'] },
 
   #Ujjain
-  { tourist_point_id: 15, place_id: 9, name: 'Janapav Kuti', distance_from: 'Distance from Ujjain: 112 km', city: ' Manpur', latitude: '23.1468', longitude: '75.7391', images:['janapav-kuti.jpeg'] },
+  { tourist_point_id: 8, place_id: 4, name: 'Janapav Kuti', distance_from: ' 112 km away from Ujjain:', city: ' Manpur', latitude: '23.1468', longitude: '75.7391', images:['janapav-kuti.jpeg'] },
 
-  { tourist_point_id: 16, place_id:9, name: 'Nagda Birla Mandir', distance_from: 'Distance from Ujjain: 56.9 Km.', city: 'Nagda', latitude: '23.2491', longitude: '75.7780', images:['birla-mandir.webp'] },
+  { tourist_point_id: 9, place_id:4, name: 'Nagda Birla Mandir', distance_from: ' 56.9 Km. distance away from Ujjain:', city: 'Nagda', latitude: '23.2491', longitude: '75.7780', images:['birla-mandir.webp'] },
 
   # Gwalior
-  { tourist_point_id: 17, place_id: 10, name: 'Madhav National Park', distance_from: '', city: ' Shivpuri', latitude: '25.43169653785', longitude: '77.7390432244', images:['madhav-national-park.jpeg'] },
+  { tourist_point_id: 10, place_id: 5, name: 'Madhav National Park', distance_from: '120km away from Gwalior', city: ' Shivpuri', latitude: '25.43169653785', longitude: '77.7390432244', images:['madhav-national-park.jpeg'] },
 
-  { tourist_point_id: 18, place_id: 10, name: 'Jahangir Mahal', distance_from: '120km', city: 'Orchha', latitude: '25.3508', longitude: '78.6441', images:['jahangir-mahal-orchha-history.jpg'] }
+  { tourist_point_id: 11, place_id: 5, name: 'Jahangir Mahal', distance_from: '120km away from Gwalior', city: 'Orchha', latitude: '25.3508', longitude: '78.6441', images:['jahangir-mahal-orchha-history.jpg'] }
 ]
 
 near_by_places_data.each do |near_by_place_data|
@@ -262,7 +262,7 @@ near_by_places_data.each do |near_by_place_data|
 
   near_by_place_data[:images].each do |image_filename|
     image_path = Rails.root.join('app', 'assets', 'images', image_filename)
-    near_by_place_instance.images.attach(io: File.open(image_path), filename: image_filename, content_type: 'image/jpeg')
+    near_by_place_instance.images.attach(io: File.open(image_path), filename: image_filename, content_type: 'image/jpeg/jpg/webp')
   end
 
   near_by_place_instance.save!
@@ -331,7 +331,7 @@ best_times_to_visit =
 
   {title:'Ujjain', place_name:'Ujjain', description:'October to March are the best months to visit Ujjain as the weather is pleasant and windy. It is the perfect time for sightseeing as the entire place_name looks spellbinding with temperatures hovering at a pleasant 20 degree celcius.'},
 
-  {title:'Dewas', place_name:'Dewas', description:'Fall (September through November). Fall daily highs range from 91.8°F (33.2°C) and 83°F (28.3°C), which will feel very nice given the humidity and wind.'},
+  {title:'Dewas', place_name:'Dewas', description:'Fall (September through November). Fall daily highs range from 91.8°F (33.2°C) and 83°F (28.3°C), which will feel very nice given the humidity and wind.'}
 ]
 
 best_times_to_visit.each do |best_times_to_visit|
