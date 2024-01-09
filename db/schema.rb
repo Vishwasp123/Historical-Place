@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_08_065949) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_08_075815) do
   create_table "accommodations", force: :cascade do |t|
     t.string "name"
     t.string "city"
@@ -38,8 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_065949) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -58,7 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_065949) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.integer "blob_id", null: false
+    t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -131,7 +131,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_065949) do
   create_table "plan_your_trips", force: :cascade do |t|
     t.string "days_of_travel"
     t.string "start_point_city"
-    t.date "travel_month"
+    t.string "travel_month"
     t.string "name"
     t.string "email"
     t.string "contact_number"

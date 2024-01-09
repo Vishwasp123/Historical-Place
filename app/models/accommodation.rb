@@ -3,8 +3,8 @@ class Accommodation < ApplicationRecord
 	has_many :rooms
 
 	validates :name, :city, :state, :address, :pincode, :about, 
-			  :contact_number, :email,  presence: true
-	validates :email, presence: true, uniqueness: 
+			  :contact_number,  presence: true
+	# validates :email, presence: true, uniqueness: 
 	          {message: "Email must be uniqe "}
 	paginates_per 5
 end

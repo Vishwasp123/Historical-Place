@@ -14,12 +14,12 @@
 			<p class="text-danger"><%=message%></p>
 		<% end %>
 	</div>
-	<div class="form-ouline mb-4">
-		<%= form.label :travel_month, class:"form-label"%>
-		<%= form.date_field :travel_month, class:"form-control form-control-lg"%>
-		<% @plan_your_trip.errors.full_messages_for(:travel_month).each do |message| %>
-			<p class="text-danger"><%=message%></p>
-		<% end %>
+	<div class="form-outline mb-4">
+	  <%= form.label :travel_month, class: "form-label" %>
+	  <%= form.select :travel_month, ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], {}, class: "form-control form-control-lg" %>
+	  <% @plan_your_trip.errors.full_messages_for(:travel_month).each do |message| %>
+	    <p class="text-danger"><%= message %></p>
+	  <% end %>
 	</div>
 	<div class="form-ouline mb-4">
 		<%#= form.label :name, class:"form-label"%>
@@ -33,5 +33,5 @@
 		<%#= form.label :contact_number, class:"form-label"%>
 		<%= form.hidden_field :contact_number, class:"form-control form-control-lg", value: current_user.contact_number %>
 	</div>
-	<%= form.submit "Submit" %>
+	<%= form.submit "Submit", class:"btn btn-outline-success" %>
 <% end %>

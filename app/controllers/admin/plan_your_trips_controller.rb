@@ -14,7 +14,7 @@ class Admin::PlanYourTripsController < AdminController
     @plan_your_trip = PlanYourTrip.create(trip_params)
     if @plan_your_trip.save
       PlanYourTripMailer.welcome(@plan_your_trip).deliver
-      redirect_to admin_plan_your_trips_path, alert:"Place is create succesfully"
+      redirect_to admin_plan_your_trips_path, notice:"plan_your_trip is create succesfully"
     else
       render :new 
     end 
@@ -29,7 +29,7 @@ class Admin::PlanYourTripsController < AdminController
   def update
    if  @plan_your_trip.update(trip_params)
     PlanYourTripMailer.welcome(@plan_your_trip).deliver
-      redirect_to admin_plan_your_trips_path , alert:"Place is update succesfully"
+      redirect_to admin_plan_your_trips_path , alert:"plan_your_trip is update succesfully"
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class Admin::PlanYourTripsController < AdminController
 
   def destroy
     if @plan_your_trip.destroy
-      redirect_to admin_plan_your_trip_path, alert:"Place is delete succesfully"
+      redirect_to admin_plan_your_trip_path, alert:"plan_your_trip is delete succesfully"
     end
   end
 

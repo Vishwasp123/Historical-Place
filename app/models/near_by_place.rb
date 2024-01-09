@@ -7,7 +7,7 @@ class NearByPlace < ApplicationRecord
 			  :name, presence:true 
 
 	
-	 validates :longitude, :latitude, presence:true, uniqueness:true
+	 validates :longitude, :latitude, presence:true
 
 
 	
