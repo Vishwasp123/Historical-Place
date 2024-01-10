@@ -20,7 +20,7 @@
                   </div>
                   <div class="modal-body text-dark">
                    <div class=" col-lg-12">
-                     <%= form_with model: @car_rental, url: car_rentals_path, html: { data: { turbo: false } } do |form| %>
+                     <%= form_for @car_rental, url: car_rentals_path, html: { data: { turbo: false } } do |form| %>
 
                         <div class="form-outline mb-4">
                           <%= form.label :pick_up_location, class:"form-label "%>
@@ -85,11 +85,16 @@
                             <p class="text-danger"><%= message %></p>
                           <% end %>
                         </div>
+                        <div class="form-outline mb-4">
+                          <%#= form.label :user_id, class: "form-label" %>
+                          <%= form.hidden_field :user_id, value: current_user.id %>
+                          <% @car_rental.errors.full_messages_for(:user_id).each do |message|%>
+                            <p class="text-danger"><%= message %></p>
+                          <% end %>
+                        </div>
 
                         <div class="modal-footer">
                           <%= form.submit "Submit", class:"btn btn-outline-success" %>
-                          <%#= link_to "Back", car_rental_path, class:"btn btn-warning "%>
-                            
                         </div>  
                       <% end %>
                    </div>

@@ -3,40 +3,64 @@
 	<div class="form-outline mb-4">
 		<%= form.label :pick_up_location, class:"form-label "%>
 		<%= form.text_field :pick_up_location, class:"form-control form-control-lg"%>
+		<% @car_rental.errors.full_messages_for(:pick_up_location).each do |messages|%>
+			<p class="text-danger"><%= messages %></p>
+		<% end %>
 	</div>
 	<div class="form-outline mb-4">
 		<%= form.label :pick_up_date, class:"form-label"%>
 		<%= form.date_field :pick_up_date, class:"form-control form-control-lg"%>
+		<% @car_rental.errors.full_messages_for(:pick_up_date).each do |messages|%>
+			<p class="text-danger"><%= messages %></p>
+		<% end %>
 	</div>
 
 	<div class="form-outline mb-4">
 		<%= form.label :pick_up_time, class:"form-label"%>
 		<%= form.time_field :pick_up_time, class:"form-control form-control-lg", format: "%I:%M %p"%>
+		<% @car_rental.errors.full_messages_for(:pick_up_time).each do |messages|%>
+			<p class="text-danger"><%= messages %></p>
+		<% end %>
 	</div>
 
 	<div class="form-outline mb-4">
 		<%= form.label :drop_off_location, class:"form-label"%>
 		<%= form.text_field :drop_off_location, class:"form-control form-control-lg"%>
+		<% @car_rental.errors.full_messages_for(:drop_off_location).each do |messages|%>
+			<p class="text-danger"><%= messages %></p>
+		<% end %>
 	</div>
 
 	<div class="form-outline mb-4">
 		<%= form.label :drop_off_date, class:"form-label"%>
 		<%= form.date_field :drop_off_date, class:"form-control form-control-lg"%>
+		<% @car_rental.errors.full_messages_for(:drop_off_date).each do |messages|%>
+			<p class="text-danger"><%= messages %></p>
+		<% end %>
 	</div>
 
 	<div class="form-outline mb-4">
 		<%= form.label :drop_off_time, class:"form-label"%>
 		<%= form.time_field :drop_off_time, class:"form-control form-control-lg", format: "%I:%M %p"%>
+		<% @car_rental.errors.full_messages_for(:drop_off_time).each do |messages|%>
+			<p class="text-danger"><%= messages %></p>
+		<% end %>
 	</div>
 
 	<div class="form-outline mb-4">
 		<%= form.label :car_type, class:"form-label "%>
 		<%= form.select :car_type, ['Hatchback $20/km', 'Sedan $18/km', 'MUV/SUV $22/km', 'Convertible  $30/km'], {} , class:"form-select form-select-lg"%>
+		<% @car_rental.errors.full_messages_for(:car_type).each do |messages|%>
+			<p class="text-danger"><%= messages %></p>
+		<% end %>
 	</div>
 
 	<div class="form-outline mb-4">
 		<%= form.label :car_name, class: "form-label" %>
 		<%= form.select :car_name, ['Select','Mahindra', 'MarutiSuzuki', 'Hyundai','Tata'], {}, class: "form-select form-select-lg" %>
+		<% @car_rental.errors.full_messages_for(:car_name).each do |messages|%>
+			<p class="text-danger"><%= messages %></p>
+		<% end %>
 	</div>
 
 	<div class="modal-footer">

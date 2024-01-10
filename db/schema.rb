@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_08_075815) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_10_063022) do
   create_table "accommodations", force: :cascade do |t|
     t.string "name"
     t.string "city"
@@ -85,6 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_075815) do
     t.string "car_type"
     t.string "car_name"
     t.string "car_colour"
+    t.string "user_id"
   end
 
   create_table "how_to_reaches", force: :cascade do |t|
