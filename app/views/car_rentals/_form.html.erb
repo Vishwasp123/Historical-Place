@@ -16,11 +16,11 @@
 	</div>
 
 	<div class="form-outline mb-4">
-		<%= form.label :pick_up_time, class:"form-label"%>
-		<%= form.time_field :pick_up_time, class:"form-control form-control-lg", format: "%I:%M %p"%>
-		<% @car_rental.errors.full_messages_for(:pick_up_time).each do |messages|%>
-			<p class="text-danger"><%= messages %></p>
-		<% end %>
+  		<%= form.label :pick_up_time, class: "form-label" %>
+  		<%= form.time_field :pick_up_time, class: "form-select form-select-lg", format: " %I:%M%p" %>
+	  	<% @car_rental.errors.full_messages_for(:pick_up_time).each do |message| %>
+	    	<p class="text-danger"><%= message %></p>
+	  	<% end %>
 	</div>
 
 	<div class="form-outline mb-4">
@@ -41,7 +41,7 @@
 
 	<div class="form-outline mb-4">
 		<%= form.label :drop_off_time, class:"form-label"%>
-		<%= form.time_field :drop_off_time, class:"form-control form-control-lg", format: "%I:%M %p"%>
+		<%= form.time_field :drop_off_time, class:"form-control form-control-lg", format: "(%I:%M:%S %p)"%>
 		<% @car_rental.errors.full_messages_for(:drop_off_time).each do |messages|%>
 			<p class="text-danger"><%= messages %></p>
 		<% end %>

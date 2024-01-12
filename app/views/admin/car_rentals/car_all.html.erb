@@ -1,5 +1,5 @@
 <% if @car_rentals.present? %> 
-  <h1 class="mt-5">All Car Rentals</h1>
+  <h1 class="mt-2">All Car Rentals</h1>
 
   <table class="table">
     <thead>
@@ -12,18 +12,22 @@
         
       </tr>
     </thead>
-    <tbody>
+   <tbody>
       <% @car_rentals.each do |car_rental| %>
         <tr>
           <td><%= car_rental.pick_up_location %></td>
-          <td><%= car_rental.pick_up_date %></td>
-          <td><%= car_rental.pick_up_time %></td>
+          <td><%= car_rental.pick_up_date.strftime("%d %B %Y") %></td>
+          <td><%= car_rental.pick_up_time.strftime(" %I:%M%p") %></td>
           <td><%= car_rental.drop_off_location %></td>
           <td><%= link_to 'Show', admin_car_rental_path(car_rental) %></td>
         </tr>
       <% end %>
-    </tbody>
+    </tbody>  
   </table>
+  <div class="mt-2">
+    <%= paginate @car_rentals %>
+  </div>
+  <%= link_to "Back", admin_car_rentals_path, class:"btn btn-outline-primary"%>
   <% else %>
   <p class="card-text lead text-danger text-center fs-1"> No Car Rentals Available </p>
 <% end %>

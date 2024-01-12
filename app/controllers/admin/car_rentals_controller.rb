@@ -3,7 +3,7 @@ class Admin::CarRentalsController < AdminController
   before_action :set_car_details, only: %i[edit show update destroy]
 
   def car_all
-    @car_rentals = CarRental.all
+    @car_rentals = CarRental.page params[:page]
   end
 
   def index

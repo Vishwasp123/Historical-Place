@@ -13,7 +13,7 @@
           <p class="card-text"> Room Facilities: <span class="ms-2"><%= @room.facilities %></span></p>
           <p class="card-text">Location:<span class="ms-2"><%= @room.location %></span></p>
           <p class="card-text">Adults:<span class="ms-2"><%= @room.adults %></span></p>
-          <p class="card-text">Children:<span class="ms-2"><%= @room.adults %></span></p>
+          <p class="card-text">Children:<span class="ms-2"><%= @room.childrens %></span></p>
           <p class="card-text">Status:<span class="ms-2 h5 text-danger"><%= @room.status %></span></p>
           <%# if current_user && current_user.id == @room.user_id.to_i %>
           <%#= link_to "Delete", edit_accommodation_room, method: :delete, data: { confirm: "Are you sure to delete" }, class: "btn btn-outline-danger" %>

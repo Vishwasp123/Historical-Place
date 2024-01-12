@@ -16,7 +16,7 @@ class Admin::RoomsController < AdminController
 	end
 
 	def unapprove
-		@room.update(status: 'unapproved')
+		@room.update(status: 'rejected')
 		UserRoomCrudMailer.room_unapproved_notification(@room).deliver_now 
 		redirect_to admin_rooms_path, notice: "Room unapproved successfully"
 	end

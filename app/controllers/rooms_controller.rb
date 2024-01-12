@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
 	before_action :set_room, only: %i[show update edit destroy]
 	
 	def index
-     @rooms = @accommodation.rooms.where(status: ['approved']).all
+     @rooms = current_user.rooms.where(accommodation: @accommodation, status: ['approved', 'pending', 'rejected']).page(params[:page])
   	end
 	
 	def new
@@ -18,7 +18,7 @@ class RoomsController < ApplicationController
 
 	  if @room.save
 	  	UserRoomCrudMailer.room_status_notification(@room).deliver_now
-	    redirect_to root_path, notice: 'Room request sent for approval.'
+	    redirect_to @accommodation, notice: 'Room request sent for approval.'
 	  else
 	    
 	    render :new

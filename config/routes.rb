@@ -17,13 +17,19 @@ Rails.application.routes.draw do
   resources :near_by_places
   resources :best_time_to_visits
   resources :how_to_reaches
-  resources :car_rentals
   resources :papular_palaces
   resources :popular_places
+
   
   resources :accommodations do 
     resources :rooms
   end
+
+  resources :car_rentals do
+      collection do
+        get :car_all
+      end
+    end
 
   namespace :admin do 
     root "dashboard#show"

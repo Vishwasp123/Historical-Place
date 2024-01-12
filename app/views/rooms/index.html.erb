@@ -13,11 +13,15 @@
                   <p class="card-text">Children:<span><%= room.childrens %></span></p>
                   <p class="card-text">User:<span><%= room.user_id %></span></p>
                   <p class="card-text">Contact:<span><%= room.contact_number %></span></p>
+                  <p class="card-text">Statu:<span class="text-danger h5"><%= room.status %></span></p>
                 <% end %>
               </div>
             </div>
           </div>
         <% end %>
+        <div class="mt-3">
+         <%= paginate @rooms %>
+       </div>
       </div>
     </div>
   </div>

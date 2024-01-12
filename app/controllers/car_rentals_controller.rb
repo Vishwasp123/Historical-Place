@@ -2,7 +2,11 @@ class CarRentalsController < ApplicationController
 	
 	before_action :set_car_details, only: %i[edit show update destroy]
 
-	def index
+	def car_all
+    @car_rentals = CarRental.where(user_id: current_user.id).page params[:page]
+  end
+
+  def index
     @car_rental = CarRental.new
   end
 
