@@ -14,7 +14,7 @@
           <p class="card-text"> Room Facilities: <span class="ms-2"><%= @room.facilities %></span></p>
           <p class="card-text">Location:<span class="ms-2"><%= @room.location %></span></p>
           <p class="card-text">Adults:<span class="ms-2"><%= @room.adults %></span></p>
-          <p class="card-text">Children:<span class="ms-2"><%= @room.adults %></span></p>
+          <p class="card-text">Children:<span class="ms-2"><%= @room.children %></span></p>
           <p class="card-text h5">Status:<span class="text-danger"><%= status_label(@room.status) %></span></p>
            <% if @room.status[0] %>
             <%= link_to approve_admin_room_path(@room), method: :put, class: 'btn btn-success', data: { confirm: 'Are you sure you want to approve this room?' } do %>

@@ -13,6 +13,7 @@
             <p class="card-text">Drop off time:<span class="ms-2"><%= @car_rental.drop_off_time %></span></p>
             <p class="card-text">Car:<span class="ms-2"><%= @car_rental.car_type %></span></p>
             <p class="card-text">Car Name:<span class="ms-2"><%= @car_rental.car_name %></span></p> 
+            <p>User id <span><%= @car_rental.user_id %></span></p>
             <%= link_to "edit", edit_admin_car_rental_path(@car_rental), class:"btn btn-outline-warning" %>
             <%= link_to "Delete", admin_car_rental_path(@car_rental), method: :delete, data: { confirm: "are you sure to delete" }, class:"btn btn-outline-danger" %>
           </div>

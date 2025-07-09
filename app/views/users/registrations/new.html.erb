@@ -79,6 +79,7 @@
               <%#= f.radio_button :role, 'admin', class: 'form-check-input ms-3', id: 'flexRadioDefault2', checked: f.object.role == 'admin' %>
               <%#= f.label :admin, class: 'form-check-label', for: 'flexRadioDefault2' %> 
             </div>
+            <%= f.hidden_field :authenticity_token, value: form_authenticity_token %>
   
             <div class="field">
               <%= f.label :password ,class:"form-label"%>
